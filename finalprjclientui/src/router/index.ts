@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
 import SpellsView from '@/views/SpellsView.vue';
-import HomeView from '../views/HomeView.vue';
+import HomeView from '@/views/HomeView.vue';
+import MonsterView from '@/views/MonsterView.vue';
 
 Vue.use(VueRouter);
 
@@ -16,7 +17,11 @@ const routes: Array<RouteConfig> = [
     name: 'Spells',
     component: SpellsView,
   },
-
+  {
+    path: '/Monsters',
+    name: 'Monsters',
+    component: MonsterView,
+  },
 ];
 
 const router = new VueRouter({

@@ -9,17 +9,28 @@
     <p>
       Or one Of the tiles below
     </p>
+    <div>
+      <vue-tile-grid id="example-grid">
+        <link-tile id="link" text="Example Link" route="/"></link-tile>
+        <content-sm id="content-sm">
+          <p>Here is some small content.</p>
+        </content-sm>
+        <content-md id="content-md">
+          <p>Here is some medium content.</p>
+        </content-md>
+        <content-lg id="content-lg">
+          <p>Here is large content.</p>
+        </content-lg>
+      </vue-tile-grid>
+    </div>
+
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Vue } from 'vue-property-decorator';
 import HomePage from '@/components/HomePage.vue'; // @ is an alias to /src
 
-@Component({
-  components: {
-    HomePage,
-  },
-})
+
 export default class HomeView extends Vue {}
 </script>

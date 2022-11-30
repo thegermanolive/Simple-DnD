@@ -5,10 +5,6 @@
     </div>
     <div>
       <b-button v-b-modal.modal-1>Launch demo modal</b-button>
-      <SpellsForm>
-        <h2>Form</h2>
-      </SpellsForm>
-
     </div>
   </div>
 </template>
@@ -17,7 +13,6 @@
 
 import { Vue } from 'vue-property-decorator';
 import { BButton, BModal } from 'bootstrap-vue';
-import SpellsForm from '@/components/SpellsForm.vue';
 
 Vue.component('BButton', BButton);
 Vue.component('BModal', BModal);
