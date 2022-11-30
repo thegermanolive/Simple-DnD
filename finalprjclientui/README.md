@@ -1,4 +1,4 @@
-# lo6clientui
+# finalprjclientui
 
 ## Project setup
 ```
@@ -22,3 +22,8 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### https://www.npmjs.com/package/vue-tiles
+### https://bootstrap-vue.org/docs/components/modal#variants
+### https://www.npmjs.com/package/vue-button

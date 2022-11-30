@@ -1,5 +1,5 @@
 import {
-  IsEmail, IsNotEmpty, IsOptional, IsPhoneNumber, Length, Matches, MaxLength,
+  IsNotEmpty, IsOptional, Length, MaxLength,
 } from 'class-validator';
 
 export default class Student {
