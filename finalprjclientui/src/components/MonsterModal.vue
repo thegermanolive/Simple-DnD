@@ -1,13 +1,5 @@
 <!--/https://vuejs.org/examples/#modal/-->
 <!--NEED TO CHANGE THIS, THIS IS JUST AN EXAMPLE TO SEE IF IT WORKS, AND NOT JUST ME-->
-<script>
-export default {
-  props: {
-    show: Boolean,
-  },
-};
-</script>
-
 <template>
   <div v-if="show" class="modal-mask">
     <div class="modal-wrapper">
@@ -19,8 +11,11 @@ export default {
         </div>
 
         <div class="modal-body">
-          <form ref="MonsterForm">
-          </form>
+          <MonsterForm class="col-md-6 col-lg-4 order-md-1 pl-lg-0 " :student="selectedStudent"
+                       @busy="setBusy"
+                       :disabled="isDisabled" @added="handleAdd" @updated="handleUpdate"
+                       @cancelled="handleCancel"
+                       @deleted="handleDelete" @reset="handleReset"/>
         </div>
         <div class="modal-footer">
           <slot name="footer">
@@ -34,6 +29,17 @@ export default {
   </div>
 
 </template>
+
+<script>
+import MonsterForm from '@/components/MonsterForm.vue';
+
+export default {
+  components: { MonsterForm },
+  props: {
+    show: Boolean,
+  },
+};
+</script>
 
 <style>
 #submit {

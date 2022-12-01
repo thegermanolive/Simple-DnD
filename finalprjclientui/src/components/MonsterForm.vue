@@ -76,7 +76,6 @@
       Are you sure you want to delete {{tempStudent.familyName}}, {{tempStudent.givenName}}?
     </b-modal>
 
-
     <b-alert variant="danger" :show="violation.violationMessage">
       {{violation.violationMessage}}
     </b-alert>
@@ -84,20 +83,20 @@
 </template>
 <script lang="ts">
 import {
-  Component, Mixins, Prop, Watch,
+  Component, Mixins, Prop, Watch, Vue,
 } from 'vue-property-decorator';
-import GlobalMixin from '@/mixins/global-mixin';
 import { BIcon } from 'bootstrap-vue';
-import Student from '@/models/Student';
+import Monsters from '@/models/Monsters';
 
 @Component
-export default class StudentForm extends Mixins(GlobalMixin) {
+export default class StudentForm extends Vue {
   @Prop({ type: Object, validator: (s) => s instanceof Object }) readonly student: any
 
   $refs!: {
     iconDelete: BIcon
     iconSave : BIcon
   }
+
   dt = {
     fN: 'Family Name',
     gN: 'Given Name',
