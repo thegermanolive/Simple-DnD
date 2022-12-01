@@ -12,14 +12,17 @@
       </nav>
     </div>
     <div>
-      <router-view />
+      <ModalProvider>
+        <router-view />
+      </ModalProvider>
     </div>
-
   </div>
 </template>
 <script lang="ts">
 import { Vue } from 'vue-property-decorator';
 import { BNavbar } from 'bootstrap-vue';
+import { RouterView } from 'vue-router';
+import ModalProvider from 'vue-modal-provider';
 
 Vue.component('BNavbar', BNavbar);
 export default class App extends Vue {}

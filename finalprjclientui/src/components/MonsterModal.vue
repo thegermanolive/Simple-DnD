@@ -1,5 +1,5 @@
 <!--/https://vuejs.org/examples/#modal/-->
-<!--NEED TO CHANGE THIS, THIS IS JUST AN EXAMPLE TO SEE IF IT WORKS-->
+<!--NEED TO CHANGE THIS, THIS IS JUST AN EXAMPLE TO SEE IF IT WORKS, AND NOT JUST ME-->
 <script>
 export default {
   props: {
@@ -9,38 +9,37 @@ export default {
 </script>
 
 <template>
-  <Transition name="modal">
-    <div v-if="show" class="modal-mask">
-      <div class="modal-wrapper">
-        <div class="modal-container">
-          <div class="modal-header">
-            <slot name="header">default header</slot>
-          </div>
+  <div v-if="show" class="modal-mask">
+    <div class="modal-wrapper">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h1>
+            Add A Monster
+          </h1>
+        </div>
 
-          <div class="modal-body">
-            <slot name="body">default body</slot>
-          </div>
-
-          <div class="modal-footer">
-            <slot name="footer">
-              default footer
-              <button
-                class="modal-default-button"
-                @click="$emit('close')"
-              >Submit</button>
-              <button
-                class="modal-default-button"
-                @click="$emit('close')"
-              >Cancel</button>
-            </slot>
-          </div>
+        <div class="modal-body">
+          <form ref="MonsterForm">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <slot name="footer">
+            <button class="btn btn-primary" id="submit" type="submit" @click="$emit('close')">
+              Submit</button>
+            <button class="btn btn-primary" @click="$emit('close')">Cancel</button>
+          </slot>
         </div>
       </div>
     </div>
-  </Transition>
+  </div>
+
 </template>
 
 <style>
+#submit {
+  margin-right: 5px;
+}
+
 .modal-mask {
   position: fixed;
   z-index: 9998;
@@ -59,10 +58,10 @@ export default {
 }
 
 .modal-container {
-  width: 300px;
+  width: 800px;
   margin: 0px auto;
   padding: 20px 30px;
-  background-color: #fff;
+  background-color: #9e7442;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
@@ -74,7 +73,7 @@ export default {
 }
 
 .modal-body {
-  margin: 20px 0;
+  margin: 500px 0;
 }
 
 .modal-default-button {
