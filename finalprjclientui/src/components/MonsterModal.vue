@@ -2,6 +2,10 @@
 <!--NEED TO CHANGE THIS, THIS IS JUST AN EXAMPLE TO SEE IF IT WORKS, AND NOT JUST ME-->
 <template>
   <div v-if="show" class="MonsterModal-mask">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
     <div class="MonsterMonsterModal-wrapper">
       <div class="MonsterModal-container">
         <div class="MonsterModal-header">
@@ -64,7 +68,7 @@ export default class MonsterModal extends Vue {}
 .MonsterModal-container {
   width: 800px;
   margin: 0px auto;
-  padding: 20px 30px;
+  padding: 20px 20px;
   background-color: #9e7442;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
@@ -74,10 +78,6 @@ export default class MonsterModal extends Vue {}
 .MonsterModal-header h3 {
   margin-top: 0;
   color: #42b983;
-}
-
-.MonsterModal-body {
-  margin: 500px 0;
 }
 
 .MonsterModal-default-button {
