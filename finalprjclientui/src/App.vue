@@ -12,9 +12,7 @@
       </nav>
     </div>
     <div>
-      <ModalProvider>
-        <router-view />
-      </ModalProvider>
+      <router-view />
     </div>
   </div>
 </template>

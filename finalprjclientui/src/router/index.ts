@@ -3,6 +3,7 @@ import VueRouter, { RouteConfig } from 'vue-router';
 import SpellsView from '@/views/SpellsView.vue';
 import HomeView from '@/views/HomeView.vue';
 import MonsterView from '@/views/MonsterView.vue';
+import DMLoginView from '@/views/DMLoginView.vue';
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,11 @@ const routes: Array<RouteConfig> = [
     path: '/Monsters',
     name: 'Monsters',
     component: MonsterView,
+  },
+  {
+    path: '/DM-Login',
+    name: 'DM-Login',
+    component: DMLoginView,
   },
 ];
 
