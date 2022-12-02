@@ -1,14 +1,5 @@
 <!--/https://vuejs.org/examples/#modal/-->
 <!--NEED TO CHANGE THIS, THIS IS JUST AN EXAMPLE TO SEE IF IT WORKS, AND NOT JUST ME-->
-<script>
-
-export default {
-  props: {
-    show: Boolean,
-  },
-};
-</script>
-
 <template>
   <div v-if="show" class="modal-mask">
     <div class="modal-wrapper">
@@ -18,39 +9,8 @@ export default {
             Add A Spell
           </h1>
         </div>
-
         <div class="modal-body">
-          <h4>Name: {{ message }}</h4>
-          <!--  eslint-disable-next-line-->
-          <input v-model="Name" placeholder="" />
-
-          <h4>Level: {{ message }}</h4>
-          <!--  eslint-disable-next-line-->
-          <input v-model="Level" placeholder="" />
-
-          <h4>School: {{ message }}</h4>
-          <!--  eslint-disable-next-line-->
-          <input v-model="School" placeholder="" />
-
-          <h4>CastingTime: {{ message }}</h4>
-          <!--  eslint-disable-next-line-->
-          <input v-model="CastingTime" placeholder="" />
-
-          <h4>Range: {{ message }}</h4>
-          <!--  eslint-disable-next-line-->
-          <input v-model="Range" placeholder="" />
-          <h4>Duration: {{ message }}</h4>
-          <!--  eslint-disable-next-line-->
-          <input v-model="Duration" placeholder="" />
-          <h4>Damage: {{ message }}</h4>
-          <!--  eslint-disable-next-line-->
-          <input v-model="Damage" placeholder="" />
-          <h4>DamageType: {{ message }}</h4>
-          <!--  eslint-disable-next-line-->
-          <input v-model="DamageType" placeholder="" />
-          <h4>StatusEffect: {{ message }}</h4>
-          <!--  eslint-disable-next-line-->
-          <input v-model="StatusEffect" placeholder="" />
+          <LoginForm/>
         </div>
         <div class="modal-footer">
           <slot name="footer">
@@ -64,13 +24,30 @@ export default {
   </div>
 
 </template>
+<script>
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import LoginForm from '@/components/LoginForm.vue';
+
+@Component({
+  components: {
+    LoginForm,
+  },
+  props: {
+    show: Boolean,
+  },
+
+})
+// export default {
+//   props: {
+//     show: Boolean,
+//   },
+// };
+
+export default class SpellsModal extends Vue {}
+</script>
 
 <style>
 #submit {
   margin-right: 0px;
-}
-
-.modal-body{
-  height: 5px;
 }
 </style>

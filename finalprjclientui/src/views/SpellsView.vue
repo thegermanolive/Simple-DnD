@@ -13,9 +13,6 @@
     </div>
     <div>
       <modal :show="showModal" @close="showModal = false">
-        <template #header>
-          <h3>custom header</h3>
-        </template>
       </modal>
     </div>
     <div>
@@ -31,6 +28,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import { BButton, BModal } from 'bootstrap-vue';
 
 import Modal from '@/components/SpellsModal.vue';
+import LoginForm from '@/components/LoginForm.vue';
 
 // eslint-disable-next-line import/extensions
 
@@ -39,7 +37,7 @@ Vue.component('BModal', BModal);
 
 @Component({
   components: {
-    Modal,
+    Modal, LoginForm,
   },
   data() {
     return {
