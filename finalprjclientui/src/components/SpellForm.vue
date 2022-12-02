@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="Flex">
     <b-form>
       <b-form-group id="input-group-1" label="Name" label-for="input-1">
         <b-form-input id="input-1" placeholder="Name" required></b-form-input>
@@ -49,3 +49,9 @@ Vue.component('BButton', BButton);
 @Component
 export default class SpellsForm extends Vue {}
 </script>
+<style>
+.Flex{
+  display: flex;
+  justify-content: center;
+}
+</style>

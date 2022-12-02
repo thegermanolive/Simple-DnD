@@ -1,19 +1,16 @@
 <!--/https://vuejs.org/examples/#modal/-->
 <!--NEED TO CHANGE THIS, THIS IS JUST AN EXAMPLE TO SEE IF IT WORKS, AND NOT JUST ME-->
 <template>
-  <div v-if="show" class="modal-mask">
-    <div class="modal-wrapper">
-      <div class="modal-container">
-        <div class="modal-header">
+  <div v-if="show" class="MonsterModal-mask">
+    <div class="MonsterMonsterModal-wrapper">
+      <div class="MonsterModal-container">
+        <div class="MonsterModal-header">
           <h1>
             Add A Monster
           </h1>
         </div>
-
-        <div class="modal-body">
-          <MonsterForm/>
-        </div>
-        <div class="modal-footer">
+        <MonsterForm/>
+        <div class="MonsterModal-footer">
           <slot name="footer">
             <button class="btn btn-primary" id="submit" type="submit" @click="$emit('close')">
               Submit</button>
@@ -47,7 +44,7 @@ export default class MonsterModal extends Vue {}
   margin-right: 5px;
 }
 
-.modal-mask {
+.MonsterModal-mask {
   position: fixed;
   z-index: 9998;
   top: 0;
@@ -59,12 +56,12 @@ export default class MonsterModal extends Vue {}
   transition: opacity 0.3s ease;
 }
 
-.modal-wrapper {
+.MonsterModal-wrapper {
   display: table-cell;
   vertical-align: middle;
 }
 
-.modal-container {
+.MonsterModal-container {
   width: 800px;
   margin: 0px auto;
   padding: 20px 30px;
@@ -74,16 +71,16 @@ export default class MonsterModal extends Vue {}
   transition: all 0.3s ease;
 }
 
-.modal-header h3 {
+.MonsterModal-header h3 {
   margin-top: 0;
   color: #42b983;
 }
 
-.modal-body {
+.MonsterModal-body {
   margin: 500px 0;
 }
 
-.modal-default-button {
+.MonsterModal-default-button {
   float: right;
 }
 
@@ -96,16 +93,16 @@ export default class MonsterModal extends Vue {}
  * these styles.
  */
 
-.modal-enter-from {
+.MonsterModal-enter-from {
   opacity: 0;
 }
 
-.modal-leave-to {
+.MonsterModal-leave-to {
   opacity: 0;
 }
 
-.modal-enter-from .modal-container,
-.modal-leave-to .modal-container {
+.MonsterModal-enter-from .MonsterModal-container,
+.MonsterModal-leave-to .MonsterModal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }

@@ -12,8 +12,7 @@
               class="btn btn-primary btn-lg">Show Modal</button>
     </div>
     <div>
-      <modal :show="showModal" @close="showModal = false">
-      </modal>
+      <modal :show="showModal" @close="showModal = false"/>
     </div>
     <div>
     </div>
@@ -29,7 +28,7 @@ import { BButton, BModal } from 'bootstrap-vue';
 
 import Modal from '@/components/SpellsModal.vue';
 import LoginForm from '@/components/LoginForm.vue';
-
+import SpellsForm from '@/components/SpellForm.vue';
 // eslint-disable-next-line import/extensions
 
 Vue.component('BButton', BButton);
@@ -37,7 +36,7 @@ Vue.component('BModal', BModal);
 
 @Component({
   components: {
-    Modal, LoginForm,
+    Modal, SpellsForm,
   },
   data() {
     return {
