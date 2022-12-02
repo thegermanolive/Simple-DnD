@@ -1,108 +1,40 @@
 <template>
   <div>
-    <b-form-group :invalid-feedback="violation.familyName" :state="hasErr.fN" class="mb-1">
-      <b-input-group>
-        <b-input-group-prepend is-text v-b-tooltip.hover.right="dt.fN">
-          <b-icon-people-fill :title="dt.fN" />
-        </b-input-group-prepend>
-        <b-form-input :placeholder="dt.fN" :state="hasErr.fN" :disabled="isDisabled"
-                      v-model="tempStudent.familyName" trim @keydown="violation.familyName=null" />
-      </b-input-group>
-    </b-form-group>
-
-    <b-form-group :invalid-feedback="violation.givenName" :state="hasErr.gN" class="mb-1">
-      <b-input-group>
-        <b-input-group-prepend is-text v-b-tooltip.hover.right="dt.gN">
-          <b-icon-person-fill :title="dt.gN" />
-        </b-input-group-prepend>
-        <b-form-input :placeholder="dt.gN" :state="hasErr.gN" :disabled="isDisabled"
-                      v-model="tempStudent.givenName" trim @keydown="violation.givenName=null" />
-      </b-input-group>
-    </b-form-group>
-
-    <b-form-group :invalid-feedback="violation.email" :state="hasErr.em" class="mb-1">
-      <b-input-group>
-        <b-input-group-prepend is-text v-b-tooltip.hover.right="dt.em">
-          <b-icon-envelope-fill :title="dt.em" />
-        </b-input-group-prepend>
-        <b-form-input :placeholder="dt.em" :state="hasErr.em" :disabled="isDisabled"
-                      v-model="tempStudent.email" trim @keydown="violation.email=null" />
-      </b-input-group>
-    </b-form-group>
-
-    <b-form-group :invalid-feedback="violation.address" :state="hasErr.sA" class="mb-1">
-      <b-input-group>
-        <b-input-group-prepend is-text v-b-tooltip.hover.right="dt.sA">
-          <b-icon-house-fill :title="dt.sA" />
-        </b-input-group-prepend>
-        <b-form-input :placeholder="dt.sA" :state="hasErr.sA" :disabled="isDisabled"
-                      v-model="tempStudent.address" trim @keydown="violation.address=null" />
-      </b-input-group>
-    </b-form-group>
-
-    <b-form-group :invalid-feedback="violation.phone" :state="hasErr.pn" class="mb-1">
-      <b-input-group>
-        <b-input-group-prepend is-text v-b-tooltip.hover.right="dt.pn">
-          <b-icon-telephone-fill :title="dt.pn" />
-        </b-input-group-prepend>
-        <b-form-input :placeholder="dt.pn" :state="hasErr.pn" :disabled="isDisabled"
-                      v-model="tempStudent.phone" trim @keydown="violation.phone=null" />
-      </b-input-group>
-    </b-form-group>
-
-    <b-button-group class="w-100 mb-3">
-      <b-button variant="primary" :disabled="isDisabled" @click="saveStudent">
-        <b-icon-cloud-arrow-up-fill ref="iconSave" /> Save
-      </b-button>
-
-      <b-button variant="danger" :disabled="isDisabled || isNew" @click="deleteConfirm">
-        <b-icon-trash-fill ref="iconDelete" /> Delete
-      </b-button>
-
-      <b-button variant="primary" :disabled="isDisabled" @click="cancel">
-        <b-icon-x-square-fill /> Cancel
-      </b-button>
-    </b-button-group>
-
-    <b-modal title="Delete Student" ok-variant="danger" cancel-variant="primary"
-             v-model="showConfirmDelete" @ok="deleteStudent">
-      <template #modal-cancel>
-        <b-icon-x-square-fill /> Cancel
-      </template>
-
-      <template #modal-ok>
-        <b-icon-trash-fill /> Delete
-      </template>
-      Are you sure you want to delete {{tempStudent.familyName}}, {{tempStudent.givenName}}?
-    </b-modal>
-
-    <b-alert variant="danger" :show="violation.violationMessage">
-      {{violation.violationMessage}}
-    </b-alert>
+    <b-form>
+      <b-form-group id="input-group-1" label="Name" label-for="input-1">
+        <b-form-input id="input-1" placeholder="Name" required></b-form-input>
+      </b-form-group>
+      <b-form-group id="input-group-2" label="ArmorClass" label-for="input-2">
+        <b-form-input id="input-2" placeholder="Armor Class" required></b-form-input>
+      </b-form-group>
+      <b-form-group id="input-group-2" label="HitPoints" label-for="input-2">
+        <b-form-input id="input-2" placeholder="Hit Points" required></b-form-input>
+      </b-form-group>
+      <b-form-group id="input-group-2" label="Speed" label-for="input-2">
+        <b-form-input id="input-2" placeholder="Speed" required></b-form-input>
+      </b-form-group>
+      <b-form-group id="input-group-2" label="Spells" label-for="input-2">
+        <b-form-textarea id="input-2" placeholder="Spells" required></b-form-textarea>
+      </b-form-group>
+      <b-button type="submit" variant="primary">Submit</b-button>
+      <b-button type="reset" variant="danger">Reset</b-button>
+    </b-form>
   </div>
 </template>
 <script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
 import {
-  Component, Mixins, Prop, Watch, Vue,
-} from 'vue-property-decorator';
-import { BIcon } from 'bootstrap-vue';
-import Monsters from '@/models/Monsters';
+  BButton,
+  BForm, BFormGroup, BFormInput, BFormText, BFormTextarea,
+} from 'bootstrap-vue';
+
+Vue.component('BForm', BForm);
+Vue.component('BFormText', BFormText);
+Vue.component('BFormInput', BFormInput);
+Vue.component('BFormGroup', BFormGroup);
+Vue.component('BButton', BButton);
+Vue.component('BFormTextarea', BFormTextarea);
 
 @Component
-export default class StudentForm extends Vue {
-  @Prop({ type: Object, validator: (s) => s instanceof Object }) readonly student: any
-
-  $refs!: {
-    iconDelete: BIcon
-    iconSave : BIcon
-  }
-
-  dt = {
-    fN: 'Family Name',
-    gN: 'Given Name',
-    em: 'Email Address',
-    sA: 'Street Address',
-    pn: 'Phone Number',
-  }
-}
+export default class MonsterForm extends Vue {}
 </script>

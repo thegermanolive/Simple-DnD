@@ -10,7 +10,7 @@
           </h1>
         </div>
         <div class="modal-body">
-          <LoginForm/>
+          <SpellsForm/>
         </div>
         <div class="modal-footer">
           <slot name="footer">
@@ -26,11 +26,11 @@
 </template>
 <script>
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import LoginForm from '@/components/LoginForm.vue';
+import SpellsForm from '@/components/SpellForm.vue';
 
 @Component({
   components: {
-    LoginForm,
+    SpellsForm,
   },
   props: {
     show: Boolean,

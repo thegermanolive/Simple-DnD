@@ -11,11 +11,7 @@
         </div>
 
         <div class="modal-body">
-          <MonsterForm class="col-md-6 col-lg-4 order-md-1 pl-lg-0 " :student="selectedStudent"
-                       @busy="setBusy"
-                       :disabled="isDisabled" @added="handleAdd" @updated="handleUpdate"
-                       @cancelled="handleCancel"
-                       @deleted="handleDelete" @reset="handleReset"/>
+          <MonsterForm/>
         </div>
         <div class="modal-footer">
           <slot name="footer">
@@ -32,13 +28,18 @@
 
 <script>
 import MonsterForm from '@/components/MonsterForm.vue';
+import { Component, Vue } from 'vue-property-decorator';
 
-export default {
-  components: { MonsterForm },
+@Component({
+  components: {
+    MonsterForm,
+  },
   props: {
     show: Boolean,
   },
-};
+
+})
+export default class MonsterModal extends Vue {}
 </script>
 
 <style>
