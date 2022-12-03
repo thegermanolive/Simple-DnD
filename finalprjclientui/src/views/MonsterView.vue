@@ -8,39 +8,39 @@
       <h1>Slay some Monsters</h1>
     </div>
     <div>
-      <button type="button" id="show-modal-Add" @click="ShowAdd = true"
-              class="btn btn-primary btn-lg">Add Monster</button>
-      <button type="button" id="show-modal-Edit" @click="ShowEdit = true"
-              class="btn btn-primary btn-lg">Edit Monster</button>
+      <b-button v-b-modal.modal-1>Add Monster</b-button>
+      <b-button v-b-modal.modal-2>Edit Monster</b-button>
     </div>
     <div>
-      <ModalAdd :show="ShowAdd" @close="ShowAdd = false">
-      </ModalAdd>
-      <ModalEdit :show="ShowEdit" @close="ShowEdit = false">
-      </ModalEdit>
+      <b-modal id="modal-2" title="BootstrapVue">
+        <MonsterEditForm/>
+      </b-modal>
+      <b-modal id="modal-1" title="BootstrapVue">
+        <MonsterAddForm/>
+      </b-modal>
     </div>
-    <div>
-    </div>
-
   </div>
 </template>
 
 <script lang="ts">
-
+import MonsterAddForm from '@/components/Monster/MonsterFormAdd.vue';
+import MonsterEditForm from '@/components/Monster/MonsterFormEdit.vue';
 import { Component, Vue } from 'vue-property-decorator';
+import {
+  BModal, VBModal, ModalPlugin, BButton,
+} from 'bootstrap-vue';
 
-import { BButton, BModal } from 'bootstrap-vue';
-
-import ModalAdd from '@/components/Monster/MonsterModalAdd.vue';
-import ModalEdit from '@/components/Monster/MonsterModalEdit.vue';
+Vue.component('BModal', BModal);
 
 // eslint-disable-next-line import/extensions
 
 Vue.component('BButton', BButton);
 Vue.component('BModal', BModal);
+Vue.directive('BModal', VBModal);
+Vue.use(ModalPlugin);
 @Component({
   components: {
-    ModalAdd, ModalEdit,
+    MonsterAddForm, MonsterEditForm,
   },
   data() {
     return {

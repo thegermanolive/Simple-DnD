@@ -3,11 +3,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <b-card>
-      <b-card-title>
-        Yeet
-      </b-card-title>
-    </b-card>
+    <div>
+      <template>
+        <b-card
+          title="Card Title"
+          img-src="https://picsum.photos/600/300/?image=25"
+          img-alt="Image"
+          img-top
+          tag="article"
+          style="max-width: 20rem;"
+          class="mb-2"
+        >
+          <b-card-text>
+            Some quick example text
+          </b-card-text>
+
+          <b-button href="#" variant="primary">Go somewhere</b-button>
+        </b-card>
+      </template>
+    </div>
   </div>
 </template>
 

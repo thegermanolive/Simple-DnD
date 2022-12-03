@@ -8,39 +8,39 @@
       <h1>Cast Some Spells</h1>
     </div>
     <div>
-      <button type="button" id="show-modal-Add" @click="ShowAdd = true"
-              class="btn btn-primary btn-lg">Add Spell</button>
-      <button type="button" id="show-modal-Edit" @click="ShowEdit = true"
-              class="btn btn-primary btn-lg">Edit Spell</button>
+      <b-button v-b-modal.modal-1>Add Spell</b-button>
+      <b-button v-b-modal.modal-2>Edit Spell</b-button>
     </div>
     <div>
-      <ModalAdd :show="ShowAdd" @close="ShowAdd = false">
-      </ModalAdd>
-      <ModalEdit :show="ShowEdit" @close="ShowEdit = false">
-      </ModalEdit>
+      <b-modal id="modal-2" title="Edit Spell">
+        <SpellEditForm/>
+      </b-modal>
+      <b-modal id="modal-1" title="Add Spell">
+        <SpellAddForm/>
+      </b-modal>
     </div>
-    <div>
-    </div>
-
   </div>
 </template>
 
 <script lang="ts">
-
+import SpellAddForm from '@/components/Spell/SpellFormAdd.vue';
+import SpellEditForm from '@/components/Spell/SpellFormEdit.vue';
 import { Component, Vue } from 'vue-property-decorator';
+import {
+  BModal, VBModal, ModalPlugin, BButton,
+} from 'bootstrap-vue';
 
-import { BButton, BModal } from 'bootstrap-vue';
+Vue.component('BModal', BModal);
 
-import ModalEdit from '@/components/Spell/SpellModalEdit.vue';
-import ModalAdd from '@/components/Spell/SpellsModalAdd.vue';
 // eslint-disable-next-line import/extensions
 
 Vue.component('BButton', BButton);
 Vue.component('BModal', BModal);
-
+Vue.directive('BModal', VBModal);
+Vue.use(ModalPlugin);
 @Component({
   components: {
-    ModalAdd, ModalEdit,
+    SpellAddForm, SpellEditForm,
   },
   data() {
     return {
