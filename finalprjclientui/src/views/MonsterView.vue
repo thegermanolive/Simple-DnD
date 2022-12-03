@@ -16,7 +16,7 @@
         <MonsterEditForm/>
       </b-modal>
       <b-modal id="modal-1" title="Add">
-        <MonsterAddForm @submit.stop.prevent="handleSubmit" />
+        <MonsterAddForm/>
       </b-modal>
     </div>
   </div>
