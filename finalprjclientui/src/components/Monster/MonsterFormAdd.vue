@@ -20,8 +20,8 @@
       <b-form-group id="input-group-2" label="Spells" label-for="input-2">
         <b-form-textarea id="input-2" placeholder="Spells" required></b-form-textarea>
       </b-form-group>
-      <b-button type="submit" variant="primary">Submit</b-button>
-      <b-button type="reset" variant="danger">Reset</b-button>
+      <!--      <b-button type="submit" variant="primary">Submit</b-button>-->
+      <!--      <b-button type="reset" variant="danger">Reset</b-button>-->
     </b-form>
   </div>
 </template>

@@ -32,8 +32,8 @@
       <b-form-group id="input-group-2" label="StatusEffect" label-for="input-2">
         <b-form-input id="input-2" placeholder="StatusEffect" required></b-form-input>
       </b-form-group>
-      <b-button type="submit" variant="primary">Submit</b-button>
-      <b-button type="reset" variant="danger">Reset</b-button>
+      <!--      <b-button type="submit" variant="primary">Submit</b-button>-->
+      <!--      <b-button type="reset" variant="danger">Reset</b-button>-->
     </b-form>
   </div>
 </template>

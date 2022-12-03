@@ -12,11 +12,11 @@
       <b-button v-b-modal.modal-2>Edit Monster</b-button>
     </div>
     <div>
-      <b-modal id="modal-2" title="BootstrapVue">
+      <b-modal id="modal-2" title="Edit">
         <MonsterEditForm/>
       </b-modal>
-      <b-modal id="modal-1" title="BootstrapVue">
-        <MonsterAddForm/>
+      <b-modal id="modal-1" title="Add">
+        <MonsterAddForm @submit.stop.prevent="handleSubmit" />
       </b-modal>
     </div>
   </div>
@@ -48,6 +48,7 @@ Vue.use(ModalPlugin);
       ShowEdit: false,
     };
   },
+  methods: {},
 })
 export default class MonsterView extends Vue {}
 </script>

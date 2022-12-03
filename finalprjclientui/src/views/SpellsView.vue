@@ -9,14 +9,23 @@
     </div>
     <div>
       <b-button v-b-modal.modal-1>Add Spell</b-button>
-      <b-button v-b-modal.modal-2>Edit Spell</b-button>
+      <b-button v-b-modal.modal-edit>Edit Spell</b-button>
     </div>
     <div>
-      <b-modal id="modal-2" title="Edit Spell">
+      <b-modal
+        id="modal-edit"
+        ref="modal-edit"
+        title="Edit Spell"
+        @show="resetEditModal"
+        @hidden="resetEditModal"
+        @ok="EdithandleOk"
+      >
         <SpellEditForm/>
       </b-modal>
       <b-modal id="modal-1" title="Add Spell">
-        <SpellAddForm/>
+        <SpellAddForm>
+          <b-button type="submit" variant="primary">Submit</b-button>
+        </SpellAddForm>
       </b-modal>
     </div>
   </div>
@@ -47,6 +56,8 @@ Vue.use(ModalPlugin);
       ShowAdd: false,
       ShowEdit: false,
     };
+  },
+  methods: {
   },
 })
 export default class SpellsView extends Vue {}

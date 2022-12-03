@@ -14,46 +14,42 @@
         Or one Of the Cards below
       </p>
     </div>
-    <div>
-      <!--      <article class="card" style="max-width: 20rem;">-->
-      <!--        <img src="@/assets/Monster.jpg" alt="Image" class="card-img-top">-->
-      <!--        <div class="card-body">-->
-      <!--          <a role="button" tabindex="0"
-      href="#" target="_self" class="btn btn-primary">-->
-      <!--            Monsters-->
-      <!--          </a>-->
-      <!--        </div>-->
-      <!--      </article>-->
-    </div>
-    <div>
-      <b-card-group deck>
-        <b-card title="Title" img-src="" img-alt="Image" img-top>
-          <b-card-text>
-            This is a wider card with
-          </b-card-text>
-          <template #footer>
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </template>
-        </b-card>
-
-        <b-card title="Title" img-src="" img-alt="Image" img-top>
-          <b-card-text>
-            This card has supporting text below as a natural lead-in to additional content.
-          </b-card-text>
-          <template #footer>
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </template>
-        </b-card>
-
-        <b-card title="Title" img-src="" img-alt="Image" img-top>
-          <b-card-text>
-            This is a wider card with
-          </b-card-text>
-          <template #footer>
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </template>
-        </b-card>
-      </b-card-group>
+    <div class="test">
+      <article class="card" style="max-width: 20rem;">
+        <img src="https://visualpharm.com/assets/970/Fire%20Element-595b40b75ba036ed117d5f0f.svg" alt="Image" class="card-img-top" height="232px">
+        <div class="card-body">
+          <a role="button" tabindex="0" href="http://localhost:8080/#/Spells"
+             target="_self" class="btn btn-primary">
+            Spells
+          </a>
+        </div>
+      </article>
+      <article class="card" style="max-width: 20rem;">
+        <img src="https://visualpharm.com/assets/661/The%20Dragon%20Team-595b40b85ba036ed117db4c2.svg" alt="Image" class="card-img-top" height="232px">
+        <div class="card-body">
+          <a role="button" tabindex="0" href="http://localhost:8080/#/Monsters"
+             target="_self" class="btn btn-primary">
+            Monsters          </a>
+        </div>
+      </article>
+      <article class="card" style="max-width: 20rem;">
+        <img src="https://visualpharm.com/assets/96/Bookmark%20Ribbon-595b40b65ba036ed117d187c.svg" alt="Image" class="card-img-top" height="232px">
+        <div class="card-body">
+          <a role="button" tabindex="0" href="http://localhost:8080/#/Bookmarks"
+             target="_self" class="btn btn-primary">
+            Bookmarks
+          </a>
+        </div>
+      </article>
+      <article class="card" style="max-width: 20rem;">
+        <img src="https://visualpharm.com/assets/189/Person-595b40b65ba036ed117d21b8.svg" alt="Image" class="card-img-top" height="232px">
+        <div class="card-body">
+          <a role="button" tabindex="0" href="http://localhost:8080/#/DM-Login"
+             target="_self" class="btn btn-primary">
+            DM-Login
+          </a>
+        </div>
+      </article>
     </div>
   </div>
 </template>
@@ -79,7 +75,7 @@ Vue.use(CardPlugin);
 export default class HomeView extends Vue {}
 </script>
 <style>
-  .card mb-2{
+.test{
     display: flex;
     justify-content: center;
     background-color: #2c3e50;
@@ -87,5 +83,9 @@ export default class HomeView extends Vue {}
   .home{
     background-color: #2c3e50;
     color: black;
+  }
+  .card{
+    margin: 20px;
+    width: 75%;
   }
 </style>
