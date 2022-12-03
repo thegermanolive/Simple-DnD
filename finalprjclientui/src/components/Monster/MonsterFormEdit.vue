@@ -5,6 +5,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <b-form>
+      <b-form-group id="input-group-1" label="ID" label-for="input-1">
+        <b-form-input id="input-1" placeholder="ID" required></b-form-input>
+      </b-form-group>
       <b-form-group id="input-group-1" label="Name" label-for="input-1">
         <b-form-input id="input-1" placeholder="Name" required></b-form-input>
       </b-form-group>
@@ -40,7 +43,7 @@ Vue.component('BButton', BButton);
 Vue.component('BFormTextarea', BFormTextarea);
 
 @Component
-export default class MonsterForm extends Vue {}
+export default class MonsterFormEdit extends Vue {}
 </script>
 <style>
 .Flex{

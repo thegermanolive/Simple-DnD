@@ -51,7 +51,7 @@ Vue.component('BFormGroup', BFormGroup);
 Vue.component('BButton', BButton);
 
 @Component
-export default class SpellsForm extends Vue {}
+export default class SpellsFormAdd extends Vue {}
 </script>
 <style>
 .Flex{

@@ -17,7 +17,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import {
   BForm, BFormText, BFormInput, BFormGroup,
 } from 'bootstrap-vue';
-import LoginForm from '@/components/LoginForm.vue';
+import LoginForm from '@/components/Login/LoginForm.vue';
 
 Vue.component('BForm', BForm);
 Vue.component('BFormText', BFormText);

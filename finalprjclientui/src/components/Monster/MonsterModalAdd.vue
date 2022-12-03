@@ -1,20 +1,20 @@
 <!--/https://vuejs.org/examples/#modal/-->
 <!--NEED TO CHANGE THIS, THIS IS JUST AN EXAMPLE TO SEE IF IT WORKS, AND NOT JUST ME-->
 <template>
-  <div v-if="show" class="SpellModalmask">
+  <div v-if="show" class="MonsterModal-mask">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
-    <div class="MonsterSpellModalwrapper">
-      <div class="SpellModalcontainer">
-        <div class="SpellModalheader">
+    <div class="MonsterMonsterModal-wrapper">
+      <div class="MonsterModal-container">
+        <div class="MonsterModal-header">
           <h1>
-            Add A Spell
+            Add A Monster
           </h1>
         </div>
-        <SpellForm/>
-        <div class="SpellModalfooter">
+        <MonsterForm/>
+        <div class="MonsterModal-footer">
           <slot name="footer">
             <button class="btn btn-primary" id="submit" type="submit" @click="$emit('close')">
               Submit</button>
@@ -28,19 +28,19 @@
 </template>
 
 <script>
-import SpellForm from '@/components/SpellForm.vue';
+import MonsterForm from '@/components/Monster/MonsterFormAdd.vue';
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
   components: {
-    SpellForm,
+    MonsterForm,
   },
   props: {
     show: Boolean,
   },
 
 })
-export default class SpellsModal extends Vue {}
+export default class MonsterModalAdd extends Vue {}
 </script>
 
 <style>
@@ -48,7 +48,7 @@ export default class SpellsModal extends Vue {}
   margin-right: 5px;
 }
 
-.SpellModalmask {
+.MonsterModal-mask {
   position: fixed;
   z-index: 9998;
   top: 0;
@@ -60,31 +60,27 @@ export default class SpellsModal extends Vue {}
   transition: opacity 0.3s ease;
 }
 
-.SpellModalwrapper {
+.MonsterModal-wrapper {
   display: table-cell;
   vertical-align: middle;
 }
 
-.SpellModalcontainer {
+.MonsterModal-container {
   width: 800px;
   margin: 0px auto;
-  padding: 20px 30px;
+  padding: 20px 20px;
   background-color: #9e7442;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
 }
 
-.SpellModalheader h3 {
+.MonsterModal-header h3 {
   margin-top: 0;
   color: #42b983;
 }
 
-.SpellModalbody {
-  margin: 500px 0;
-}
-
-.SpellModaldefault-button {
+.MonsterModal-default-button {
   float: right;
 }
 
@@ -97,16 +93,16 @@ export default class SpellsModal extends Vue {}
  * these styles.
  */
 
-.SpellModalenter-from {
+.MonsterModal-enter-from {
   opacity: 0;
 }
 
-.SpellModalleave-to {
+.MonsterModal-leave-to {
   opacity: 0;
 }
 
-.SpellModalenter-from .SpellModalcontainer,
-.SpellModalleave-to .SpellModalcontainer {
+.MonsterModal-enter-from .MonsterModal-container,
+.MonsterModal-leave-to .MonsterModal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }

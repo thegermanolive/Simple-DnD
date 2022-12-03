@@ -10,7 +10,7 @@
       <div class="MonsterModal-container">
         <div class="MonsterModal-header">
           <h1>
-            Add A Monster
+            Edit A Monster
           </h1>
         </div>
         <MonsterForm/>
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import MonsterForm from '@/components/MonsterForm.vue';
+import MonsterForm from '@/components/Monster/MonsterFormEdit.vue';
 import { Component, Vue } from 'vue-property-decorator';
 
 @Component({
@@ -40,7 +40,7 @@ import { Component, Vue } from 'vue-property-decorator';
   },
 
 })
-export default class MonsterModal extends Vue {}
+export default class MonsterModalEdit extends Vue {}
 </script>
 
 <style>

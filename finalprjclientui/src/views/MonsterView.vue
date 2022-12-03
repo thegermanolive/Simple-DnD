@@ -8,15 +8,16 @@
       <h1>Slay some Monsters</h1>
     </div>
     <div>
-      <button type="button" id="show-modal" @click="showModal = true"
-              class="btn btn-primary btn-lg">Show Modal</button>
+      <button type="button" id="show-modal-Add" @click="ShowAdd = true"
+              class="btn btn-primary btn-lg">Add Monster</button>
+      <button type="button" id="show-modal-Edit" @click="ShowEdit = true"
+              class="btn btn-primary btn-lg">Edit Monster</button>
     </div>
     <div>
-      <modal :show="showModal" @close="showModal = false">
-        <template #header>
-          <h3>custom header</h3>
-        </template>
-      </modal>
+      <ModalAdd :show="ShowAdd" @close="ShowAdd = false">
+      </ModalAdd>
+      <ModalEdit :show="ShowEdit" @close="ShowEdit = false">
+      </ModalEdit>
     </div>
     <div>
     </div>
@@ -30,20 +31,21 @@ import { Component, Vue } from 'vue-property-decorator';
 
 import { BButton, BModal } from 'bootstrap-vue';
 
-import Modal from '@/components/MonsterModal.vue';
+import ModalAdd from '@/components/Monster/MonsterModalAdd.vue';
+import ModalEdit from '@/components/Monster/MonsterModalEdit.vue';
 
 // eslint-disable-next-line import/extensions
 
 Vue.component('BButton', BButton);
 Vue.component('BModal', BModal);
-
 @Component({
   components: {
-    Modal,
+    ModalAdd, ModalEdit,
   },
   data() {
     return {
-      showModal: false,
+      ShowAdd: false,
+      ShowEdit: false,
     };
   },
 })

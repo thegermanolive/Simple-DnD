@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts">
-import HomeCard from '@/components/HomeCard.vue';
+import HomeCard from '@/components/Home/HomeCard.vue';
 import { Component, Vue } from 'vue-property-decorator';
 import {
   BCard, BCardText, BLink, BButton,
