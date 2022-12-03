@@ -14,32 +14,72 @@
         Or one Of the Cards below
       </p>
     </div>
-    <div class="aCard">
-      <HomeCard/>
+    <div>
+      <!--      <article class="card" style="max-width: 20rem;">-->
+      <!--        <img src="@/assets/Monster.jpg" alt="Image" class="card-img-top">-->
+      <!--        <div class="card-body">-->
+      <!--          <a role="button" tabindex="0"
+      href="#" target="_self" class="btn btn-primary">-->
+      <!--            Monsters-->
+      <!--          </a>-->
+      <!--        </div>-->
+      <!--      </article>-->
+    </div>
+    <div>
+      <b-card-group deck>
+        <b-card title="Title" img-src="" img-alt="Image" img-top>
+          <b-card-text>
+            This is a wider card with
+          </b-card-text>
+          <template #footer>
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </template>
+        </b-card>
+
+        <b-card title="Title" img-src="" img-alt="Image" img-top>
+          <b-card-text>
+            This card has supporting text below as a natural lead-in to additional content.
+          </b-card-text>
+          <template #footer>
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </template>
+        </b-card>
+
+        <b-card title="Title" img-src="" img-alt="Image" img-top>
+          <b-card-text>
+            This is a wider card with
+          </b-card-text>
+          <template #footer>
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </template>
+        </b-card>
+      </b-card-group>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import HomeCard from '@/components/Home/HomeCard.vue';
 import { Component, Vue } from 'vue-property-decorator';
 import {
-  BCard, BCardText, BLink, BButton,
+  BCard, BCardText, BLink, BButton, CardPlugin,
+  BCardHeader, BCardFooter, BCardBody, BCardTitle,
+  BCardSubTitle, BCardImg, BCardImgLazy, BCardGroup,
 } from 'bootstrap-vue';
 
 Vue.component('BCard', BCard);
 Vue.component('BCardText', BCardText);
 Vue.component('BLink', BLink);
 Vue.component('BButton', BButton);
+Vue.use(CardPlugin);
 @Component({
   components: {
-    HomeCard,
+    BCard, BCardText, BLink, BButton,
   },
 })
 export default class HomeView extends Vue {}
 </script>
 <style>
-  .aCard{
+  .card mb-2{
     display: flex;
     justify-content: center;
     background-color: #2c3e50;

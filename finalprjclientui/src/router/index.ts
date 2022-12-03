@@ -4,6 +4,7 @@ import SpellsView from '@/views/SpellsView.vue';
 import HomeView from '@/views/HomeView.vue';
 import MonsterView from '@/views/MonsterView.vue';
 import DMLoginView from '@/views/DMLoginView.vue';
+import Bookmarks from '@/views/BookmarkView.vue';
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,11 @@ const routes: Array<RouteConfig> = [
     path: '/DM-Login',
     name: 'DM-Login',
     component: DMLoginView,
+  },
+  {
+    path: '/Bookmarks',
+    name: 'Bookmarks',
+    component: Bookmarks,
   },
 ];
 

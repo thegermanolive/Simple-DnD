@@ -4,23 +4,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <div>
-      <template>
-        <b-card
-          title="Card Title"
-          img-src="https://picsum.photos/600/300/?image=25"
-          img-alt="Image"
-          img-top
-          tag="article"
-          style="max-width: 20rem;"
-          class="mb-2"
-        >
-          <b-card-text>
-            Some quick example text
-          </b-card-text>
+      <b-card
+        title="Card Title"
+        img-src="https://picsum.photos/600/300/?image=25"
+        img-alt="Image"
+        img-top
+        tag="article"
+        style="max-width: 20rem;"
+        class="mb-2"
+      >
+        <b-card-text>
+          Some quick example text
+        </b-card-text>
 
-          <b-button href="#" variant="primary">Go somewhere</b-button>
-        </b-card>
-      </template>
+        <b-button href="#" variant="primary">Go somewhere</b-button>
+      </b-card>
     </div>
   </div>
 </template>
@@ -29,7 +27,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import {
   BCard, BCardText, BLink, BButton, BCardGroup, BCardHeader,
-  BCardFooter, BCardBody, BCardTitle, BCardSubTitle, BCardImg, BCardImgLazy,
+  BCardFooter, BCardBody, BCardTitle, BCardSubTitle, BCardImg, BCardImgLazy, CardPlugin,
 } from 'bootstrap-vue';
 
 Vue.component('BCard', BCard);
@@ -44,7 +42,7 @@ Vue.component('BCardTitle', BCardTitle);
 Vue.component('BCardSubTitle', BCardSubTitle);
 Vue.component('BCardImg', BCardImg);
 Vue.component('BCardImgLazy', BCardImgLazy);
-
+Vue.use(CardPlugin);
 @Component
 export default class MonsterCard extends Vue {}
 </script>
