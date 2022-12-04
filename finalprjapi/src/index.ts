@@ -28,25 +28,23 @@ AppDataSource.initialize().then(async () => {
     // ...
 
     // start express server
-    app.listen(3000)
+    app.listen(5050)
 
     // insert new users for test
     await AppDataSource.manager.save(
         AppDataSource.manager.create(User, {
-            firstName: "Timber",
-            lastName: "Saw",
-            age: 27
+            UserName: "Timber",
+            Password: "Saw",
         })
     )
 
     await AppDataSource.manager.save(
         AppDataSource.manager.create(User, {
-            firstName: "Phantom",
-            lastName: "Assassin",
-            age: 24
+            UserName: "Phantom",
+            Password: "Assassin",
         })
     )
 
-    console.log("Express server has started on port 3000. Open http://localhost:3000/users to see results")
+    console.log("Express server has started on port 3000. Open http://localhost:5050/users to see results")
 
 }).catch(error => console.log(error))
