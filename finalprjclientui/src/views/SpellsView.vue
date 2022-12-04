@@ -133,13 +133,12 @@
             label="StatusEffect"
             label-for="StatusEffect-input"
             :state="StatusEffectState" >
-            <b-form-input
+            <b-form-textarea
               id="StatusEffect-input"
               v-model="statuseffect"
               :state="StatusEffectState"
-              placeholder="StatusEffect"
-              required>
-            </b-form-input>
+              placeholder="StatusEffect">
+            </b-form-textarea>
           </b-form-group>
 
         </b-form>
@@ -264,13 +263,13 @@
             label="StatusEffect"
             label-for="StatusEffect-input"
             :state="StatusEffectState" >
-            <b-form-input
+            <b-form-textarea
               id="StatusEffect-input"
               v-model="statuseffect"
               :state="StatusEffectState"
               placeholder="StatusEffect"
               required>
-            </b-form-input>
+            </b-form-textarea>
           </b-form-group>
 
         </b-form>
@@ -279,11 +278,11 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 
 import { Component, Vue } from 'vue-property-decorator';
 import {
-  BCard, BModal, VBModal, ModalPlugin, BCardText, BLink, BButton, CardPlugin,
+  BCard, BModal, VBModal, ModalPlugin, BCardText, BLink, BButton, CardPlugin, BFormTextarea,
   BCardHeader, BCardFooter, BCardBody, BCardTitle,
   BCardSubTitle, BCardImg, BCardImgLazy, BCardGroup,
 } from 'bootstrap-vue';
@@ -294,6 +293,7 @@ Vue.component('BLink', BLink);
 Vue.component('BButton', BButton);
 Vue.component('BModal', BModal);
 Vue.directive('BModal', VBModal);
+Vue.component('BFormTextarea', BFormTextarea);
 Vue.use(ModalPlugin);
 @Component({
   components: {
@@ -331,9 +331,6 @@ Vue.use(ModalPlugin);
       this.CastingTimeState = valid;
       this.RangeState = valid;
       this.DurationState = valid;
-      this.DamageState = valid;
-      this.DamageTypeState = valid;
-      this.StatusEffectState = valid;
       return valid;
     },
     checkEditFormValidity() {
@@ -345,9 +342,6 @@ Vue.use(ModalPlugin);
       this.CastingTimeState = valid;
       this.RangeState = valid;
       this.DurationState = valid;
-      this.DamageState = valid;
-      this.DamageTypeState = valid;
-      this.StatusEffectState = valid;
       return valid;
     },
     resetModal() {

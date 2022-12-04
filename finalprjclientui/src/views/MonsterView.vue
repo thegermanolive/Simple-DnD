@@ -174,7 +174,7 @@
 <script>
 import { Component, Vue } from 'vue-property-decorator';
 import {
-  BCard, BModal, VBModal, ModalPlugin, BCardText, BLink, BButton, CardPlugin,
+  BCard, BModal, VBModal, ModalPlugin, BCardText, BLink, BButton, CardPlugin, BFormTextarea,
   BCardHeader, BCardFooter, BCardBody, BCardTitle,
   BCardSubTitle, BCardImg, BCardImgLazy, BCardGroup,
 } from 'bootstrap-vue';
@@ -184,6 +184,7 @@ Vue.component('BCardText', BCardText);
 Vue.component('BLink', BLink);
 Vue.component('BButton', BButton);
 Vue.component('BModal', BModal);
+Vue.component('BFormTextarea', BFormTextarea);
 Vue.directive('BModal', VBModal);
 Vue.use(ModalPlugin);
 @Component({
