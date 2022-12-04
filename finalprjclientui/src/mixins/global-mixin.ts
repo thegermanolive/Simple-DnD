@@ -24,24 +24,24 @@ export default class GlobalMixin extends Vue {
 
   USER_API = USER_API
 
-  // only done up to this point, rest is from class and will not work for what we want
-
-  // prop so the parent can disable this child component
-  @Prop(Boolean) readonly disabled!:boolean
-
-  // busy data property to flag the state a busy waiting for the api
-  isBusy = false;
-
-  // method to set the busy state and emit the state to the parent
-  // will emit when busy and when no longer busy
-  setBusy(state:boolean) {
-    this.isBusy = state;
-    this.$emit('busy', state);
-  }
-
-  // computed property if component is busy , disable, both or neither
-  // the better name would isUnavailable
-  get isDisabled() { return this.isBusy || this.disabled; }
+  // // only done up to this point, rest is from class and will not work for what we want
+  //
+  // // prop so the parent can disable this child component
+  // @Prop(Boolean) readonly disabled!:boolean
+  //
+  // // busy data property to flag the state a busy waiting for the api
+  // isBusy = false;
+  //
+  // // method to set the busy state and emit the state to the parent
+  // // will emit when busy and when no longer busy
+  // setBusy(state:boolean) {
+  //   this.isBusy = state;
+  //   this.$emit('busy', state);
+  // }
+  //
+  // // computed property if component is busy , disable, both or neither
+  // // the better name would isUnavailable
+  // get isDisabled() { return this.isBusy || this.disabled; }
 
   /**
    * Our wrapper for the fetch function with proper headers and options
@@ -49,6 +49,7 @@ export default class GlobalMixin extends Vue {
    * @param method GET,PUT,POST,DELETE
    * @param dataToSend object to send as body raw json in the request
    */
+  // eslint-disable-next-line class-methods-use-this
   callAPI(url:string, method = 'GET', dataToSend = {}) {
     // when calling fetch we need to set default options - especially when dealing with CORS
     const fetchOptions:any = {
@@ -90,16 +91,17 @@ export default class GlobalMixin extends Vue {
 
   // convert ValidationError array from class-validator https://github.com/typestack/class-validator#validation-errors
   // into an object with field names as the properties and the error messages are the values
-  mapValidationErrorArray(errors:ValidationError[]):any {
-    return Object.fromEntries(errors.map((err) => {
-      const msg = err.constraints ? Object.values(err.constraints)[0] : 'Invalid Value';
-      return [err.property, msg];
-    }));
-  }
+  // mapValidationErrorArray(errors:ValidationError[]):any {
+  //   return Object.fromEntries(errors.map((err) => {
+  //     const msg = err.constraints ? Object.values(err.constraints)[0] : 'Invalid Value';
+  //     return [err.property, msg];
+  //   }));
+  // }
 
-  // validate the passed in model and return an object with field names as the properties and the error messages are the values
-  async getErrorMessages(model:any):Promise<any> {
-    const errors:ValidationError[] = await validate(model);
-    return errors.length ? this.mapValidationErrorArray(errors) : {};
-  }
+  // validate the passed in model and return an object with fie
+  // ld names as the properties and the error messages are the values
+  // async getErrorMessages(model:any):Promise<any> {
+  //   const errors:ValidationError[] = await validate(model);
+  //   return errors.length ? this.mapValidationErrorArray(errors) : {};
+  // }
 }
