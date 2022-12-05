@@ -334,26 +334,62 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
   //   document.getElementById('test').innerHTML = txt +;
   // }
 
-  // async saveMonster() {
-  //   this.setBusy(true);
-  //   const url = this.MONSTER_API + (this.isNew ? '' : `/${this.tempMonster.id}`);
-  //   const method = this.isNew ? 'post' : 'put';
-  //
-  //   try {
-  //     const data = await this.callAPI(url, method, this.tempMonster); // returns a promise object
-  //     // emit the action that occurred along with the data received from the api server
-  //     // to be used by the parent to update the b-table of students
-  //     this.$emit(
-  //       this.tempMonster.id === data.id ? 'updated' : 'added',
-  //       Object.assign(this.Monster, data),
-  //     );
-  //   }catch (err:any) {
-  //     // get the violation messages from the api - if the web server responded
-  //     this.violation = this.mapValidationErrorArray(err.data);
-  //   } finally {
-  //     this.setBusy(false);// tell parent that this component is no longer waiting for the api
-  //   }
-  // }
+  async saveMonster() {
+    this.violation = await this.getErrorMessages(this.tempMonster);
+    if (Object.keys(this.violation).length === 0) {
+      this.setBusy(true);
+      const url = this.MONSTER_API + (this.isNew ? '' : `/${this.tempMonster.id}`);
+      const method = this.isNew ? 'post' : 'put';
+      //
+      try {
+        const data = await this.callAPI(
+          url,
+          method,
+          this.tempMonster,
+        ); // returns a promise object
+        //       // emit the action that occurred along with the data received from the api server
+        //       // to be used by the parent to update the b-table of students
+        this.$emit(
+          this.tempMonster.id === data.id ? 'updated' : 'added',
+          Object.assign(this.Monster, data),
+        );
+      } catch (err) {
+        //  catch (err:any) {
+        //       // get the violation messages from the api - if the web server responded
+        this.violation = this.mapValidationErrorArray(err.data);
+      } finally {
+        this.setBusy(false);// tell parent that this component is no longer waiting for the api
+      }
+    }
+  }
+
+  async deleteMonster() {
+    const icon = this.$refs.iconDelete;
+    this.setBusy(true);
+    this.animate(icon, true);
+
+    try {
+      await this.callAPI(`${this.MONSTER_API}/${this.Monster.id}`, 'delete');
+      this.tempStudent = new Monster(); // reset the text boxes since student is deleted
+      this.$emit('deleted', this.Monster);
+    } catch (err: any) {
+      this.$emit('reset', this.Monster);
+    } finally {
+      this.setBusy(false);
+      this.animate(icon, false);
+    }
+  }
+
+  deleteConfirm() {
+    this.cancel(); // reset any changes user may have done
+    this.showConfirmDelete = true;
+  }
+
+  cancel() {
+    this.violation = {}; // hide error messages if any
+    this.tempStudent = Object.assign(new Monster(), this.Monster);
+    this.$emit('cancelled', this.Monster);
+  }
 }
 </script>
 
