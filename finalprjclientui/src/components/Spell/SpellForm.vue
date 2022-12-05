@@ -334,7 +334,18 @@ export default class SpellForm extends Mixins(GlobalMixin) {
 
   StatusEffectState = null;
 
-  Spell = {}
+  Spell = {
+    id: '',
+    name: '',
+    level: '',
+    school: '',
+    castingtime: '',
+    range: '',
+    duration: '',
+    damage: '',
+    damagetype: '',
+    statuseffect: '',
+  }
 
   tempSpell = this.Spell;
 
@@ -403,6 +414,7 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     if (!this.checkAddFormValidity()) {
       return;
     }
+    console.log(this.Spell.name);
     this.Spell.id = '';
     this.Spell.name = this.name;
     this.Spell.level = this.level;
@@ -413,10 +425,11 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     this.Spell.damage = this.damage;
     this.Spell.damagetype = this.damagetype;
     this.Spell.statuseffect = this.statuseffect;
+    console.log(this.Spell.name);
     // Push the name to submitted names
     // Hide the modal manually
     this.$nextTick(() => {
-      this.displaySpell();
+      // this.displaySpell();
       this.$bvModal.hide('ADDSPELL');
     });
   }
@@ -444,58 +457,59 @@ export default class SpellForm extends Mixins(GlobalMixin) {
   //   document.getElementById('test').innerHTML = txt;
   // }
 
-  async saveSpell() {
-    this.violation = await this.getErrorMessages(this.tempSpell);
-    if (Object.keys(this.violation).length === 0) {
-      this.setBusy(true);
-      const url = this.SPELLS_API + (this.isNew ? '' : `/${this.tempSpell.id}`);
-      const method = this.isNew ? 'post' : 'put';
-      //
-      try {
-        const data = await this.callAPI(
-          url,
-          method,
-          this.tempSpell,
-        ); // returns a promise object
-        //       // emit the action that occurred along with the data received from the api server
-        //       // to be used by the parent to update the b-table of students
-        this.$emit(
-          this.tempSpell.id === data.id ? 'updated' : 'added',
-          Object.assign(this.Spell, data),
-        );
-      } catch (err) {
-        //  catch (err:any) {
-        //       // get the violation messages from the api - if the web server responded
-        this.violation = this.mapValidationErrorArray(err.data);
-      } finally {
-        this.setBusy(false);// tell parent that this component is no longer waiting for the api
-      }
-    }
-  }
-
-  async deleteSpell() {
-    this.setBusy(true);
-    try {
-      await this.callAPI(`${this.SPELLS_API}/${this.Spell.id}`, 'delete');
-      this.tempSpell = new Spell(); // reset the text boxes since student is deleted
-      this.$emit('deleted', this.Spell);
-    } catch (err: any) {
-      this.$emit('reset', this.Spell);
-    } finally {
-      this.setBusy(false);
-    }
-  }
-
-  deleteConfirm() {
-    this.cancel(); // reset any changes user may have done
-    this.showConfirmDelete = true;
-  }
-
-  cancel() {
-    this.violation = {}; // hide error messages if any
-    this.tempStudent = Object.assign(new Spell(), this.Spell);
-    this.$emit('cancelled', this.Spell);
-  }
+  // async saveSpell() {
+  //   this.violation = await this.getErrorMessages(this.tempSpell);
+  //   if (Object.keys(this.violation).length === 0) {
+  //     this.setBusy(true);
+  //     const url = this.SPELLS_API + (this.isNew ? '' : `/${this.tempSpell.id}`);
+  //     const method = this.isNew ? 'post' : 'put';
+  //     //
+  //     try {
+  //       const data = await this.callAPI(
+  //         url,
+  //         method,
+  //         this.tempSpell,
+  //       ); // returns a promise object
+  //       //       // emit the action that occurred along
+  //       with the data received from the api server
+  //       //       // to be used by the parent to update the b-table of students
+  //       this.$emit(
+  //         this.tempSpell.id === data.id ? 'updated' : 'added',
+  //         Object.assign(this.Spell, data),
+  //       );
+  //     } catch (err) {
+  //       //  catch (err:any) {
+  //       //       // get the violation messages from the api - if the web server responded
+  //       this.violation = this.mapValidationErrorArray(err.data);
+  //     } finally {
+  //       this.setBusy(false);// tell parent that this component is no longer waiting for the api
+  //     }
+  //   }
+  // }
+  //
+  // async deleteSpell() {
+  //   this.setBusy(true);
+  //   try {
+  //     await this.callAPI(`${this.SPELLS_API}/${this.Spell.id}`, 'delete');
+  //     this.tempSpell = new Spell(); // reset the text boxes since student is deleted
+  //     this.$emit('deleted', this.Spell);
+  //   } catch (err: any) {
+  //     this.$emit('reset', this.Spell);
+  //   } finally {
+  //     this.setBusy(false);
+  //   }
+  // }
+  //
+  // deleteConfirm() {
+  //   this.cancel(); // reset any changes user may have done
+  //   this.showConfirmDelete = true;
+  // }
+  //
+  // cancel() {
+  //   this.violation = {}; // hide error messages if any
+  //   this.tempStudent = Object.assign(new Spell(), this.Spell);
+  //   this.$emit('cancelled', this.Spell);
+  // }
 }
 </script>
 

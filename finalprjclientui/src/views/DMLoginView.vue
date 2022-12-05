@@ -7,7 +7,7 @@
       <h1>Login</h1>
     </div>
     <div>
-      <LoginForm/>
+      <UserForm/>
     </div>
   </div>
 </template>
@@ -17,7 +17,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import {
   BForm, BFormText, BFormInput, BFormGroup,
 } from 'bootstrap-vue';
-import LoginForm from '@/components/Login/LoginForm.vue';
+import UserForm from '@/components/Login/UserForm.vue';
 
 Vue.component('BForm', BForm);
 Vue.component('BFormText', BFormText);
@@ -25,7 +25,7 @@ Vue.component('BFormInput', BFormInput);
 Vue.component('BFormGroup', BFormGroup);
 @Component({
   components: {
-    LoginForm,
+    UserForm,
   },
 })
 
