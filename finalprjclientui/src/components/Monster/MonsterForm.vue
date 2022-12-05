@@ -160,16 +160,22 @@
         </b-form-group>
       </b-form>
     </b-modal>
+    <div>
+      <p id="test">
+
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Mixins, Vue } from 'vue-property-decorator';
 import {
   BCard, BModal, VBModal, ModalPlugin, BCardText, BLink, BButton, CardPlugin, BFormTextarea,
   BCardHeader, BCardFooter, BCardBody, BCardTitle,
   BCardSubTitle, BCardImg, BCardImgLazy, BCardGroup,
 } from 'bootstrap-vue';
+import GlobalMixin from '@/mixins/global-mixin';
 
 Vue.component('BCard', BCard);
 Vue.component('BCardText', BCardText);
@@ -179,94 +185,180 @@ Vue.component('BModal', BModal);
 Vue.component('BFormTextarea', BFormTextarea);
 Vue.directive('BModal', VBModal);
 Vue.use(ModalPlugin);
-@Component({
-  data() {
-    return {
-      id: '',
-      IDState: null,
-      name: '',
-      nameState: null,
-      armorclass: '',
-      ArmorClassState: null,
-      hitpoints: '',
-      HitPointsState: null,
-      speed: '',
-      SpeedState: null,
-      spell: '',
-      SpellState: null,
-    };
-  },
-  methods: {
-    checkAddFormValidity() {
-      const valid = this.$refs.form.checkValidity();
-      this.nameState = valid;
-      this.ArmorClassState = valid;
-      this.HitPointsState = valid;
-      this.SpeedState = valid;
-      return valid;
-    },
-    checkEditFormValidity() {
-      const valid = this.$refs.form.checkValidity();
-      this.IDState = valid;
-      this.nameState = valid;
-      this.ArmorClassState = valid;
-      this.HitPointsState = valid;
-      this.SpeedState = valid;
-      return valid;
-    },
-    resetModal() {
-      this.id = '';
-      this.IDState = null;
-      this.name = '';
-      this.nameState = null;
-      this.armorclass = '';
-      this.ArmorClassState = null;
-      this.hitpoints = '';
-      this.HitPointsState = null;
-      this.speed = '';
-      this.SpeedState = null;
-      this.spell = '';
-      this.SpellState = null;
-    },
-    handleAddOk(bvModalEvent) {
-      // Prevent modal from closing
-      bvModalEvent.preventDefault();
-      // Trigger submit handler
-      this.handleAddSubmit();
-    },
-    handleEditOk(bvModalEvent) {
-      // Prevent modal from closing
-      bvModalEvent.preventDefault();
-      // Trigger submit handler
-      this.handleEditSubmit();
-    },
-    handleAddSubmit() {
-      // Exit when the form isn't valid
-      if (!this.checkAddFormValidity()) {
-        return;
-      }
-      // Push the name to submitted names
-      // Hide the modal manually
-      this.$nextTick(() => {
-        this.$bvModal.hide('ADDMONSTER');
-      });
-    },
-    handleEditSubmit() {
-      // Exit when the form isn't valid
-      if (!this.checkEditFormValidity()) {
-        return;
-      }
-      // Push the name to submitted names
-      // Hide the modal manually
-      this.$nextTick(() => {
-        this.$bvModal.hide('EDITMONSTER');
-      });
-    },
-  },
-})
-export default class MonsterForm extends Vue {}
+@Component
+export default class MonsterForm extends Mixins(GlobalMixin) {
+  id = '';
+
+  IDState = null;
+
+  name = '';
+
+  nameState = null;
+
+  armorclass = ''
+
+  ArmorClassState =null
+
+  hitpoints = ''
+
+  HitPointsState= null
+
+  speed =''
+
+  SpeedState =null
+
+  spell =''
+
+  SpellState =null
+
+  Monster = {}
+
+  tempMonster = this.Monster; // sets Monster Object as the data to be sent
+
+  // get isNew(): boolean {
+  //   // if studentID is null, 0 , '' then it's a new student not an existing student
+  //   return !this.Monster || !this.Monster.id;
+  // }
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  // async saveMosnter() {
+  //
+  // }
+  //
+  // // eslint-disable-next-line @typescript-eslint/no-empty-function
+  // async editMosnter() {
+  //
+  // }
+  //
+  // // eslint-disable-next-line @typescript-eslint/no-empty-function
+  // async bookMarkMosnter() {
+  //
+  // }
+  //
+  // // eslint-disable-next-line @typescript-eslint/no-empty-function
+  // async deleteMosnter() {
+  //
+  // }
+
+  checkAddFormValidity() {
+    const valid = this.$refs.form.checkValidity();
+    this.nameState = valid;
+    this.ArmorClassState = valid;
+    this.HitPointsState = valid;
+    this.SpeedState = valid;
+    return valid;
+  }
+
+  checkEditFormValidity() {
+    const valid = this.$refs.form.checkValidity();
+    this.IDState = valid;
+    this.nameState = valid;
+    this.ArmorClassState = valid;
+    this.HitPointsState = valid;
+    this.SpeedState = valid;
+    return valid;
+  }
+
+  resetModal() {
+    this.id = '';
+    this.IDState = null;
+    this.name = '';
+    this.nameState = null;
+    this.armorclass = '';
+    this.ArmorClassState = null;
+    this.hitpoints = '';
+    this.HitPointsState = null;
+    this.speed = '';
+    this.SpeedState = null;
+    this.spell = '';
+    this.SpellState = null;
+  }
+
+  handleAddOk(bvModalEvent) {
+    // Prevent modal from closing
+    bvModalEvent.preventDefault();
+    // Trigger submit handler
+    this.handleAddSubmit();
+  }
+
+  handleEditOk(bvModalEvent) {
+    // Prevent modal from closing
+    bvModalEvent.preventDefault();
+    // Trigger submit handler
+    this.handleEditSubmit();
+  }
+
+  handleAddSubmit() {
+    // Exit when the form isn't valid
+    if (!this.checkAddFormValidity()) {
+      return;
+    }
+    this.Monster.id = '';
+    this.Monster.name = this.name;
+    this.Monster.armorclass = this.armorclass;
+    this.Monster.hitpoints = this.hitpoints;
+    this.Monster.speed = this.speed;
+    this.Monster.spell = this.spell;
+    // function to push data to api DB
+    // Hide the modal manually
+    this.$nextTick(() => {
+      this.$bvModal.hide('ADDMONSTER');
+    });
+  }
+
+  handleEditSubmit() {
+    // Exit when the form isn't valid
+    if (!this.checkEditFormValidity()) {
+      return;
+    }
+    this.Monster.id = this.id;
+    this.Monster.name = this.name;
+    this.Monster.armorclass = this.armorclass;
+    this.Monster.hitpoints = this.hitpoints;
+    this.Monster.speed = this.speed;
+    this.Monster.spell = this.spell;
+    // Push the name to submitted names
+    // Hide the modal manually
+    this.$nextTick(() => {
+      this.$bvModal.hide('EDITMONSTER');
+    });
+  }
+  // This was just a test function to see if form submit worked
+  // displayMonster() {
+  //   // console.log(this.Monster.valueOf());
+  //   let txt = '';
+  //   // eslint-disable-next-line guard-for-in,no-restricted-syntax
+  //   for (const x in this.Monster) {
+  //     txt += `${this.Monster[x]} `;
+  //   }
+  //   document.getElementById('test').innerHTML = txt +;
+  // }
+
+  // async saveMonster() {
+  //   this.setBusy(true);
+  //   const url = this.MONSTER_API + (this.isNew ? '' : `/${this.tempMonster.id}`);
+  //   const method = this.isNew ? 'post' : 'put';
+  //
+  //   try {
+  //     const data = await this.callAPI(url, method, this.tempMonster); // returns a promise object
+  //     // emit the action that occurred along with the data received from the api server
+  //     // to be used by the parent to update the b-table of students
+  //     this.$emit(
+  //       this.tempMonster.id === data.id ? 'updated' : 'added',
+  //       Object.assign(this.Monster, data),
+  //     );
+  //   }catch (err:any) {
+  //     // get the violation messages from the api - if the web server responded
+  //     this.violation = this.mapValidationErrorArray(err.data);
+  //   } finally {
+  //     this.setBusy(false);// tell parent that this component is no longer waiting for the api
+  //   }
+  // }
+}
 </script>
 
 <style scoped>
-
+p{
+  color: black;
+}
 </style>

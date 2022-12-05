@@ -267,17 +267,22 @@
         </b-form>
       </b-modal>
     </div>
+    <div>
+      <p id="test">
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
 
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Mixins, Vue } from 'vue-property-decorator';
 import {
   BCard, BModal, VBModal, ModalPlugin, BCardText, BLink, BButton, CardPlugin, BFormTextarea,
   BCardHeader, BCardFooter, BCardBody, BCardTitle,
   BCardSubTitle, BCardImg, BCardImgLazy, BCardGroup,
 } from 'bootstrap-vue';
+import GlobalMixin from '@/mixins/global-mixin';
 
 Vue.component('BCard', BCard);
 Vue.component('BCardText', BCardText);
@@ -287,114 +292,157 @@ Vue.component('BModal', BModal);
 Vue.directive('BModal', VBModal);
 Vue.component('BFormTextarea', BFormTextarea);
 Vue.use(ModalPlugin);
-@Component({
-  components: {
-  },
-  data() {
-    return {
-      id: '',
-      IDState: null,
-      name: '',
-      nameState: null,
-      level: '',
-      LevelState: null,
-      school: '',
-      SchoolState: null,
-      castingtime: '',
-      CastingTimeState: null,
-      range: '',
-      RangeState: null,
-      duration: '',
-      DurationState: null,
-      damage: '',
-      DamageState: null,
-      damagetype: '',
-      DamageTypeState: null,
-      statuseffect: '',
-      StatusEffectState: null,
-    };
-  },
-  methods: {
-    checkAddFormValidity() {
-      const valid = this.$refs.form.checkValidity();
-      this.nameState = valid;
-      this.LevelState = valid;
-      this.SchoolState = valid;
-      this.CastingTimeState = valid;
-      this.RangeState = valid;
-      this.DurationState = valid;
-      return valid;
-    },
-    checkEditFormValidity() {
-      const valid = this.$refs.form.checkValidity();
-      this.IDState = valid;
-      this.nameState = valid;
-      this.LevelState = valid;
-      this.SchoolState = valid;
-      this.CastingTimeState = valid;
-      this.RangeState = valid;
-      this.DurationState = valid;
-      return valid;
-    },
-    resetModal() {
-      this.id = '';
-      this.IDState = null;
-      this.name = '';
-      this.nameState = null;
-      this.level = '';
-      this.LevelState = null;
-      this.school = '';
-      this.SchoolState = null;
-      this.castingtime = '';
-      this.CastingTimeState = null;
-      this.range = '';
-      this.RangeState = null;
-      this.duration = '';
-      this.DurationState = null;
-      this.damage = '';
-      this.DamageState = null;
-      this.damagetype = '';
-      this.DamageTypeState = null;
-      this.statuseffect = '';
-      this.StatusEffectState = null;
-    },
-    handleAddOk(bvModalEvent) {
-      // Prevent modal from closing
-      bvModalEvent.preventDefault();
-      // Trigger submit handler
-      this.handleAddSubmit();
-    },
-    handleEditOk(bvModalEvent) {
-      // Prevent modal from closing
-      bvModalEvent.preventDefault();
-      // Trigger submit handler
-      this.handleEditSubmit();
-    },
-    handleAddSubmit() {
-      // Exit when the form isn't valid
-      if (!this.checkAddFormValidity()) {
-        return;
-      }
-      // Push the name to submitted names
-      // Hide the modal manually
-      this.$nextTick(() => {
-        this.$bvModal.hide('ADDSPELL');
-      });
-    },
-    handleEditSubmit() {
-      // Exit when the form isn't valid
-      if (!this.checkEditFormValidity()) {
-        return;
-      }
-      // Push the name to submitted names
-      // Hide the modal manually
-      this.$nextTick(() => {
-        this.$bvModal.hide('EDITSPELL');
-      });
-    },
-  },
-})
-export default class SpellForm extends Vue {}
+@Component
+export default class SpellForm extends Mixins(GlobalMixin) {
+  id = '';
+
+  IDState = null;
+
+  name = '';
+
+  nameState = null;
+
+  level = '';
+
+  LevelState = null;
+
+  school = '';
+
+  SchoolState = null;
+
+  castingtime = '';
+
+  CastingTimeState = null;
+
+  range = '';
+
+  RangeState = null;
+
+  duration = '';
+
+  DurationState = null;
+
+  damage = '';
+
+  DamageState = null;
+
+  damagetype = '';
+
+  DamageTypeState = null;
+
+  statuseffect = '';
+
+  StatusEffectState = null;
+
+  Spell = {}
+
+  tempSpell = this.Spell;
+
+  checkAddFormValidity() {
+    const valid = this.$refs.form.checkValidity();
+    this.nameState = valid;
+    this.LevelState = valid;
+    this.SchoolState = valid;
+    this.CastingTimeState = valid;
+    this.RangeState = valid;
+    this.DurationState = valid;
+    return valid;
+  }
+
+  checkEditFormValidity() {
+    const valid = this.$refs.form.checkValidity();
+    this.IDState = valid;
+    this.nameState = valid;
+    this.LevelState = valid;
+    this.SchoolState = valid;
+    this.CastingTimeState = valid;
+    this.RangeState = valid;
+    this.DurationState = valid;
+    return valid;
+  }
+
+  resetModal() {
+    this.id = '';
+    this.IDState = null;
+    this.name = '';
+    this.nameState = null;
+    this.level = '';
+    this.LevelState = null;
+    this.school = '';
+    this.SchoolState = null;
+    this.castingtime = '';
+    this.CastingTimeState = null;
+    this.range = '';
+    this.RangeState = null;
+    this.duration = '';
+    this.DurationState = null;
+    this.damage = '';
+    this.DamageState = null;
+    this.damagetype = '';
+    this.DamageTypeState = null;
+    this.statuseffect = '';
+    this.StatusEffectState = null;
+  }
+
+  handleAddOk(bvModalEvent) {
+    // Prevent modal from closing
+    bvModalEvent.preventDefault();
+    // Trigger submit handler
+    this.handleAddSubmit();
+  }
+
+  handleEditOk(bvModalEvent) {
+    // Prevent modal from closing
+    bvModalEvent.preventDefault();
+    // Trigger submit handler
+    this.handleEditSubmit();
+  }
+
+  handleAddSubmit() {
+    // Exit when the form isn't valid
+    if (!this.checkAddFormValidity()) {
+      return;
+    }
+    this.Spell.id = '';
+    this.Spell.name = this.name;
+    this.Spell.level = this.level;
+    this.Spell.school = this.school;
+    this.Spell.castingtime = this.castingtime;
+    this.Spell.range = this.range;
+    this.Spell.duration = this.duration;
+    this.Spell.damage = this.damage;
+    this.Spell.damagetype = this.damagetype;
+    this.Spell.statuseffect = this.statuseffect;
+    // Push the name to submitted names
+    // Hide the modal manually
+    this.$nextTick(() => {
+      this.displaySpell();
+      this.$bvModal.hide('ADDSPELL');
+    });
+  }
+
+  handleEditSubmit() {
+    // Exit when the form isn't valid
+    if (!this.checkEditFormValidity()) {
+      return;
+    }
+    // Push the name to submitted names
+    // Hide the modal manually
+    this.$nextTick(() => {
+      this.$bvModal.hide('EDITSPELL');
+    });
+  }
+
+  // displaySpell() {
+  //   // console.log(this.Monster.valueOf());
+  //   let txt = '';
+  //   // eslint-disable-next-line guard-for-in,no-restricted-syntax
+  //   for (const x in this.Spell) {
+  //     txt += `${this.Spell[x]} `;
+  //   }
+  //   document.getElementById('test').innerHTML = txt;
+  // }
+}
 </script>
 
 <style scoped>
