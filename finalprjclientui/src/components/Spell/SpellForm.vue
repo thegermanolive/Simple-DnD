@@ -265,27 +265,26 @@
     </div>
     <div class="cards">
       <article class="card" style="max-width: 20rem;">
-        <img src="https://visualpharm.com/assets/366/Add%20Property-595b40b75ba036ed117d532d.svg" alt="Image" class="card-img-top" height="232px">
         <div class="card-body">
-          <b-button v-b-modal.ADDSPELL>Add Spell</b-button>
+          <b-button v-b-modal.ADDSPELL> <img src="https://visualpharm.com/assets/366/Add%20Property-595b40b75ba036ed117d532d.svg" alt="Image" class="card-img-top" height="232px">Add Spell</b-button>
         </div>
       </article>
       <article class="card" style="max-width: 20rem;">
-        <img src="https://visualpharm.com/assets/144/Edit-595b40b65ba036ed117d10d7.svg" alt="Image" class="card-img-top" height="232px">
+
         <div class="card-body">
-          <b-button v-b-modal.EDITSPELL>Edit Spell</b-button>
+          <b-button v-b-modal.EDITSPELL> <img src="https://visualpharm.com/assets/144/Edit-595b40b65ba036ed117d10d7.svg" alt="Image" class="card-img-top" height="232px">Edit Spell</b-button>
         </div>
       </article>
       <article class="card" style="max-width: 20rem;">
-        <img id="bookmark" src="https://visualpharm.com/assets/96/Bookmark%20Ribbon-595b40b65ba036ed117d187c.svg" alt="Image" class="card-img-top" height="232px">
+
         <div class="card-body">
-          <b-button @click="bookmarkSpell">Bookmark Spell</b-button>
+          <b-button @click="bookmarkSpell"><img id="bookmark" src="https://visualpharm.com/assets/96/Bookmark%20Ribbon-595b40b65ba036ed117d187c.svg" alt="Image" class="card-img-top" height="232px">Bookmark Spell</b-button>
         </div>
       </article>
       <article class="card" style="max-width: 20rem;">
-        <img src="https://visualpharm.com/assets/522/Trash-595b40b65ba036ed117d4ccc.svg" alt="Image" class="card-img-top" height="232px">
+
         <div class="card-body">
-          <b-button @click="deleteSpell">Delete Spell</b-button>
+          <b-button @click="deleteSpell"><img src="https://visualpharm.com/assets/522/Trash-595b40b65ba036ed117d4ccc.svg" alt="Image" class="card-img-top" height="232px">Delete Spell</b-button>
         </div>
       </article>
     </div>
@@ -543,5 +542,18 @@ export default class SpellForm extends Mixins(GlobalMixin) {
 </script>
 
 <style scoped>
+.overflow-auto{
+  color: black;
+}
 
+.cards{
+  display: flex;
+  justify-content: center;
+  background-color: #2c3e50;
+}
+.card{
+  margin: 20px;
+  width: 75%;
+  background-color: #2c3e50;
+}
 </style>

@@ -16,38 +16,26 @@
     </div>
     <div class="cards">
       <article class="card" style="max-width: 20rem;">
-        <img src="https://visualpharm.com/assets/970/Fire%20Element-595b40b75ba036ed117d5f0f.svg" alt="Image" class="card-img-top" height="232px">
         <div class="card-body">
-          <a role="button" tabindex="0" href="http://localhost:8080/#/Spells"
-             target="_self" class="btn btn-primary">
-            Spells
-          </a>
+          <b-button href="http://localhost:8080/#/Spells"> <img src="https://visualpharm.com/assets/970/Fire%20Element-595b40b75ba036ed117d5f0f.svg" alt="Image" class="card-img-top" height="232px">Spells</b-button>
         </div>
       </article>
       <article class="card" style="max-width: 20rem;">
-        <img src="https://visualpharm.com/assets/661/The%20Dragon%20Team-595b40b85ba036ed117db4c2.svg" alt="Image" class="card-img-top" height="232px">
+
         <div class="card-body">
-          <a role="button" tabindex="0" href="http://localhost:8080/#/Monsters"
-             target="_self" class="btn btn-primary">
-            Monsters          </a>
+          <b-button href="http://localhost:8080/#/Monsters"> <img src="https://visualpharm.com/assets/661/The%20Dragon%20Team-595b40b85ba036ed117db4c2.svg" alt="Image" class="card-img-top" height="232px">Monsters</b-button>
         </div>
       </article>
       <article class="card" style="max-width: 20rem;">
-        <img src="https://visualpharm.com/assets/96/Bookmark%20Ribbon-595b40b65ba036ed117d187c.svg" alt="Image" class="card-img-top" height="232px">
+
         <div class="card-body">
-          <a role="button" tabindex="0" href="http://localhost:8080/#/Bookmarks"
-             target="_self" class="btn btn-primary">
-            Bookmarks
-          </a>
+          <b-button href="http://localhost:8080/#/Bookmarks"><img src="https://visualpharm.com/assets/96/Bookmark%20Ribbon-595b40b65ba036ed117d187c.svg" alt="Image" class="card-img-top" height="232px">Bookmarks</b-button>
         </div>
       </article>
       <article class="card" style="max-width: 20rem;">
-        <img src="https://visualpharm.com/assets/189/Person-595b40b65ba036ed117d21b8.svg" alt="Image" class="card-img-top" height="232px">
+
         <div class="card-body">
-          <a role="button" tabindex="0" href="http://localhost:8080/#/DM-Login"
-             target="_self" class="btn btn-primary">
-            DM-Login
-          </a>
+          <b-button href="http://localhost:8080/#/DM-Login" ><img src="https://visualpharm.com/assets/189/Person-595b40b65ba036ed117d21b8.svg" alt="Image" class="card-img-top" height="232px">DM-Login</b-button>
         </div>
       </article>
     </div>
@@ -76,16 +64,21 @@ export default class HomeView extends Vue {}
 </script>
 <style>
 .cards{
-    display: flex;
-    justify-content: center;
-    background-color: #2c3e50;
-  }
-  .home{
-    background-color: #2c3e50;
-    color: black;
-  }
-  .card{
-    margin: 20px;
-    width: 75%;
-  }
+  display: flex;
+  justify-content: center;
+  background-color: #2c3e50;
+}
+.card{
+  margin: 20px;
+  width: 75%;
+  background-color: #2c3e50;
+}
+.home{
+  background-color: #2c3e50;
+  color: black;
+}
+
+article {
+   background-color: #2c3e50;
+}
 </style>

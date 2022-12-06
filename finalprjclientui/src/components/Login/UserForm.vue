@@ -23,8 +23,9 @@
             required
           ></b-form-input>
         </b-form-group>
-
         <b-button type="submit" variant="primary">Submit</b-button>
+        <div class="buttons">
+        </div>
         <b-button type="reset" variant="danger">Reset</b-button>
       </b-form>
     </div>
@@ -97,4 +98,12 @@ export default class UserForm extends Mixins(GlobalMixin) {
 p{
   color: black;
 }
+.buttons {
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
 </style>

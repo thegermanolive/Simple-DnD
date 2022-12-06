@@ -1,7 +1,5 @@
 <template>
   <div>
-    <div>
-    </div>
     <b-modal
       id="ADDMONSTER"
       ref="modal"
@@ -158,27 +156,23 @@
     </b-modal>
     <div class="cards">
       <article class="card" style="max-width: 20rem;">
-        <img src="https://visualpharm.com/assets/366/Add%20Property-595b40b75ba036ed117d532d.svg" alt="Image" class="card-img-top" height="232px">
         <div class="card-body">
-          <b-button v-b-modal.ADDMONSTER>Add Monster</b-button>
+          <b-button v-b-modal.ADDMONSTER> <img src="https://visualpharm.com/assets/366/Add%20Property-595b40b75ba036ed117d532d.svg" alt="Image" class="card-img-top" height="232px">Add Monster</b-button>
         </div>
       </article>
       <article class="card" style="max-width: 20rem;">
-        <img src="https://visualpharm.com/assets/144/Edit-595b40b65ba036ed117d10d7.svg" alt="Image" class="card-img-top" height="232px">
         <div class="card-body">
-          <b-button v-b-modal.EDITMONSTER>Edit Monster</b-button>
+          <b-button v-b-modal.EDITMONSTER><img src="https://visualpharm.com/assets/144/Edit-595b40b65ba036ed117d10d7.svg" alt="Image" class="card-img-top" height="232px"> Edit Monster</b-button>
         </div>
       </article>
       <article class="card" style="max-width: 20rem;">
-        <img id="bookmark" src="https://visualpharm.com/assets/96/Bookmark%20Ribbon-595b40b65ba036ed117d187c.svg" alt="Image" class="card-img-top" height="232px">
         <div class="card-body">
-          <b-button @click="bookmarkMonster">Bookmark Monster</b-button>
+          <b-button @click="bookmarkMonster"><img id="bookmark" src="https://visualpharm.com/assets/96/Bookmark%20Ribbon-595b40b65ba036ed117d187c.svg" alt="Image" class="card-img-top" height="232px">Bookmark Monster</b-button>
         </div>
       </article>
       <article class="card" style="max-width: 20rem;">
-        <img src="https://visualpharm.com/assets/522/Trash-595b40b65ba036ed117d4ccc.svg" alt="Image" class="card-img-top" height="232px">
         <div class="card-body">
-          <b-button @click="DeleteMonster">Delete Monster</b-button>
+          <b-button @click="DeleteMonster"><img src="https://visualpharm.com/assets/522/Trash-595b40b65ba036ed117d4ccc.svg" alt="Image" class="card-img-top" height="232px">Delete Monster</b-button>
         </div>
       </article>
     </div>
@@ -412,10 +406,6 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
 </script>
 
 <style scoped>
-.overflow-auto{
-  color: black;
-}
-
 .cards{
   display: flex;
   justify-content: center;
@@ -424,5 +414,6 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
 .card{
   margin: 20px;
   width: 75%;
+  background-color: #2c3e50;
 }
 </style>
