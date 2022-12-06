@@ -1,159 +1,161 @@
 <template>
   <div>
-    <b-modal
-      id="ADDMONSTER"
-      ref="modal"
-      title="Add a Monster"
-      @show="resetModal"
-      @hidden="resetModal"
-      @ok="handleAddOk"
-    >
-      <!--        Originaly we had the form in a seperate vue componant but
+    <div>
+      <b-modal
+        id="ADDMONSTER"
+        ref="modal"
+        title="Add a Monster"
+        @show="resetModal"
+        @hidden="resetModal"
+        @ok="handleAddOk"
+      >
+        <!--        Originaly we had the form in a seperate vue componant but
       ran into trouble when trying to get the modal subbmit working-->
-      <b-form ref="form" @submit.stop.prevent="handleAddSubmit">
-        <b-form-group
-          label="Name"
-          label-for="name-input"
-          invalid-feedback="Name is required"
-          :state="nameState" >
-          <b-form-input
-            id="name-input"
-            v-model="name"
-            :state="nameState"
-            placeholder="Name"
-            required/>
-        </b-form-group>
-        <b-form-group
-          label="Armor Class"
-          label-for="ArmorClass-input"
-          invalid-feedback="Armor Class is required"
-          :state="ArmorClassState" >
-          <b-form-input
-            id="ArmorClass-input"
-            v-model="armorclass"
-            :state="ArmorClassState"
-            placeholder="Armor Class" >
-          </b-form-input>
-        </b-form-group>
-        <b-form-group
-          label="Hit Points"
-          label-for="HitPoints-input"
-          invalid-feedback="Hit Points are required"
-          :state="HitPointsState" >
-          <b-form-input
-            id="HitPoints-input"
-            v-model="hitpoints"
-            :state="HitPointsState"
-            placeholder="Hit Points" >
-          </b-form-input>
-        </b-form-group>
-        <b-form-group
-          label="Speed"
-          label-for="Speed-input"
-          invalid-feedback="Speed is required"
-          :state="SpeedState" >
-          <b-form-input
-            id="Speed-input"
-            v-model="speed"
-            :state="SpeedState"
-            placeholder="Speed" >
-          </b-form-input>
-        </b-form-group>
-        <b-form-group
-          label="Spells"
-          label-for="Spells-input"
-          :state="SpellState" >
-          <b-form-textarea
-            id="Spells-input"
-            v-model="spell"
-            :state="SpellState"
-            placeholder="Spells" ></b-form-textarea>
-        </b-form-group>
-      </b-form>
-    </b-modal>
-    <b-modal
-      id="EDITMONSTER"
-      ref="modal"
-      title="Add a Monster"
-      @show="resetModal"
-      @hidden="resetModal"
-      @ok="handleEditOk"
-    >
-      <b-form ref="form" @submit.stop.prevent="handleEditSubmit">
-        <b-form-group
-          label="ID"
-          label-for="ID-input"
-          invalid-feedback="ID is required"
-          :state="IDState" >
-          <b-form-input
-            id="name-input"
-            v-model="id"
-            :state="IDState"
-            placeholder="ID"
-            required/>
-        </b-form-group>
-        <b-form-group
-          label="Name"
-          label-for="name-input"
-          invalid-feedback="Name is required"
-          :state="nameState" >
-          <b-form-input
-            id="name-input"
-            v-model="name"
-            :state="nameState"
-            placeholder="Name"
-            required/>
-        </b-form-group>
-        <b-form-group
-          label="Armor Class"
-          label-for="ArmorClass-input"
-          invalid-feedback="Armor Class is required"
-          :state="ArmorClassState" >
-          <b-form-input
-            id="ArmorClass-input"
-            v-model="armorclass"
-            :state="ArmorClassState"
-            placeholder="Armor Class" >
-          </b-form-input>
-        </b-form-group>
-        <b-form-group
-          label="Hit Points"
-          label-for="HitPoints-input"
-          invalid-feedback="Hit Points are required"
-          :state="HitPointsState" >
-          <b-form-input
-            id="HitPoints-input"
-            v-model="hitpoints"
-            :state="HitPointsState"
-            placeholder="Hit Points" >
-          </b-form-input>
-        </b-form-group>
+        <b-form ref="form" @submit.stop.prevent="handleAddSubmit">
+          <b-form-group
+            label="Name"
+            label-for="name-input"
+            invalid-feedback="Name is required"
+            :state="nameState" >
+            <b-form-input
+              id="name-input"
+              v-model="name"
+              :state="nameState"
+              placeholder="Name"
+              required/>
+          </b-form-group>
+          <b-form-group
+            label="Armor Class"
+            label-for="ArmorClass-input"
+            invalid-feedback="Armor Class is required"
+            :state="ArmorClassState" >
+            <b-form-input
+              id="ArmorClass-input"
+              v-model="armorclass"
+              :state="ArmorClassState"
+              placeholder="Armor Class" >
+            </b-form-input>
+          </b-form-group>
+          <b-form-group
+            label="Hit Points"
+            label-for="HitPoints-input"
+            invalid-feedback="Hit Points are required"
+            :state="HitPointsState" >
+            <b-form-input
+              id="HitPoints-input"
+              v-model="hitpoints"
+              :state="HitPointsState"
+              placeholder="Hit Points" >
+            </b-form-input>
+          </b-form-group>
+          <b-form-group
+            label="Speed"
+            label-for="Speed-input"
+            invalid-feedback="Speed is required"
+            :state="SpeedState" >
+            <b-form-input
+              id="Speed-input"
+              v-model="speed"
+              :state="SpeedState"
+              placeholder="Speed" >
+            </b-form-input>
+          </b-form-group>
+          <b-form-group
+            label="Spells"
+            label-for="Spells-input"
+            :state="SpellState" >
+            <b-form-textarea
+              id="Spells-input"
+              v-model="spell"
+              :state="SpellState"
+              placeholder="Spells" ></b-form-textarea>
+          </b-form-group>
+        </b-form>
+      </b-modal>
+      <b-modal
+        id="EDITMONSTER"
+        ref="modal"
+        title="Add a Monster"
+        @show="resetModal"
+        @hidden="resetModal"
+        @ok="handleEditOk"
+      >
+        <b-form ref="form" @submit.stop.prevent="handleEditSubmit">
+          <b-form-group
+            label="ID"
+            label-for="ID-input"
+            invalid-feedback="ID is required"
+            :state="IDState" >
+            <b-form-input
+              id="name-input"
+              v-model="id"
+              :state="IDState"
+              placeholder="ID"
+              required/>
+          </b-form-group>
+          <b-form-group
+            label="Name"
+            label-for="name-input"
+            invalid-feedback="Name is required"
+            :state="nameState" >
+            <b-form-input
+              id="name-input"
+              v-model="name"
+              :state="nameState"
+              placeholder="Name"
+              required/>
+          </b-form-group>
+          <b-form-group
+            label="Armor Class"
+            label-for="ArmorClass-input"
+            invalid-feedback="Armor Class is required"
+            :state="ArmorClassState" >
+            <b-form-input
+              id="ArmorClass-input"
+              v-model="armorclass"
+              :state="ArmorClassState"
+              placeholder="Armor Class" >
+            </b-form-input>
+          </b-form-group>
+          <b-form-group
+            label="Hit Points"
+            label-for="HitPoints-input"
+            invalid-feedback="Hit Points are required"
+            :state="HitPointsState" >
+            <b-form-input
+              id="HitPoints-input"
+              v-model="hitpoints"
+              :state="HitPointsState"
+              placeholder="Hit Points" >
+            </b-form-input>
+          </b-form-group>
 
-        <b-form-group
-          label="Speed"
-          label-for="Speed-input"
-          invalid-feedback="Speed is required"
-          :state="SpeedState" >
-          <b-form-input
-            id="Speed-input"
-            v-model="speed"
-            :state="SpeedState"
-            placeholder="Speed" >
-          </b-form-input>
-        </b-form-group>
+          <b-form-group
+            label="Speed"
+            label-for="Speed-input"
+            invalid-feedback="Speed is required"
+            :state="SpeedState" >
+            <b-form-input
+              id="Speed-input"
+              v-model="speed"
+              :state="SpeedState"
+              placeholder="Speed" >
+            </b-form-input>
+          </b-form-group>
 
-        <b-form-group
-          label="Spells"
-          label-for="Spells-input"
-          :state="SpellState" >
-          <b-form-textarea
-            id="Spells-input"
-            v-model="spell"
-            :state="SpellState"
-            placeholder="Spells" ></b-form-textarea>
-        </b-form-group>
-      </b-form>
-    </b-modal>
+          <b-form-group
+            label="Spells"
+            label-for="Spells-input"
+            :state="SpellState" >
+            <b-form-textarea
+              id="Spells-input"
+              v-model="spell"
+              :state="SpellState"
+              placeholder="Spells" ></b-form-textarea>
+          </b-form-group>
+        </b-form>
+      </b-modal>
+    </div>
     <div class="cards">
       <article class="card" style="max-width: 20rem;">
         <div class="card-body">
@@ -167,16 +169,31 @@
       </article>
       <article class="card" style="max-width: 20rem;">
         <div class="card-body">
-          <b-button @click="bookmarkMonster"><img id="bookmark" src="https://visualpharm.com/assets/96/Bookmark%20Ribbon-595b40b65ba036ed117d187c.svg" alt="Image" class="card-img-top" height="232px">Bookmark Monster</b-button>
+          <b-button @click="bookmarkMonster"><img id="bookmark" src="https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg" alt="Image" class="card-img-top" height="232px">Bookmark Monster</b-button>
         </div>
       </article>
       <article class="card" style="max-width: 20rem;">
         <div class="card-body">
-          <b-button @click="DeleteMonster"><img src="https://visualpharm.com/assets/522/Trash-595b40b65ba036ed117d4ccc.svg" alt="Image" class="card-img-top" height="232px">Delete Monster</b-button>
+          <b-button @mouseover="OpenCan" @focus="OpenCan" @mouseleave="CloseCan" @focusout="CloseCan" @click="DeleteMonster"><img id="trash" src="https://visualpharm.com/assets/441/Empty%20Trash-595b40b75ba036ed117d5dc0.svg" alt="Image" class="card-img-top" height="232px">Delete Monster</b-button>
         </div>
       </article>
     </div>
+    <article class="MonsterCard" style="max-width: 20rem;">
+      <div class="card-body">
+        <h1 id="MonsterName">Name:</h1>
+        <ul>
+          <li id="MonsterID">ID:</li>
+          <li id="MonsterAc">AC:</li>
+          <li id="MonsterSpeed">Speed:</li>
+          <li id="MonsterHP">HP:</li>
+          <li id="MonsterSpells">SPELLS:</li>
+        </ul>
+        <ui>
+        </ui>
+      </div>
+    </article>
   </div>
+
 </template>
 
 <script>
@@ -246,7 +263,29 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
 
   // eslint-disable-next-line class-methods-use-this
   bookmarkMonster() {
+    this.changeImage();
     console.log('bookmarked');
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  changeImage() {
+    if (document.getElementById('bookmark').src === 'https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg') {
+      document.getElementById('bookmark').src = 'https://visualpharm.com/assets/466/Filled%20Bookmark%20Ribbon-595b40b85ba036ed117dc0ee.svg';
+    } else {
+      document.getElementById('bookmark').src = 'https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg';
+    }
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  OpenCan() {
+    if (document.getElementById('trash').src === 'https://visualpharm.com/assets/441/Empty%20Trash-595b40b75ba036ed117d5dc0.svg') {
+      document.getElementById('trash').src = 'https://visualpharm.com/assets/307/Full%20Trash-595b40b75ba036ed117d6007.svg';
+    }
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  CloseCan() {
+    document.getElementById('trash').src = 'https://visualpharm.com/assets/441/Empty%20Trash-595b40b75ba036ed117d5dc0.svg';
   }
 
   checkAddFormValidity() {
@@ -313,6 +352,7 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
     // function to push data to api DB
     // Hide the modal manually
     this.$nextTick(() => {
+      this.AddMonsterToCard();
       this.$bvModal.hide('ADDMONSTER');
     });
   }
@@ -334,6 +374,16 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
       this.$bvModal.hide('EDITMONSTER');
     });
   }
+
+  AddMonsterToCard() {
+    document.getElementById('MonsterID').innerHTML = document.getElementById('MonsterID').innerText + this.Monster.id;
+    document.getElementById('MonsterName').innerHTML = document.getElementById('MonsterName').innerText + this.Monster.name;
+    document.getElementById('MonsterAc').innerHTML = document.getElementById('MonsterAc').innerText + this.Monster.armorclass;
+    document.getElementById('MonsterSpeed').innerHTML = document.getElementById('MonsterSpeed').innerText + this.Monster.speed;
+    document.getElementById('MonsterHP').innerHTML = document.getElementById('MonsterHP').innerText + this.Monster.hitpoints;
+    document.getElementById('MonsterSpells').innerHTML = document.getElementById('MonsterSpells').innerText + (this.Monster.spell).split(' ');
+  }
+
   // This was just a test function to see if form submit worked
   // displayMonster() {
   //   // console.log(this.Monster.valueOf());
@@ -415,5 +465,9 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
   margin: 20px;
   width: 75%;
   background-color: #2c3e50;
+}
+
+.MonsterCard{
+  background-color: white;
 }
 </style>

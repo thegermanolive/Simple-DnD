@@ -284,16 +284,32 @@
       <article class="card" style="max-width: 20rem;">
 
         <div class="card-body">
-          <b-button @click="bookmarkSpell"><img id="bookmark" src="https://visualpharm.com/assets/96/Bookmark%20Ribbon-595b40b65ba036ed117d187c.svg" alt="Image" class="card-img-top" height="232px">Bookmark Spell</b-button>
+          <b-button @click="bookmarkSpell"><img id="bookmark" src="https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg" alt="Image" class="card-img-top" height="232px">Bookmark Spell</b-button>
         </div>
       </article>
       <article class="card" style="max-width: 20rem;">
 
         <div class="card-body">
-          <b-button @click="deleteSpell"><img src="https://visualpharm.com/assets/522/Trash-595b40b65ba036ed117d4ccc.svg" alt="Image" class="card-img-top" height="232px">Delete Spell</b-button>
-        </div>
+          <b-button @mouseover="OpenCan" @focus="OpenCan" @mouseleave="CloseCan" @focusout="CloseCan" @click="deleteSpell"><img id="trash" src="https://visualpharm.com/assets/441/Empty%20Trash-595b40b75ba036ed117d5dc0.svg" alt="Image" class="card-img-top" height="232px">Delete Spell</b-button></div>
       </article>
     </div>
+    <!--put for loop here    -->
+    <article class="SpellCard" style="max-width: 20rem;">
+      <div class="card-body">
+        <h1 id="SpellName">Name:</h1>
+        <ul>
+          <li id="SpellID">ID:</li>
+          <li id="SpellLevel">Level:</li>
+          <li id="SpellSchool">School:</li>
+          <li id="SpellCastingTime">Casting Time:</li>
+          <li id="SpellRange">Range:</li>
+          <li id="SpellDuration">Duration:</li>
+          <li id="SpellDamage">Damage:</li>
+          <li id="SpellDamageType">Damage Type:</li>
+          <li id="SpellEffect">Status Effect:</li>
+        </ul>
+      </div>
+    </article>
   </div>
 </template>
 
@@ -380,7 +396,29 @@ export default class SpellForm extends Mixins(GlobalMixin) {
 
   // eslint-disable-next-line class-methods-use-this
   bookmarkSpell() {
+    this.changeImage();
     console.log('bookmarked');
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  changeImage() {
+    if (document.getElementById('bookmark').src === 'https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg') {
+      document.getElementById('bookmark').src = 'https://visualpharm.com/assets/466/Filled%20Bookmark%20Ribbon-595b40b85ba036ed117dc0ee.svg';
+    } else {
+      document.getElementById('bookmark').src = 'https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg';
+    }
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  OpenCan() {
+    if (document.getElementById('trash').src === 'https://visualpharm.com/assets/441/Empty%20Trash-595b40b75ba036ed117d5dc0.svg') {
+      document.getElementById('trash').src = 'https://visualpharm.com/assets/307/Full%20Trash-595b40b75ba036ed117d6007.svg';
+    }
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  CloseCan() {
+    document.getElementById('trash').src = 'https://visualpharm.com/assets/441/Empty%20Trash-595b40b75ba036ed117d5dc0.svg';
   }
 
   checkAddFormValidity() {
@@ -463,6 +501,7 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     // Hide the modal manually
     this.$nextTick(() => {
       // this.displaySpell();
+      this.AddSpellToCard();
       this.$bvModal.hide('ADDSPELL');
     });
   }
@@ -488,6 +527,19 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     this.$nextTick(() => {
       this.$bvModal.hide('EDITSPELL');
     });
+  }
+
+  AddSpellToCard() {
+    document.getElementById('SpellID').innerHTML = document.getElementById('SpellID').innerText + this.Spell.id;
+    document.getElementById('SpellName').innerHTML = document.getElementById('SpellName').innerText + this.Spell.name;
+    document.getElementById('SpellLevel').innerHTML = document.getElementById('SpellLevel').innerText + this.Spell.level;
+    document.getElementById('SpellSchool').innerHTML = document.getElementById('SpellSchool').innerText + this.Spell.school;
+    document.getElementById('SpellCastingTime').innerHTML = document.getElementById('SpellCastingTime').innerText + this.Spell.castingtime;
+    document.getElementById('SpellRange').innerHTML = document.getElementById('SpellRange').innerText + this.Spell.range;
+    document.getElementById('SpellDuration').innerHTML = document.getElementById('SpellDuration').innerText + this.Spell.duration;
+    document.getElementById('SpellDamage').innerHTML = document.getElementById('SpellDamage').innerText + this.Spell.damage;
+    document.getElementById('SpellDamageType').innerHTML = document.getElementById('SpellDamageType').innerText + this.Spell.damagetype;
+    document.getElementById('SpellEffect').innerHTML = document.getElementById('SpellEffect').innerText + this.Spell.statuseffect;
   }
 
   // This was just a test function to see if form submit worked
@@ -571,5 +623,8 @@ export default class SpellForm extends Mixins(GlobalMixin) {
   margin: 20px;
   width: 75%;
   background-color: #2c3e50;
+}
+.SpellCard{
+  background-color: white;
 }
 </style>
