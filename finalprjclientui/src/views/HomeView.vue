@@ -1,43 +1,24 @@
 <template>
-  <div class="home">
+  <div>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <div class="about">
-      <h1>Welcome to the Davsch Dungeons and Dragons Repository</h1>
-      <p>
-        We Provide a Way for you to Store and Edit, your Monsters, Weapons,
-        and Spells for your campaign or one-shots for easy access for
-        you and your players To get  started Select one of the tabs above
-      </p>
-      <p>
-        Or one Of the Cards below
-      </p>
-    </div>
-    <div class="cards">
-      <article class="card" style="max-width: 20rem;">
-        <div class="card-body">
-          <b-button href="http://localhost:8080/#/Spells"> <img src="https://visualpharm.com/assets/970/Fire%20Element-595b40b75ba036ed117d5f0f.svg" alt="Image" class="card-img-top" height="232px">Spells</b-button>
-        </div>
-      </article>
-      <article class="card" style="max-width: 20rem;">
 
-        <div class="card-body">
-          <b-button href="http://localhost:8080/#/Monsters"> <img src="https://visualpharm.com/assets/661/The%20Dragon%20Team-595b40b85ba036ed117db4c2.svg" alt="Image" class="card-img-top" height="232px">Monsters</b-button>
-        </div>
-      </article>
-      <article class="card" style="max-width: 20rem;">
+    <div class="home">
 
-        <div class="card-body">
-          <b-button href="http://localhost:8080/#/Bookmarks"><img src="https://visualpharm.com/assets/96/Bookmark%20Ribbon-595b40b65ba036ed117d187c.svg" alt="Image" class="card-img-top" height="232px">Bookmarks</b-button>
-        </div>
-      </article>
-      <article class="card" style="max-width: 20rem;">
+      <div class="about">
+        <h1>Welcome to the Davsch Dungeons and Dragons Repository</h1>
+        <p>
+          We Provide a Way for you to Store and Edit, your Monsters, Weapons,
+          and Spells for your campaign or one-shots for easy access for
+          you and your players To get  started Select one of the tabs above
+        </p>
+        <p>
+          Or one Of the Cards below
+        </p>
+        <HomeCard/>
+      </div>
 
-        <div class="card-body">
-          <b-button href="http://localhost:8080/#/DM-Login" ><img src="https://visualpharm.com/assets/189/Person-595b40b65ba036ed117d21b8.svg" alt="Image" class="card-img-top" height="232px">DM-Login</b-button>
-        </div>
-      </article>
     </div>
   </div>
 </template>
@@ -50,6 +31,8 @@ import {
   BCardSubTitle, BCardImg, BCardImgLazy, BCardGroup,
 } from 'bootstrap-vue';
 
+import HomeCard from '@/components/Home/HomeCards.vue';
+
 Vue.component('BCard', BCard);
 Vue.component('BCardText', BCardText);
 Vue.component('BLink', BLink);
@@ -57,28 +40,15 @@ Vue.component('BButton', BButton);
 Vue.use(CardPlugin);
 @Component({
   components: {
-    BCard, BCardText, BLink, BButton,
+    BCard, BCardText, BLink, BButton, HomeCard,
   },
 })
 export default class HomeView extends Vue {}
 </script>
 <style>
-.cards{
-  display: flex;
-  justify-content: center;
-  background-color: #2c3e50;
-}
-.card{
-  margin: 20px;
-  width: 75%;
-  background-color: #2c3e50;
-}
 .home{
   background-color: #2c3e50;
   color: black;
 }
 
-article {
-   background-color: #2c3e50;
-}
 </style>
