@@ -1,8 +1,6 @@
 <template>
   <div>
     <div>
-      <b-button v-b-modal.ADDMONSTER>Add Monster</b-button>
-      <b-button v-b-modal.EDITMONSTER>Edit Monster</b-button>
     </div>
     <b-modal
       id="ADDMONSTER"
@@ -158,6 +156,35 @@
         </b-form-group>
       </b-form>
     </b-modal>
+    <div class="cards">
+      <article class="card" style="max-width: 20rem;">
+        <img src="https://visualpharm.com/assets/366/Add%20Property-595b40b75ba036ed117d532d.svg" alt="Image" class="card-img-top" height="232px">
+        <div class="card-body">
+          <b-button v-b-modal.ADDMONSTER>Add Monster</b-button>
+        </div>
+      </article>
+      <article class="card" style="max-width: 20rem;">
+        <img src="https://visualpharm.com/assets/144/Edit-595b40b65ba036ed117d10d7.svg" alt="Image" class="card-img-top" height="232px">
+        <div class="card-body">
+          <b-button v-b-modal.EDITMONSTER>Edit Monster</b-button>
+        </div>
+      </article>
+      <article class="card" style="max-width: 20rem;">
+        <img id="bookmark" src="https://visualpharm.com/assets/96/Bookmark%20Ribbon-595b40b65ba036ed117d187c.svg" alt="Image" class="card-img-top" height="232px">
+        <div class="card-body">
+          <b-button @click="bookmarkMonster">Bookmark Monster</b-button>
+        </div>
+      </article>
+      <article class="card" style="max-width: 20rem;">
+        <img src="https://visualpharm.com/assets/522/Trash-595b40b65ba036ed117d4ccc.svg" alt="Image" class="card-img-top" height="232px">
+        <div class="card-body">
+          <a role="button" tabindex="0" href="http://localhost:8080/#/DM-Login"
+             target="_self" class="btn btn-primary">
+            Delete
+          </a>
+        </div>
+      </article>
+    </div>
   </div>
 </template>
 
@@ -211,10 +238,19 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
     hitpoints: '',
     speed: '',
     spell: '',
-
   };
 
   tempMonster = this.Monster; // sets Monster Object as the data to be sent
+
+  //  do the book mark
+  // bookmarkMonster() {
+  //
+  // }
+
+  // do the delete
+  // deletekMonster() {
+  //
+  // }
 
   checkAddFormValidity() {
     const valid = this.$refs.form.checkValidity();
@@ -373,7 +409,17 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
 </script>
 
 <style scoped>
-p{
+.overflow-auto{
   color: black;
+}
+
+.cards{
+  display: flex;
+  justify-content: center;
+  background-color: #2c3e50;
+}
+.card{
+  margin: 20px;
+  width: 75%;
 }
 </style>

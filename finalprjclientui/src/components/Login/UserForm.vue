@@ -29,7 +29,7 @@
       </b-form>
     </div>
     <div>
-      <p id="test"/>
+      <p id="test"></p>
     </div>
   </div>
 </template>
@@ -37,7 +37,8 @@
 import { Component, Mixins, Vue } from 'vue-property-decorator';
 import {
   BButton,
-  BForm, BFormGroup, BFormInput, BFormText, BFormInvalidFeedback, BFormValidFeedback, BFormDatalist,
+  // eslint-disable-next-line max-len
+  BForm, BFormGroup, BFormInput, BFormText, BFormInvalidFeedback, BFormValidFeedback, BFormDatalist, BCard, CardPlugin,
 } from 'bootstrap-vue';
 import GlobalMixin from '@/mixins/global-mixin';
 
@@ -46,14 +47,19 @@ Vue.component('BFormText', BFormText);
 Vue.component('BFormInput', BFormInput);
 Vue.component('BFormGroup', BFormGroup);
 Vue.component('BButton', BButton);
+Vue.component('BCard', BCard);
+Vue.use(CardPlugin);
 
 @Component
 export default class UserForm extends Mixins(GlobalMixin) {
+  id = '';
+
   username ='';
 
   password='';
 
   User = {
+    id: '',
     username: '',
     password: '',
   }
@@ -61,16 +67,24 @@ export default class UserForm extends Mixins(GlobalMixin) {
   tempUser = this.User
 
   onSubmit() {
+    // saves the imputed values as a User Object to check the database for
     this.User.username = this.username;
     this.User.password = this.password;
-    console.log(this.User.username);
     this.onReset();
   }
 
+  // HandleLogin() {
+  //   throw new Error('Method not implemented.');
+  // }
+
   onReset() {
+    // Since we disabled the default functions this will clear the text inputs
     this.username = '';
     this.password = '';
+    // test to make sure its outputing properly
+    document.getElementById('test').innerHTML = `${this.tempUser.password} ${this.tempUser.username}`;
   }
+
   // eslint-disable-next-line class-methods-use-this
 }
 </script>
@@ -78,5 +92,9 @@ export default class UserForm extends Mixins(GlobalMixin) {
 .Flex{
   display: flex;
   justify-content: center;
+}
+
+p{
+  color: black;
 }
 </style>

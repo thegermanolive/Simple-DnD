@@ -18,9 +18,15 @@
 </template>
 <script lang="ts">
 import { Vue } from 'vue-property-decorator';
-import { BNavbar } from 'bootstrap-vue';
+import { BNavbar, BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+
 import { RouterView } from 'vue-router';
 import ModalProvider from 'vue-modal-provider';
+
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
 
 Vue.component('BNavbar', BNavbar);
 export default class App extends Vue {}

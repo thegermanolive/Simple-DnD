@@ -14,7 +14,7 @@
         Or one Of the Cards below
       </p>
     </div>
-    <div class="test">
+    <div class="cards">
       <article class="card" style="max-width: 20rem;">
         <img src="https://visualpharm.com/assets/970/Fire%20Element-595b40b75ba036ed117d5f0f.svg" alt="Image" class="card-img-top" height="232px">
         <div class="card-body">
@@ -75,7 +75,7 @@ Vue.use(CardPlugin);
 export default class HomeView extends Vue {}
 </script>
 <style>
-.test{
+.cards{
     display: flex;
     justify-content: center;
     background-color: #2c3e50;
