@@ -178,10 +178,7 @@
       <article class="card" style="max-width: 20rem;">
         <img src="https://visualpharm.com/assets/522/Trash-595b40b65ba036ed117d4ccc.svg" alt="Image" class="card-img-top" height="232px">
         <div class="card-body">
-          <a role="button" tabindex="0" href="http://localhost:8080/#/DM-Login"
-             target="_self" class="btn btn-primary">
-            Delete
-          </a>
+          <b-button @click="DeleteMonster">Delete Monster</b-button>
         </div>
       </article>
     </div>
@@ -248,9 +245,15 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
   // }
 
   // do the delete
-  // deletekMonster() {
-  //
-  // }
+  // eslint-disable-next-line class-methods-use-this
+  DeleteMonster() {
+    console.log('Deleted');
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  bookmarkMonster() {
+    console.log('bookmarked');
+  }
 
   checkAddFormValidity() {
     const valid = this.$refs.form.checkValidity();

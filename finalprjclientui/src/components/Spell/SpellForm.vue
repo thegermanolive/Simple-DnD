@@ -367,6 +367,17 @@ export default class SpellForm extends Mixins(GlobalMixin) {
 
   tempSpell = this.Spell;
 
+  // do the delete
+  // eslint-disable-next-line class-methods-use-this
+  deleteSpell() {
+    console.log('Deleted');
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  bookmarkSpell() {
+    console.log('bookmarked');
+  }
+
   checkAddFormValidity() {
     const valid = this.$refs.form.checkValidity();
     this.nameState = valid;
