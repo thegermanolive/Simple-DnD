@@ -142,6 +142,19 @@
         <!--        Originaly we had the form in a seperate vue componant but
         ran into trouble when trying to get the modal subbmit working-->
         <b-form ref="form" @submit.stop.prevent="handleEditSubmit">
+
+          <b-form-group
+            label="ID"
+            label-for="id-input"
+            invalid-feedback="ID is required"
+            :state="IDState" >
+            <b-form-input
+              id="id-input"
+              v-model="id"
+              :state="IDState"
+              placeholder="ID"
+              required/>
+          </b-form-group>
           <b-form-group
             label="Name"
             label-for="name-input"
@@ -180,7 +193,6 @@
               required>
             </b-form-input>
           </b-form-group>
-
           <b-form-group
             label="CastingTime"
             label-for="CastingTime-input"
@@ -194,7 +206,6 @@
               required>
             </b-form-input>
           </b-form-group>
-
           <b-form-group
             label="Range"
             label-for="Range-input"
@@ -207,7 +218,6 @@
               required>
             </b-form-input>
           </b-form-group>
-
           <b-form-group
             label="Duration"
             label-for="Duration-input"
@@ -220,7 +230,6 @@
               required>
             </b-form-input>
           </b-form-group>
-
           <b-form-group
             label="Damage"
             label-for="Damage-input"
@@ -230,10 +239,9 @@
               v-model="damage"
               :state="DamageState"
               placeholder="Damage"
-              required>
+            >
             </b-form-input>
           </b-form-group>
-
           <b-form-group
             label="DamageType"
             label-for="DamageType-input"
@@ -243,10 +251,9 @@
               v-model="damagetype"
               :state="DamageTypeState"
               placeholder="DamageType"
-              required>
+            >
             </b-form-input>
           </b-form-group>
-
           <b-form-group
             label="StatusEffect"
             label-for="StatusEffect-input"
@@ -256,10 +263,9 @@
               v-model="statuseffect"
               :state="StatusEffectState"
               placeholder="StatusEffect"
-              required>
+            >
             </b-form-textarea>
           </b-form-group>
-
         </b-form>
       </b-modal>
     </div>
@@ -442,7 +448,6 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     if (!this.checkAddFormValidity()) {
       return;
     }
-    console.log(this.Spell.name);
     this.Spell.id = '';
     this.Spell.name = this.name;
     this.Spell.level = this.level;
@@ -467,6 +472,17 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     if (!this.checkEditFormValidity()) {
       return;
     }
+    this.Spell.id = this.id;
+    this.Spell.name = this.name;
+    this.Spell.level = this.level;
+    this.Spell.school = this.school;
+    this.Spell.castingtime = this.castingtime;
+    this.Spell.range = this.range;
+    this.Spell.duration = this.duration;
+    this.Spell.damage = this.damage;
+    this.Spell.damagetype = this.damagetype;
+    this.Spell.statuseffect = this.statuseffect;
+    console.log(this.Spell.name);
     // Push the name to submitted names
     // Hide the modal manually
     this.$nextTick(() => {
