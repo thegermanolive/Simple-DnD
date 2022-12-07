@@ -275,13 +275,18 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
     // eslint-disable-next-line no-plusplus
     for (i = 0; i < cards.length; i++) {
       if (cards[i].childNodes[0].checked === true) {
+        if (cards[i].parentNode.parentNode.className === 'MonsterBookmarked') {
+          this.changeBookMarkImage();
+        }
         MonsterCardToSelect = i;
       } else {
+        if (cards[i].parentNode.parentNode.className === 'MonsterBookmarked') {
+          this.changeBookMarkImage();
+        }
         cards[i].parentNode.parentNode.id = 'MonsterCard';
       }
     }
     if (cards[MonsterCardToSelect].parentNode.parentNode.id !== 'SelectedMonster') {
-      alert('selected');
       cards[MonsterCardToSelect].parentNode.parentNode.id = 'SelectedMonster';
     }
     // eslint-disable-next-line no-empty
