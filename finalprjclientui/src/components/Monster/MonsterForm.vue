@@ -263,14 +263,12 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
       if (document.getElementById('MonsterCard').className === 'MonsterBookmarked') {
         document.getElementById('bookmark').src = 'https://visualpharm.com/assets/466/Filled%20Bookmark%20Ribbon-595b40b85ba036ed117dc0ee.svg';
       }
-      alert('selected');
 
       document.getElementById(MonsterCardToSelectID).id = 'SelectedMonster';
     } else if (document.getElementById('checkbox').checked === false) {
       document.getElementById('SelectedMonster').id = 'MonsterCard';
       if (document.getElementById('MonsterCard').className === 'MonsterBookmarked') {
         document.getElementById('bookmark').src = 'https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg';
-        alert('unselect');
       }
     }
     // (MonsterCardToSelectID.id === 'SelectedMonster') {
