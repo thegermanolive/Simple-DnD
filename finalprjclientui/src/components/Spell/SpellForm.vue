@@ -294,8 +294,8 @@
       </article>
     </div>
     <!--put for loop here    -->
-    <article class="SpellCard" style="max-width: 20rem;">
-      <div class="card-body">
+    <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
+      <div id="test" class="card-body">
         <h1 id="SpellName">Name:</h1>
         <ul>
           <li id="SpellID">ID:</li>
@@ -308,6 +308,7 @@
           <li id="SpellDamageType">Damage Type:</li>
           <li id="SpellEffect">Status Effect:</li>
         </ul>
+        <b-form-checkbox id="checkbox" @change="selectSpell"/>
       </div>
     </article>
   </div>
@@ -388,20 +389,74 @@ export default class SpellForm extends Mixins(GlobalMixin) {
 
   tempSpell = this.Spell;
 
+  // eslint-disable-next-line class-methods-use-this
+  selectSpell() {
+    const SpellCardToSelectID = document.getElementById('checkbox').parentNode.parentNode.parentNode.id;
+    if (document.getElementById('checkbox').checked === true) {
+      if (document.getElementById('SpellCard').className === 'SpellBookmarked') {
+        document.getElementById('bookmark').src = 'https://visualpharm.com/assets/466/Filled%20Bookmark%20Ribbon-595b40b85ba036ed117dc0ee.svg';
+      }
+      document.getElementById(SpellCardToSelectID).id = 'SelectedSpell';
+      // eslint-disable-next-line brace-style
+    }
+    // else {
+    //   document.getElementById(SpellCardToSelectID).id = 'SpellCard';
+    //   console.log('unchecked');
+    // }
+    else if (document.getElementById('checkbox').checked === false) {
+      document.getElementById('SelectedSpell').id = 'SpellCard';
+      if (document.getElementById('SpellCard').className === 'SpellBookmarked') {
+        document.getElementById('bookmark').src = 'https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg';
+        alert('unselect');
+      }
+    }
+  }
+
   // do the delete
   // eslint-disable-next-line class-methods-use-this
   deleteSpell() {
+    if (document.getElementById('bookmark').src === 'https://visualpharm.com/assets/466/Filled%20Bookmark%20Ribbon-595b40b85ba036ed117dc0ee.svg') {
+      document.getElementById('bookmark').src = 'https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg';
+    }
+    document.getElementById('SelectedSpell').remove();
     console.log('Deleted');
   }
 
   // eslint-disable-next-line class-methods-use-this
   bookmarkSpell() {
-    this.changeImage();
+    const SpellCardToSelectID = document.getElementById('checkbox').parentNode.parentNode.parentNode.id;
+    if (document.getElementById(SpellCardToSelectID).className === 'SpellUnBookmarked') {
+      document.getElementById(SpellCardToSelectID).className = 'SpellBookmarked';
+    }
+    this.bookmarkedSpell = this.Spell;
+    const Savedname = document.getElementById('SelectedSpell').childNodes[0].childNodes[0].innerHTML;
+    const SavedID = document.getElementById('SelectedSpell').childNodes[0].childNodes[1].childNodes[0].innerHTML;
+    const savedLevel = document.getElementById('SelectedSpell').childNodes[0].childNodes[1].childNodes[1].innerHTML;
+    const savedSchool = document.getElementById('SelectedSpell').childNodes[0].childNodes[1].childNodes[2].innerHTML;
+    const savedCastingTime = document.getElementById('SelectedSpell').childNodes[0].childNodes[1].childNodes[3].innerHTML;
+    const savedRange = document.getElementById('SelectedSpell').childNodes[0].childNodes[1].childNodes[4].innerHTML;
+    const savedDuration = document.getElementById('SelectedSpell').childNodes[0].childNodes[1].childNodes[5].innerHTML;
+    const savedDamage = document.getElementById('SelectedSpell').childNodes[0].childNodes[1].childNodes[6].innerHTML;
+    const savedDamageType = document.getElementById('SelectedSpell').childNodes[0].childNodes[1].childNodes[7].innerHTML;
+    const savedSpellEffect = document.getElementById('SelectedSpell').childNodes[0].childNodes[1].childNodes[8].innerHTML;
+
+    this.bookmarkedSpell.name = Savedname.substring(Savedname.indexOf(':') + 1, Savedname.length);
+    this.bookmarkedSpell.id = SavedID.substring(SavedID.indexOf(':') + 1, SavedID.length);// id
+    this.bookmarkedSpell.level = savedLevel.substring(savedLevel.indexOf(':') + 1, savedLevel.length);// armorClass
+    this.bookmarkedSpell.school = savedSchool.substring(savedSchool.indexOf(':') + 1, savedSchool.length);// speed
+    this.bookmarkedSpell.castingtime = savedCastingTime.substring(savedCastingTime.indexOf(':') + 1, savedCastingTime.length);// hp
+    this.bookmarkedSpell.range = savedRange.substring(savedRange.indexOf(':') + 1, savedRange.length);// spells
+    this.bookmarkedSpell.duration = savedDuration.substring(savedDuration.indexOf(':') + 1, savedDuration.length);// armorClass
+    this.bookmarkedSpell.damage = savedDamage.substring(savedDamage.indexOf(':') + 1, savedDamage.length);// speed
+    this.bookmarkedSpell.damagetype = savedDamageType.substring(savedDamageType.indexOf(':') + 1, savedDamageType.length);// hp
+    this.bookmarkedSpell.statuseffect = savedSpellEffect.substring(savedSpellEffect.indexOf(':') + 1, savedSpellEffect.length);// spells
+    // send to bookmarked
+    this.changeBookMarkImage();
     console.log('bookmarked');
   }
 
   // eslint-disable-next-line class-methods-use-this
-  changeImage() {
+  changeBookMarkImage() {
     if (document.getElementById('bookmark').src === 'https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg') {
       document.getElementById('bookmark').src = 'https://visualpharm.com/assets/466/Filled%20Bookmark%20Ribbon-595b40b85ba036ed117dc0ee.svg';
     } else {
@@ -624,7 +679,11 @@ export default class SpellForm extends Mixins(GlobalMixin) {
   width: 75%;
   background-color: #2c3e50;
 }
-.SpellCard{
+#SpellCard{
   background-color: white;
+}
+
+#SelectedSpell{
+  background-color: #7a7a7a;
 }
 </style>

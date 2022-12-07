@@ -156,6 +156,19 @@
         </b-form>
       </b-modal>
     </div>
+    <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+      <div id="test" class="card-body">
+        <h1 id="MonsterName">Name:</h1>
+        <ul id="MonsterDataList">
+          <li id="MonsterID">ID:</li>
+          <li id="MonsterAc">AC:</li>
+          <li id="MonsterSpeed">Speed:</li>
+          <li id="MonsterHP">HP:</li>
+          <li id="MonsterSpells">SPELLS:</li>
+        </ul>
+        <b-form-checkbox id="checkbox" @change="selectMonster"/>
+      </div>
+    </article>
     <div class="cards">
       <article class="card" style="max-width: 20rem;">
         <div class="card-body">
@@ -178,19 +191,7 @@
         </div>
       </article>
     </div>
-    <article id="MonsterCard" class="MonsterCard" style="max-width: 20rem;">
-      <div id="test" class="card-body">
-        <h1 id="MonsterName">Name:</h1>
-        <ul>
-          <li id="MonsterID">ID:</li>
-          <li id="MonsterAc">AC:</li>
-          <li id="MonsterSpeed">Speed:</li>
-          <li id="MonsterHP">HP:</li>
-          <li id="MonsterSpells">SPELLS:</li>
-        </ul>
-        <b-form-checkbox id="checkbox" @change="selectMonster"/>
-      </div>
-    </article>
+
   </div>
 
 </template>
@@ -249,6 +250,7 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
 
   tempMonster = this.Monster; // sets Monster Object as the data to be sent
 
+  // bookmarkedMonster = this.Monster;
   //  do the book mark
   // bookmarkMonster() {
   //
@@ -256,33 +258,72 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
 
   // eslint-disable-next-line class-methods-use-this
   selectMonster() {
+    const MonsterCardToSelectID = document.getElementById('checkbox').parentNode.parentNode.parentNode.id;
     if (document.getElementById('checkbox').checked === true) {
-      const MonsterCardToSelectID = document.getElementById('checkbox').parentNode.parentNode.parentNode.id;
+      if (document.getElementById('MonsterCard').className === 'MonsterBookmarked') {
+        document.getElementById('bookmark').src = 'https://visualpharm.com/assets/466/Filled%20Bookmark%20Ribbon-595b40b85ba036ed117dc0ee.svg';
+      }
+      alert('selected');
+
       document.getElementById(MonsterCardToSelectID).id = 'SelectedMonster';
-    } else {
-      console.log('unchecked');
+    } else if (document.getElementById('checkbox').checked === false) {
+      document.getElementById('SelectedMonster').id = 'MonsterCard';
+      if (document.getElementById('MonsterCard').className === 'MonsterBookmarked') {
+        document.getElementById('bookmark').src = 'https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg';
+        alert('unselect');
+      }
     }
+    // (MonsterCardToSelectID.id === 'SelectedMonster') {
+    // alert('unselect');
+    // if (document.getElementById('bookmark').src === 'https://visualpharm.com/assets/466/Filled%20Bookmark%20Ribbon-595b40b85ba036ed117dc0ee.svg') {
+    //   document.getElementById('bookmark').src = 'https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg';
+    //   document.getElementById(MonsterCardToSelectID).id = 'MonsterCard';
+    //   console.log('unchecked');
+    // } else {
+    //   document.getElementById(MonsterCardToSelectID).id = 'MonsterCard';
+    //   console.log('unchecked');
+    // }
+    // }
   }
 
   // do the delete
   // eslint-disable-next-line class-methods-use-this
   DeleteMonster() {
-    document.getElementById('SelectedMonster').innerHTML = '';
-
-    document.getElementById('checkbox').checked = false;
+    if (document.getElementById('bookmark').src === 'https://visualpharm.com/assets/466/Filled%20Bookmark%20Ribbon-595b40b85ba036ed117dc0ee.svg') {
+      document.getElementById('bookmark').src = 'https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg';
+    }
+    document.getElementById('SelectedMonster').remove();
     console.log('Deleted');
-
   //  run APIdeletehere
   }
 
   // eslint-disable-next-line class-methods-use-this
   bookmarkMonster() {
-    this.changeImage();
+    const MonsterCardToSelectID = document.getElementById('checkbox').parentNode.parentNode.parentNode.id;
+    if (document.getElementById(MonsterCardToSelectID).className === 'MonsterUnBookmarked') {
+      document.getElementById(MonsterCardToSelectID).className = 'MonsterBookmarked';
+    }
+    this.bookmarkedMonster = this.Monster;
+    const Savedname = document.getElementById('SelectedMonster').childNodes[0].childNodes[0].innerHTML;
+    const SavedID = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[0].innerHTML;
+    const savedAC = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;
+    const savedSpeed = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;
+    const savedHP = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;
+    const savedSpells = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;
+
+    this.bookmarkedMonster.name = Savedname.substring(Savedname.indexOf(':') + 1, Savedname.length);
+    this.bookmarkedMonster.id = SavedID.substring(SavedID.indexOf(':') + 1, SavedID.length);// id
+    this.bookmarkedMonster.armorclass = savedAC.substring(savedAC.indexOf(':') + 1, savedAC.length);// armorClass
+    this.bookmarkedMonster.speed = savedSpeed.substring(savedSpeed.indexOf(':') + 1, savedSpeed.length);// speed
+    this.bookmarkedMonster.hitpoints = savedHP.substring(savedHP.indexOf(':') + 1, savedHP.length);// hp
+    this.bookmarkedMonster.spell = savedSpells.substring(savedSpells.indexOf(':') + 1, savedSpells.length);// spells
+    this.changeBookMarkImage();
+    // send to bookmarked
     console.log('bookmarked');
   }
 
   // eslint-disable-next-line class-methods-use-this
-  changeImage() {
+  changeBookMarkImage() {
     if (document.getElementById('bookmark').src === 'https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg') {
       document.getElementById('bookmark').src = 'https://visualpharm.com/assets/466/Filled%20Bookmark%20Ribbon-595b40b85ba036ed117dc0ee.svg';
     } else {
@@ -481,7 +522,12 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
   background-color: #2c3e50;
 }
 
-.MonsterCard{
+#MonsterCard{
   background-color: white;
 }
+
+#SelectedMonster{
+  background-color: #7a7a7a;
+}
+
 </style>
