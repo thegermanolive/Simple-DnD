@@ -269,7 +269,7 @@
         </b-form>
       </b-modal>
     </div>
-    <div class="cards">
+    <div class="FunctionCards">
       <article class="card" style="max-width: 20rem;">
         <div class="card-body">
           <b-button v-b-modal.ADDSPELL> <img src="https://visualpharm.com/assets/366/Add%20Property-595b40b75ba036ed117d532d.svg" alt="Image" class="card-img-top" height="232px">Add Spell</b-button>
@@ -669,7 +669,7 @@ export default class SpellForm extends Mixins(GlobalMixin) {
   color: black;
 }
 
-.cards{
+.FunctionCards{
   display: flex;
   justify-content: center;
   background-color: #2c3e50;

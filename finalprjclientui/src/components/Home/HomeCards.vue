@@ -1,5 +1,5 @@
 <template>
-  <div class="cards">
+  <div class="FunctionCards">
     <article class="card" style="max-width: 20rem;">
       <div class="card-body">
         <b-button href="http://localhost:8080/#/Spells"> <img src="https://visualpharm.com/assets/970/Fire%20Element-595b40b75ba036ed117d5f0f.svg" alt="Image" class="card-img-top" height="232px">Spells</b-button>
@@ -48,7 +48,7 @@ export default class HomeCards extends Vue {}
 </script>
 
 <style scoped>
-.cards{
+.FunctionCards{
   display: flex;
   justify-content: center;
   background-color: #2c3e50;

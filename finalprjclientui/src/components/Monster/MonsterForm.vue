@@ -166,10 +166,23 @@
           <li id="MonsterHP">HP:</li>
           <li id="MonsterSpells">SPELLS:</li>
         </ul>
-        <b-form-checkbox id="checkbox" @change="selectMonster"/>
+        <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
       </div>
     </article>
-    <div class="cards">
+    <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+      <div id="test" class="card-body">
+        <h1 id="MonsterName">Name:</h1>
+        <ul id="MonsterDataList">
+          <li id="MonsterID">ID:</li>
+          <li id="MonsterAc">AC:</li>
+          <li id="MonsterSpeed">Speed:</li>
+          <li id="MonsterHP">HP:</li>
+          <li id="MonsterSpells">SPELLS:</li>
+        </ul>
+        <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+      </div>
+    </article>
+    <div class="FunctionCards">
       <article class="card" style="max-width: 20rem;">
         <div class="card-body">
           <b-button v-b-modal.ADDMONSTER> <img src="https://visualpharm.com/assets/366/Add%20Property-595b40b75ba036ed117d532d.svg" alt="Image" class="card-img-top" height="232px">Add Monster</b-button>
@@ -256,30 +269,22 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
 
   // eslint-disable-next-line class-methods-use-this
   selectMonster() {
-    const MonsterCardToSelectID = document.getElementById('checkbox').parentNode.parentNode.parentNode.id;
-    if (document.getElementById('checkbox').checked === true) {
-      if (document.getElementById('MonsterCard').className === 'MonsterBookmarked') {
-        document.getElementById('bookmark').src = 'https://visualpharm.com/assets/466/Filled%20Bookmark%20Ribbon-595b40b85ba036ed117dc0ee.svg';
-      }
-
-      document.getElementById(MonsterCardToSelectID).id = 'SelectedMonster';
-    } else if (document.getElementById('checkbox').checked === false) {
-      document.getElementById('SelectedMonster').id = 'MonsterCard';
-      if (document.getElementById('MonsterCard').className === 'MonsterBookmarked') {
-        document.getElementById('bookmark').src = 'https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg';
+    const cards = document.getElementsByClassName('MonsterCheck');
+    let i;
+    let MonsterCardToSelect;
+    // eslint-disable-next-line no-plusplus
+    for (i = 0; i < cards.length; i++) {
+      if (cards[i].childNodes[0].checked === true) {
+        MonsterCardToSelect = i;
+      } else {
+        cards[i].parentNode.parentNode.id = 'MonsterCard';
       }
     }
-    // (MonsterCardToSelectID.id === 'SelectedMonster') {
-    // alert('unselect');
-    // if (document.getElementById('bookmark').src === 'https://visualpharm.com/assets/466/Filled%20Bookmark%20Ribbon-595b40b85ba036ed117dc0ee.svg') {
-    //   document.getElementById('bookmark').src = 'https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg';
-    //   document.getElementById(MonsterCardToSelectID).id = 'MonsterCard';
-    //   console.log('unchecked');
-    // } else {
-    //   document.getElementById(MonsterCardToSelectID).id = 'MonsterCard';
-    //   console.log('unchecked');
-    // }
-    // }
+    if (cards[MonsterCardToSelect].parentNode.parentNode.id !== 'SelectedMonster') {
+      alert('selected');
+      cards[MonsterCardToSelect].parentNode.parentNode.id = 'SelectedMonster';
+    }
+    // eslint-disable-next-line no-empty
   }
 
   // do the delete
@@ -295,27 +300,30 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
 
   // eslint-disable-next-line class-methods-use-this
   bookmarkMonster() {
-    const MonsterCardToSelectID = document.getElementById('checkbox').parentNode.parentNode.parentNode.id;
-    if (document.getElementById(MonsterCardToSelectID).className === 'MonsterUnBookmarked') {
-      document.getElementById(MonsterCardToSelectID).className = 'MonsterBookmarked';
-    }
-    this.bookmarkedMonster = this.Monster;
-    const Savedname = document.getElementById('SelectedMonster').childNodes[0].childNodes[0].innerHTML;
-    const SavedID = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[0].innerHTML;
-    const savedAC = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;
-    const savedSpeed = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;
-    const savedHP = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;
-    const savedSpells = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;
+    if (document.getElementById('SelectedMonster').className === 'MonsterUnBookmarked') {
+      document.getElementById('SelectedMonster').className = 'MonsterBookmarked';
+      this.bookmarkedMonster = this.Monster;
+      const Savedname = document.getElementById('SelectedMonster').childNodes[0].childNodes[0].innerHTML;
+      const SavedID = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[0].innerHTML;
+      const savedAC = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;
+      const savedSpeed = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;
+      const savedHP = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;
+      const savedSpells = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;
 
-    this.bookmarkedMonster.name = Savedname.substring(Savedname.indexOf(':') + 1, Savedname.length);
-    this.bookmarkedMonster.id = SavedID.substring(SavedID.indexOf(':') + 1, SavedID.length);// id
-    this.bookmarkedMonster.armorclass = savedAC.substring(savedAC.indexOf(':') + 1, savedAC.length);// armorClass
-    this.bookmarkedMonster.speed = savedSpeed.substring(savedSpeed.indexOf(':') + 1, savedSpeed.length);// speed
-    this.bookmarkedMonster.hitpoints = savedHP.substring(savedHP.indexOf(':') + 1, savedHP.length);// hp
-    this.bookmarkedMonster.spell = savedSpells.substring(savedSpells.indexOf(':') + 1, savedSpells.length);// spells
-    this.changeBookMarkImage();
-    // send to bookmarked
-    console.log('bookmarked');
+      this.bookmarkedMonster.name = Savedname.substring(Savedname.indexOf(':') + 1, Savedname.length);
+      this.bookmarkedMonster.id = SavedID.substring(SavedID.indexOf(':') + 1, SavedID.length);// id
+      this.bookmarkedMonster.armorclass = savedAC.substring(savedAC.indexOf(':') + 1, savedAC.length);// armorClass
+      this.bookmarkedMonster.speed = savedSpeed.substring(savedSpeed.indexOf(':') + 1, savedSpeed.length);// speed
+      this.bookmarkedMonster.hitpoints = savedHP.substring(savedHP.indexOf(':') + 1, savedHP.length);// hp
+      this.bookmarkedMonster.spell = savedSpells.substring(savedSpells.indexOf(':') + 1, savedSpells.length);// spells
+      this.changeBookMarkImage();
+      // send to bookmarked
+      console.log('bookmarked');
+      // eslint-disable-next-line no-empty
+    } else if (document.getElementById('SelectedMonster').className === 'MonsterBookmarked') {
+      document.getElementById('SelectedMonster').className = 'MonsterUnBookmarked';
+      this.changeBookMarkImage();
+    }
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -507,7 +515,7 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
 </script>
 
 <style scoped>
-.cards{
+.FunctionCards{
   display: flex;
   justify-content: center;
   background-color: #2c3e50;
