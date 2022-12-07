@@ -83,7 +83,6 @@ export default class UserForm extends Mixins(GlobalMixin) {
     this.username = '';
     this.password = '';
     // test to make sure its outputing properly
-    document.getElementById('test').innerHTML = `${this.tempUser.password} ${this.tempUser.username}`;
   }
 
   // eslint-disable-next-line class-methods-use-this

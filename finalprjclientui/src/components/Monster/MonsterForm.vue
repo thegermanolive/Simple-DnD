@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="Parrent">
     <div>
       <b-modal
         id="ADDMONSTER"
@@ -178,8 +178,8 @@
         </div>
       </article>
     </div>
-    <article class="MonsterCard" style="max-width: 20rem;">
-      <div class="card-body">
+    <article id="MonsterCard" class="MonsterCard" style="max-width: 20rem;">
+      <div id="test" class="card-body">
         <h1 id="MonsterName">Name:</h1>
         <ul>
           <li id="MonsterID">ID:</li>
@@ -188,8 +188,7 @@
           <li id="MonsterHP">HP:</li>
           <li id="MonsterSpells">SPELLS:</li>
         </ul>
-        <ui>
-        </ui>
+        <b-form-checkbox id="checkbox" @change="selectMonster"/>
       </div>
     </article>
   </div>
@@ -255,10 +254,25 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
   //
   // }
 
+  // eslint-disable-next-line class-methods-use-this
+  selectMonster() {
+    if (document.getElementById('checkbox').checked === true) {
+      const MonsterCardToSelectID = document.getElementById('checkbox').parentNode.parentNode.parentNode.id;
+      document.getElementById(MonsterCardToSelectID).id = 'SelectedMonster';
+    } else {
+      console.log('unchecked');
+    }
+  }
+
   // do the delete
   // eslint-disable-next-line class-methods-use-this
   DeleteMonster() {
+    document.getElementById('SelectedMonster').innerHTML = '';
+
+    document.getElementById('checkbox').checked = false;
     console.log('Deleted');
+
+  //  run APIdeletehere
   }
 
   // eslint-disable-next-line class-methods-use-this
