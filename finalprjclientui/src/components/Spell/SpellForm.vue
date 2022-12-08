@@ -534,6 +534,11 @@
         <div class="card-body">
           <b-button @mouseover="OpenCan" @focus="OpenCan" @mouseleave="CloseCan" @focusout="CloseCan" @click="deleteSpell"><img id="trash" src="https://visualpharm.com/assets/441/Empty%20Trash-595b40b75ba036ed117d5dc0.svg" alt="Image" class="card-img-top" height="232px">Delete Spell</b-button></div>
       </article>
+      <article class="card" style="max-width: 20rem;">
+        <div class="card-body">
+          <b-button @click="RefreshDB"><img id="refresh" src="https://visualpharm.com/assets/175/Data%20Backup-595b40b75ba036ed117d93c3.svg" alt="Image" class="card-img-top" height="232px">Refresh Spells</b-button>
+        </div>
+      </article>
     </div>
   </div>
 </template>

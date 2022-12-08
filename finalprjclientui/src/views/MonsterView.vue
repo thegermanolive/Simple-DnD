@@ -21,7 +21,7 @@ import {
   BCardHeader, BCardFooter, BCardBody, BCardTitle,
   BCardSubTitle, BCardImg, BCardImgLazy, BCardGroup,
 } from 'bootstrap-vue';
-import MonsterForm from '@/components/Monster/MonsterForm.vue';
+import MonsterForm from '@/components/Monster/MonsterFormAndCards.vue';
 import GlobalMixin from '@/mixins/global-mixin';
 
 Vue.component('BCard', BCard);

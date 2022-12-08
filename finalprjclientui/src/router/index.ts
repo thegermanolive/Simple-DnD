@@ -5,6 +5,7 @@ import HomeView from '@/views/HomeView.vue';
 import MonsterView from '@/views/MonsterView.vue';
 import DMLoginView from '@/views/DMLoginView.vue';
 import Bookmarks from '@/views/BookmarkView.vue';
+import UnAuthorized from '@/views/UnAuthorizedView.vue';
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,11 @@ const routes: Array<RouteConfig> = [
     path: '/Bookmarks',
     name: 'Bookmarks',
     component: Bookmarks,
+  },
+  {
+    path: '/UnAuthorized',
+    name: 'UnAuthorized',
+    component: UnAuthorized,
   },
 ];
 
