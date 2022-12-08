@@ -8,7 +8,7 @@
     <article class="card" style="max-width: 20rem;">
 
       <div class="card-body">
-        <b-button href="http://localhost:8080/#/Monsters"> <img src="https://visualpharm.com/assets/661/The%20Dragon%20Team-595b40b85ba036ed117db4c2.svg" alt="Image" class="card-img-top" height="232px">Monsters</b-button>
+        <b-button @click="OpenMonsters"> <img src="https://visualpharm.com/assets/661/The%20Dragon%20Team-595b40b85ba036ed117db4c2.svg" alt="Image" class="card-img-top" height="232px">Monsters</b-button>
       </div>
     </article>
     <article class="card" style="max-width: 20rem;">
@@ -27,12 +27,14 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+
+import { Component, Mixins, Vue } from 'vue-property-decorator';
 import {
   BCard, BCardText, BLink, BButton, CardPlugin,
   BCardHeader, BCardFooter, BCardBody, BCardTitle,
   BCardSubTitle, BCardImg, BCardImgLazy, BCardGroup,
 } from 'bootstrap-vue';
+import GlobalMixin from '@/mixins/global-mixin';
 
 Vue.component('BCard', BCard);
 Vue.component('BCardText', BCardText);
@@ -44,7 +46,13 @@ Vue.use(CardPlugin);
     BCard, BCardText, BLink, BButton,
   },
 })
-export default class HomeCards extends Vue {}
+export default class HomeCards extends Mixins(GlobalMixin) {
+  // eslint-disable-next-line class-methods-use-this
+  OpenMonsters() {
+    window.location.replace('http://localhost:8080/#/UnAuthorized');
+  }
+}
+
 </script>
 
 <style scoped>
