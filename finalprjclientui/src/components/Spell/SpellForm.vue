@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="Parrent">
     <div>
       <b-modal
         id="ADDSPELL"
@@ -269,40 +269,248 @@
         </b-form>
       </b-modal>
     </div>
-    <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
-      <div id="test" class="card-body">
-        <h1 id="SpellName">Name:</h1>
-        <ul id="SpellDataList">
-          <li id="SpellID">ID:</li>
-          <li id="SpellLevel">Level:</li>
-          <li id="SpellSchool">School:</li>
-          <li id="SpellCastingTime">Casting Time:</li>
-          <li id="SpellRange">Range:</li>
-          <li id="SpellDuration">Duration:</li>
-          <li id="SpellDamage">Damage:</li>
-          <li id="SpellDamageType">Damage Type:</li>
-          <li id="SpellEffect">Status Effect:</li>
-        </ul>
-        <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
+    <div id="scrollspy-nested" style="position:relative; height:350px; overflow-y:auto">
+      <div>
+        <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
+          <div id="test" class="card-body">
+            <h1 id="SpellName">Name:</h1>
+            <ul id="SpellDataList">
+              <li id="SpellID">ID:</li>
+              <li id="SpellLevel">Level:</li>
+              <li id="SpellSchool">School:</li>
+              <li id="SpellCastingTime">Casting Time:</li>
+              <li id="SpellRange">Range:</li>
+              <li id="SpellDuration">Duration:</li>
+              <li id="SpellDamage">Damage:</li>
+              <li id="SpellDamageType">Damage Type:</li>
+              <li id="SpellEffect">Status Effect:</li>
+            </ul>
+            <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
+          </div>
+        </article>
+        <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
+          <div id="test" class="card-body">
+            <h1 id="SpellName">Name:</h1>
+            <ul>
+              <li id="SpellID">ID:</li>
+              <li id="SpellLevel">Level:</li>
+              <li id="SpellSchool">School:</li>
+              <li id="SpellCastingTime">Casting Time:</li>
+              <li id="SpellRange">Range:</li>
+              <li id="SpellDuration">Duration:</li>
+              <li id="SpellDamage">Damage:</li>
+              <li id="SpellDamageType">Damage Type:</li>
+              <li id="SpellEffect">Status Effect:</li>
+            </ul>
+            <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
+          </div>
+        </article>
+        <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
+          <div id="test" class="card-body">
+            <h1 id="SpellName">Name:</h1>
+            <ul id="SpellDataList">
+              <li id="SpellID">ID:</li>
+              <li id="SpellLevel">Level:</li>
+              <li id="SpellSchool">School:</li>
+              <li id="SpellCastingTime">Casting Time:</li>
+              <li id="SpellRange">Range:</li>
+              <li id="SpellDuration">Duration:</li>
+              <li id="SpellDamage">Damage:</li>
+              <li id="SpellDamageType">Damage Type:</li>
+              <li id="SpellEffect">Status Effect:</li>
+            </ul>
+            <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
+          </div>
+        </article>
+        <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
+          <div id="test" class="card-body">
+            <h1 id="SpellName">Name:</h1>
+            <ul>
+              <li id="SpellID">ID:</li>
+              <li id="SpellLevel">Level:</li>
+              <li id="SpellSchool">School:</li>
+              <li id="SpellCastingTime">Casting Time:</li>
+              <li id="SpellRange">Range:</li>
+              <li id="SpellDuration">Duration:</li>
+              <li id="SpellDamage">Damage:</li>
+              <li id="SpellDamageType">Damage Type:</li>
+              <li id="SpellEffect">Status Effect:</li>
+            </ul>
+            <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
+          </div>
+        </article>
+        <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
+          <div id="test" class="card-body">
+            <h1 id="SpellName">Name:</h1>
+            <ul id="SpellDataList">
+              <li id="SpellID">ID:</li>
+              <li id="SpellLevel">Level:</li>
+              <li id="SpellSchool">School:</li>
+              <li id="SpellCastingTime">Casting Time:</li>
+              <li id="SpellRange">Range:</li>
+              <li id="SpellDuration">Duration:</li>
+              <li id="SpellDamage">Damage:</li>
+              <li id="SpellDamageType">Damage Type:</li>
+              <li id="SpellEffect">Status Effect:</li>
+            </ul>
+            <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
+          </div>
+        </article>
+        <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
+          <div id="test" class="card-body">
+            <h1 id="SpellName">Name:</h1>
+            <ul>
+              <li id="SpellID">ID:</li>
+              <li id="SpellLevel">Level:</li>
+              <li id="SpellSchool">School:</li>
+              <li id="SpellCastingTime">Casting Time:</li>
+              <li id="SpellRange">Range:</li>
+              <li id="SpellDuration">Duration:</li>
+              <li id="SpellDamage">Damage:</li>
+              <li id="SpellDamageType">Damage Type:</li>
+              <li id="SpellEffect">Status Effect:</li>
+            </ul>
+            <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
+          </div>
+        </article>
+        <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
+          <div id="test" class="card-body">
+            <h1 id="SpellName">Name:</h1>
+            <ul id="SpellDataList">
+              <li id="SpellID">ID:</li>
+              <li id="SpellLevel">Level:</li>
+              <li id="SpellSchool">School:</li>
+              <li id="SpellCastingTime">Casting Time:</li>
+              <li id="SpellRange">Range:</li>
+              <li id="SpellDuration">Duration:</li>
+              <li id="SpellDamage">Damage:</li>
+              <li id="SpellDamageType">Damage Type:</li>
+              <li id="SpellEffect">Status Effect:</li>
+            </ul>
+            <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
+          </div>
+        </article>
+        <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
+          <div id="test" class="card-body">
+            <h1 id="SpellName">Name:</h1>
+            <ul>
+              <li id="SpellID">ID:</li>
+              <li id="SpellLevel">Level:</li>
+              <li id="SpellSchool">School:</li>
+              <li id="SpellCastingTime">Casting Time:</li>
+              <li id="SpellRange">Range:</li>
+              <li id="SpellDuration">Duration:</li>
+              <li id="SpellDamage">Damage:</li>
+              <li id="SpellDamageType">Damage Type:</li>
+              <li id="SpellEffect">Status Effect:</li>
+            </ul>
+            <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
+          </div>
+        </article>
+        <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
+          <div id="test" class="card-body">
+            <h1 id="SpellName">Name:</h1>
+            <ul id="SpellDataList">
+              <li id="SpellID">ID:</li>
+              <li id="SpellLevel">Level:</li>
+              <li id="SpellSchool">School:</li>
+              <li id="SpellCastingTime">Casting Time:</li>
+              <li id="SpellRange">Range:</li>
+              <li id="SpellDuration">Duration:</li>
+              <li id="SpellDamage">Damage:</li>
+              <li id="SpellDamageType">Damage Type:</li>
+              <li id="SpellEffect">Status Effect:</li>
+            </ul>
+            <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
+          </div>
+        </article>
+        <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
+          <div id="test" class="card-body">
+            <h1 id="SpellName">Name:</h1>
+            <ul>
+              <li id="SpellID">ID:</li>
+              <li id="SpellLevel">Level:</li>
+              <li id="SpellSchool">School:</li>
+              <li id="SpellCastingTime">Casting Time:</li>
+              <li id="SpellRange">Range:</li>
+              <li id="SpellDuration">Duration:</li>
+              <li id="SpellDamage">Damage:</li>
+              <li id="SpellDamageType">Damage Type:</li>
+              <li id="SpellEffect">Status Effect:</li>
+            </ul>
+            <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
+          </div>
+        </article>
+        <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
+          <div id="test" class="card-body">
+            <h1 id="SpellName">Name:</h1>
+            <ul id="SpellDataList">
+              <li id="SpellID">ID:</li>
+              <li id="SpellLevel">Level:</li>
+              <li id="SpellSchool">School:</li>
+              <li id="SpellCastingTime">Casting Time:</li>
+              <li id="SpellRange">Range:</li>
+              <li id="SpellDuration">Duration:</li>
+              <li id="SpellDamage">Damage:</li>
+              <li id="SpellDamageType">Damage Type:</li>
+              <li id="SpellEffect">Status Effect:</li>
+            </ul>
+            <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
+          </div>
+        </article>
+        <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
+          <div id="test" class="card-body">
+            <h1 id="SpellName">Name:</h1>
+            <ul>
+              <li id="SpellID">ID:</li>
+              <li id="SpellLevel">Level:</li>
+              <li id="SpellSchool">School:</li>
+              <li id="SpellCastingTime">Casting Time:</li>
+              <li id="SpellRange">Range:</li>
+              <li id="SpellDuration">Duration:</li>
+              <li id="SpellDamage">Damage:</li>
+              <li id="SpellDamageType">Damage Type:</li>
+              <li id="SpellEffect">Status Effect:</li>
+            </ul>
+            <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
+          </div>
+        </article>
+        <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
+          <div id="test" class="card-body">
+            <h1 id="SpellName">Name:</h1>
+            <ul id="SpellDataList">
+              <li id="SpellID">ID:</li>
+              <li id="SpellLevel">Level:</li>
+              <li id="SpellSchool">School:</li>
+              <li id="SpellCastingTime">Casting Time:</li>
+              <li id="SpellRange">Range:</li>
+              <li id="SpellDuration">Duration:</li>
+              <li id="SpellDamage">Damage:</li>
+              <li id="SpellDamageType">Damage Type:</li>
+              <li id="SpellEffect">Status Effect:</li>
+            </ul>
+            <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
+          </div>
+        </article>
+        <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
+          <div id="test" class="card-body">
+            <h1 id="SpellName">Name:</h1>
+            <ul>
+              <li id="SpellID">ID:</li>
+              <li id="SpellLevel">Level:</li>
+              <li id="SpellSchool">School:</li>
+              <li id="SpellCastingTime">Casting Time:</li>
+              <li id="SpellRange">Range:</li>
+              <li id="SpellDuration">Duration:</li>
+              <li id="SpellDamage">Damage:</li>
+              <li id="SpellDamageType">Damage Type:</li>
+              <li id="SpellEffect">Status Effect:</li>
+            </ul>
+            <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
+          </div>
+        </article>
       </div>
-    </article>
-    <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
-      <div id="test" class="card-body">
-        <h1 id="SpellName">Name:</h1>
-        <ul>
-          <li id="SpellID">ID:</li>
-          <li id="SpellLevel">Level:</li>
-          <li id="SpellSchool">School:</li>
-          <li id="SpellCastingTime">Casting Time:</li>
-          <li id="SpellRange">Range:</li>
-          <li id="SpellDuration">Duration:</li>
-          <li id="SpellDamage">Damage:</li>
-          <li id="SpellDamageType">Damage Type:</li>
-          <li id="SpellEffect">Status Effect:</li>
-        </ul>
-        <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
-      </div>
-    </article>
+    </div>
     <div class="FunctionCards">
       <article class="card" style="max-width: 20rem;">
         <div class="card-body">
@@ -329,7 +537,6 @@
     </div>
   </div>
 </template>
-
 <script>
 
 import { Component, Mixins, Vue } from 'vue-property-decorator';
@@ -700,10 +907,16 @@ export default class SpellForm extends Mixins(GlobalMixin) {
   background-color: #2c3e50;
 }
 #SpellCard{
+  margin: 20px;
+  width: 75%;
+  display: inline-block;
   background-color: white;
 }
 
 #SelectedSpell{
+  margin: 20px;
+  width: 75%;
+  display: inline-block;
   background-color: #7a7a7a;
 }
 </style>

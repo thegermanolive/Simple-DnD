@@ -156,32 +156,34 @@
         </b-form>
       </b-modal>
     </div>
-    <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-      <div id="test" class="card-body">
-        <h1 id="MonsterName">Name:</h1>
-        <ul id="MonsterDataList">
-          <li id="MonsterID">ID:</li>
-          <li id="MonsterAc">AC:</li>
-          <li id="MonsterSpeed">Speed:</li>
-          <li id="MonsterHP">HP:</li>
-          <li id="MonsterSpells">SPELLS:</li>
-        </ul>
-        <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-      </div>
-    </article>
-    <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-      <div id="test" class="card-body">
-        <h1 id="MonsterName">Name:</h1>
-        <ul id="MonsterDataList">
-          <li id="MonsterID">ID:</li>
-          <li id="MonsterAc">AC:</li>
-          <li id="MonsterSpeed">Speed:</li>
-          <li id="MonsterHP">HP:</li>
-          <li id="MonsterSpells">SPELLS:</li>
-        </ul>
-        <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-      </div>
-    </article>
+    <div id="scrollspy-nested" style="position:relative; height:350px; overflow-y:auto">
+      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+        <div id="test" class="card-body">
+          <h1 id="MonsterName">Name:</h1>
+          <ul id="MonsterDataList">
+            <li id="MonsterID">ID:</li>
+            <li id="MonsterAc">AC:</li>
+            <li id="MonsterSpeed">Speed:</li>
+            <li id="MonsterHP">HP:</li>
+            <li id="MonsterSpells">SPELLS:</li>
+          </ul>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+        </div>
+      </article>
+      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+        <div id="test" class="card-body">
+          <h1 id="MonsterName">Name:</h1>
+          <ul id="MonsterDataList">
+            <li id="MonsterID">ID:</li>
+            <li id="MonsterAc">AC:</li>
+            <li id="MonsterSpeed">Speed:</li>
+            <li id="MonsterHP">HP:</li>
+            <li id="MonsterSpells">SPELLS:</li>
+          </ul>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+        </div>
+      </article>
+    </div>
     <div class="FunctionCards">
       <article class="card" style="max-width: 20rem;">
         <div class="card-body">
@@ -530,13 +532,17 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
   width: 75%;
   background-color: #2c3e50;
 }
-
 #MonsterCard{
+  margin: 20px;
+  width: 75%;
+  display: inline-block;
   background-color: white;
 }
 
 #SelectedMonster{
+  margin: 20px;
+  width: 75%;
+  display: inline-block;
   background-color: #7a7a7a;
 }
-
 </style>
