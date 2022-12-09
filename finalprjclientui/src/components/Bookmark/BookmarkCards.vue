@@ -4,142 +4,77 @@
    height:700px; width:2000px; overflow-y:auto">
       <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
         <div id="test" class="card-body">
-          <h1 id="ObjectName">Monster</h1>
+          <h1 id="MonsterName">Name:</h1>
           <ul id="MonsterDataList">
             <li id="MonsterID">ID:</li>
-            <li id="MonsterName">Name:</li>
+            <li id="MonsterCR">Challenge Rating:</li>
             <li id="MonsterAc">AC:</li>
             <li id="MonsterSpeed">Speed:</li>
             <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
+            <li id="MonsterSpells">Spells:</li>
+            <li id="MonsterAttacks">Attacks:</li>
           </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectBookmark"/>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
         </div>
       </article>
       <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
         <div id="test" class="card-body">
-          <h1 id="ObjectName">Monster</h1>
+          <h1 id="MonsterName">Name:</h1>
           <ul id="MonsterDataList">
             <li id="MonsterID">ID:</li>
-            <li id="MonsterName">Name:</li>
+            <li id="MonsterCR">Challenge Rating:</li>
             <li id="MonsterAc">AC:</li>
             <li id="MonsterSpeed">Speed:</li>
             <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
+            <li id="MonsterSpells">Spells:</li>
+            <li id="MonsterAttacks">Attacks:</li>
           </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectBookmark"/>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
         </div>
       </article>
       <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
         <div id="test" class="card-body">
-          <h1 id="ObjectName">Monster</h1>
+          <h1 id="MonsterName">Name:</h1>
           <ul id="MonsterDataList">
             <li id="MonsterID">ID:</li>
-            <li id="MonsterName">Name:</li>
+            <li id="MonsterCR">Challenge Rating:</li>
             <li id="MonsterAc">AC:</li>
             <li id="MonsterSpeed">Speed:</li>
             <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
+            <li id="MonsterSpells">Spells:</li>
+            <li id="MonsterAttacks">Attacks:</li>
           </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectBookmark"/>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
         </div>
       </article>
       <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
         <div id="test" class="card-body">
-          <h1 id="ObjectName">Monster</h1>
+          <h1 id="MonsterName">Name:</h1>
           <ul id="MonsterDataList">
             <li id="MonsterID">ID:</li>
-            <li id="MonsterName">Name:</li>
+            <li id="MonsterCR">Challenge Rating:</li>
             <li id="MonsterAc">AC:</li>
             <li id="MonsterSpeed">Speed:</li>
             <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
+            <li id="MonsterSpells">Spells:</li>
+            <li id="MonsterAttacks">Attacks:</li>
           </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectBookmark"/>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
         </div>
       </article>
       <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
         <div id="test" class="card-body">
-          <h1 id="ObjectName">Monster</h1>
+          <h1 id="MonsterName">Name:</h1>
           <ul id="MonsterDataList">
             <li id="MonsterID">ID:</li>
-            <li id="MonsterName">Name:</li>
+            <li id="MonsterCR">Challenge Rating:</li>
             <li id="MonsterAc">AC:</li>
             <li id="MonsterSpeed">Speed:</li>
             <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
+            <li id="MonsterSpells">Spells:</li>
+            <li id="MonsterAttacks">Attacks:</li>
           </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectBookmark"/>
-        </div>
-      </article>
-      <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="ObjectName">Monster</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterName">Name:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectBookmark"/>
-        </div>
-      </article>
-      <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="ObjectName">Monster</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterName">Name:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectBookmark"/>
-        </div>
-      </article>
-      <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="ObjectName">Monster</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterName">Name:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectBookmark"/>
-        </div>
-      </article>
-      <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="ObjectName">Monster</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterName">Name:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectBookmark"/>
-        </div>
-      </article>
-      <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="ObjectName">Monster</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterName">Name:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectBookmark"/>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
         </div>
       </article>
       <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
@@ -157,7 +92,7 @@
             <li id="SpellDamageType">Damage Type:</li>
             <li id="SpellEffect">Status Effect:</li>
           </ul>
-          <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectBookmark"/>
+          <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
         </div>
       </article>
       <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
@@ -175,7 +110,7 @@
             <li id="SpellDamageType">Damage Type:</li>
             <li id="SpellEffect">Status Effect:</li>
           </ul>
-          <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectBookmark"/>
+          <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
         </div>
       </article>
       <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
@@ -193,7 +128,7 @@
             <li id="SpellDamageType">Damage Type:</li>
             <li id="SpellEffect">Status Effect:</li>
           </ul>
-          <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectBookmark"/>
+          <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
         </div>
       </article>
       <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
@@ -211,7 +146,7 @@
             <li id="SpellDamageType">Damage Type:</li>
             <li id="SpellEffect">Status Effect:</li>
           </ul>
-          <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectBookmark"/>
+          <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
         </div>
       </article>
       <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
@@ -229,97 +164,7 @@
             <li id="SpellDamageType">Damage Type:</li>
             <li id="SpellEffect">Status Effect:</li>
           </ul>
-          <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectBookmark"/>
-        </div>
-      </article>
-      <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="ObjectName">Spell</h1>
-          <ul id="SpellDataList">
-            <li id="SpellID">ID:</li>
-            <li id="SpellName">Name:</li>
-            <li id="SpellLevel">Level:</li>
-            <li id="SpellSchool">School:</li>
-            <li id="SpellCastingTime">Casting Time:</li>
-            <li id="SpellRange">Range:</li>
-            <li id="SpellDuration">Duration:</li>
-            <li id="SpellDamage">Damage:</li>
-            <li id="SpellDamageType">Damage Type:</li>
-            <li id="SpellEffect">Status Effect:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectBookmark"/>
-        </div>
-      </article>
-      <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="ObjectName">Spell</h1>
-          <ul id="SpellDataList">
-            <li id="SpellID">ID:</li>
-            <li id="SpellName">Name:</li>
-            <li id="SpellLevel">Level:</li>
-            <li id="SpellSchool">School:</li>
-            <li id="SpellCastingTime">Casting Time:</li>
-            <li id="SpellRange">Range:</li>
-            <li id="SpellDuration">Duration:</li>
-            <li id="SpellDamage">Damage:</li>
-            <li id="SpellDamageType">Damage Type:</li>
-            <li id="SpellEffect">Status Effect:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectBookmark"/>
-        </div>
-      </article>
-      <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="ObjectName">Spell</h1>
-          <ul id="SpellDataList">
-            <li id="SpellID">ID:</li>
-            <li id="SpellName">Name:</li>
-            <li id="SpellLevel">Level:</li>
-            <li id="SpellSchool">School:</li>
-            <li id="SpellCastingTime">Casting Time:</li>
-            <li id="SpellRange">Range:</li>
-            <li id="SpellDuration">Duration:</li>
-            <li id="SpellDamage">Damage:</li>
-            <li id="SpellDamageType">Damage Type:</li>
-            <li id="SpellEffect">Status Effect:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectBookmark"/>
-        </div>
-      </article>
-      <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="ObjectName">Spell</h1>
-          <ul id="SpellDataList">
-            <li id="SpellID">ID:</li>
-            <li id="SpellName">Name:</li>
-            <li id="SpellLevel">Level:</li>
-            <li id="SpellSchool">School:</li>
-            <li id="SpellCastingTime">Casting Time:</li>
-            <li id="SpellRange">Range:</li>
-            <li id="SpellDuration">Duration:</li>
-            <li id="SpellDamage">Damage:</li>
-            <li id="SpellDamageType">Damage Type:</li>
-            <li id="SpellEffect">Status Effect:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectBookmark"/>
-        </div>
-      </article>
-      <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="ObjectName">Spell</h1>
-          <ul id="SpellDataList">
-            <li id="SpellID">ID:</li>
-            <li id="SpellName">Name:</li>
-            <li id="SpellLevel">Level:</li>
-            <li id="SpellSchool">School:</li>
-            <li id="SpellCastingTime">Casting Time:</li>
-            <li id="SpellRange">Range:</li>
-            <li id="SpellDuration">Duration:</li>
-            <li id="SpellDamage">Damage:</li>
-            <li id="SpellDamageType">Damage Type:</li>
-            <li id="SpellEffect">Status Effect:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectBookmark"/>
+          <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
         </div>
       </article>
     </div>

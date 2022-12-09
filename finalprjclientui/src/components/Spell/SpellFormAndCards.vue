@@ -855,8 +855,6 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     if (!this.checkEditFormValidity()) {
       return;
     }
-    alert('test');
-    alert(this.name);
     this.EditSpellOnCard(this.Spell.id);
     // Hide the modal
     this.$nextTick(() => {

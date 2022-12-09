@@ -210,6 +210,217 @@
           <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
         </div>
       </article>
+      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+        <div id="test" class="card-body">
+          <h1 id="MonsterName">Name:</h1>
+          <ul id="MonsterDataList">
+            <li id="MonsterID">ID:</li>
+            <li id="MonsterCR">Challenge Rating:</li>
+            <li id="MonsterAc">AC:</li>
+            <li id="MonsterSpeed">Speed:</li>
+            <li id="MonsterHP">HP:</li>
+            <li id="MonsterSpells">Spells:</li>
+            <li id="MonsterAttacks">Attacks:</li>
+          </ul>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+        </div>
+      </article>
+      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+        <div id="test" class="card-body">
+          <h1 id="MonsterName">Name:</h1>
+          <ul id="MonsterDataList">
+            <li id="MonsterID">ID:</li>
+            <li id="MonsterCR">Challenge Rating:</li>
+            <li id="MonsterAc">AC:</li>
+            <li id="MonsterSpeed">Speed:</li>
+            <li id="MonsterHP">HP:</li>
+            <li id="MonsterSpells">Spells:</li>
+            <li id="MonsterAttacks">Attacks:</li>
+          </ul>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+        </div>
+      </article>
+      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+        <div id="test" class="card-body">
+          <h1 id="MonsterName">Name:</h1>
+          <ul id="MonsterDataList">
+            <li id="MonsterID">ID:</li>
+            <li id="MonsterCR">Challenge Rating:</li>
+            <li id="MonsterAc">AC:</li>
+            <li id="MonsterSpeed">Speed:</li>
+            <li id="MonsterHP">HP:</li>
+            <li id="MonsterSpells">Spells:</li>
+            <li id="MonsterAttacks">Attacks:</li>
+          </ul>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+        </div>
+      </article>
+      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+        <div id="test" class="card-body">
+          <h1 id="MonsterName">Name:</h1>
+          <ul id="MonsterDataList">
+            <li id="MonsterID">ID:</li>
+            <li id="MonsterCR">Challenge Rating:</li>
+            <li id="MonsterAc">AC:</li>
+            <li id="MonsterSpeed">Speed:</li>
+            <li id="MonsterHP">HP:</li>
+            <li id="MonsterSpells">Spells:</li>
+            <li id="MonsterAttacks">Attacks:</li>
+          </ul>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+        </div>
+      </article>
+      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+        <div id="test" class="card-body">
+          <h1 id="MonsterName">Name:</h1>
+          <ul id="MonsterDataList">
+            <li id="MonsterID">ID:</li>
+            <li id="MonsterCR">Challenge Rating:</li>
+            <li id="MonsterAc">AC:</li>
+            <li id="MonsterSpeed">Speed:</li>
+            <li id="MonsterHP">HP:</li>
+            <li id="MonsterSpells">Spells:</li>
+            <li id="MonsterAttacks">Attacks:</li>
+          </ul>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+        </div>
+      </article>
+      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+        <div id="test" class="card-body">
+          <h1 id="MonsterName">Name:</h1>
+          <ul id="MonsterDataList">
+            <li id="MonsterID">ID:</li>
+            <li id="MonsterCR">Challenge Rating:</li>
+            <li id="MonsterAc">AC:</li>
+            <li id="MonsterSpeed">Speed:</li>
+            <li id="MonsterHP">HP:</li>
+            <li id="MonsterSpells">Spells:</li>
+            <li id="MonsterAttacks">Attacks:</li>
+          </ul>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+        </div>
+      </article>
+      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+        <div id="test" class="card-body">
+          <h1 id="MonsterName">Name:</h1>
+          <ul id="MonsterDataList">
+            <li id="MonsterID">ID:</li>
+            <li id="MonsterCR">Challenge Rating:</li>
+            <li id="MonsterAc">AC:</li>
+            <li id="MonsterSpeed">Speed:</li>
+            <li id="MonsterHP">HP:</li>
+            <li id="MonsterSpells">Spells:</li>
+            <li id="MonsterAttacks">Attacks:</li>
+          </ul>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+        </div>
+      </article>
+      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+        <div id="test" class="card-body">
+          <h1 id="MonsterName">Name:</h1>
+          <ul id="MonsterDataList">
+            <li id="MonsterID">ID:</li>
+            <li id="MonsterCR">Challenge Rating:</li>
+            <li id="MonsterAc">AC:</li>
+            <li id="MonsterSpeed">Speed:</li>
+            <li id="MonsterHP">HP:</li>
+            <li id="MonsterSpells">Spells:</li>
+            <li id="MonsterAttacks">Attacks:</li>
+          </ul>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+        </div>
+      </article>
+      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+        <div id="test" class="card-body">
+          <h1 id="MonsterName">Name:</h1>
+          <ul id="MonsterDataList">
+            <li id="MonsterID">ID:</li>
+            <li id="MonsterCR">Challenge Rating:</li>
+            <li id="MonsterAc">AC:</li>
+            <li id="MonsterSpeed">Speed:</li>
+            <li id="MonsterHP">HP:</li>
+            <li id="MonsterSpells">Spells:</li>
+            <li id="MonsterAttacks">Attacks:</li>
+          </ul>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+        </div>
+      </article>
+      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+        <div id="test" class="card-body">
+          <h1 id="MonsterName">Name:</h1>
+          <ul id="MonsterDataList">
+            <li id="MonsterID">ID:</li>
+            <li id="MonsterCR">Challenge Rating:</li>
+            <li id="MonsterAc">AC:</li>
+            <li id="MonsterSpeed">Speed:</li>
+            <li id="MonsterHP">HP:</li>
+            <li id="MonsterSpells">Spells:</li>
+            <li id="MonsterAttacks">Attacks:</li>
+          </ul>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+        </div>
+      </article>
+      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+        <div id="test" class="card-body">
+          <h1 id="MonsterName">Name:</h1>
+          <ul id="MonsterDataList">
+            <li id="MonsterID">ID:</li>
+            <li id="MonsterCR">Challenge Rating:</li>
+            <li id="MonsterAc">AC:</li>
+            <li id="MonsterSpeed">Speed:</li>
+            <li id="MonsterHP">HP:</li>
+            <li id="MonsterSpells">Spells:</li>
+            <li id="MonsterAttacks">Attacks:</li>
+          </ul>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+        </div>
+      </article>
+      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+        <div id="test" class="card-body">
+          <h1 id="MonsterName">Name:</h1>
+          <ul id="MonsterDataList">
+            <li id="MonsterID">ID:</li>
+            <li id="MonsterCR">Challenge Rating:</li>
+            <li id="MonsterAc">AC:</li>
+            <li id="MonsterSpeed">Speed:</li>
+            <li id="MonsterHP">HP:</li>
+            <li id="MonsterSpells">Spells:</li>
+            <li id="MonsterAttacks">Attacks:</li>
+          </ul>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+        </div>
+      </article>
+      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+        <div id="test" class="card-body">
+          <h1 id="MonsterName">Name:</h1>
+          <ul id="MonsterDataList">
+            <li id="MonsterID">ID:</li>
+            <li id="MonsterCR">Challenge Rating:</li>
+            <li id="MonsterAc">AC:</li>
+            <li id="MonsterSpeed">Speed:</li>
+            <li id="MonsterHP">HP:</li>
+            <li id="MonsterSpells">Spells:</li>
+            <li id="MonsterAttacks">Attacks:</li>
+          </ul>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+        </div>
+      </article>
+      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+        <div id="test" class="card-body">
+          <h1 id="MonsterName">Name:</h1>
+          <ul id="MonsterDataList">
+            <li id="MonsterID">ID:</li>
+            <li id="MonsterCR">Challenge Rating:</li>
+            <li id="MonsterAc">AC:</li>
+            <li id="MonsterSpeed">Speed:</li>
+            <li id="MonsterHP">HP:</li>
+            <li id="MonsterSpells">Spells:</li>
+            <li id="MonsterAttacks">Attacks:</li>
+          </ul>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+        </div>
+      </article>
+
     </div>
     <div class="FunctionCards">
       <article class="card" style="max-width: 20rem;">
