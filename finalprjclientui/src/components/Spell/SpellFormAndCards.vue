@@ -519,7 +519,7 @@
       <article class="card" style="max-width: 20rem;">
 
         <div class="card-body">
-          <b-button @mouseover="OpenCan" @focus="OpenCan" @mouseleave="CloseCan" @focusout="CloseCan" @click="deleteSpell"><img id="trash" src="https://visualpharm.com/assets/441/Empty%20Trash-595b40b75ba036ed117d5dc0.svg" alt="Image" class="card-img-top" height="232px">Delete Spell</b-button></div>
+          <b-button @mouseover="OpenCan" @focus="OpenCan" @mouseleave="CloseCan" @focusout="CloseCan" @click="DeleteSpellUI"><img id="trash" src="https://visualpharm.com/assets/441/Empty%20Trash-595b40b75ba036ed117d5dc0.svg" alt="Image" class="card-img-top" height="232px">Delete Spell</b-button></div>
       </article>
       <article class="card" style="max-width: 20rem;">
         <div class="card-body">
@@ -645,15 +645,23 @@ export default class SpellForm extends Mixins(GlobalMixin) {
 
   // do the delete
   // eslint-disable-next-line class-methods-use-this
-  deleteSpell() {
+  DeleteSpellUI() {
     if (document.getElementById('passwordInput').value === 'Qwerty1234') {
       if (document.getElementById('bookmark').src === 'https://visualpharm.com/assets/466/Filled%20Bookmark%20Ribbon-595b40b85ba036ed117dc0ee.svg') {
         document.getElementById('bookmark').src = 'https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg';
       }
+
+      let IDTag = document.getElementById('SelectedSpell').childNodes[0].childNodes[1].childNodes[0].innerText;
+      IDTag = IDTag.substring(IDTag.indexOf(':') + 2, IDTag.length);
+      this.DeleteMonsterAPI(IDTag);
       document.getElementById('SelectedSpell').remove();
       console.log('Deleted');
     }
     // run delete
+  }
+
+  async DeleteMonsterAPI(IDTag) {
+    await this.callAPI(`${this.SPELLS_API}/${IDTag}`, 'delete');
   }
 
   // eslint-disable-next-line class-methods-use-this,consistent-return
@@ -867,6 +875,7 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[6].innerText = `Damage:${this.damage}`;
     document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[7].innerText = `Damage Type:${this.damagetype}`;
     document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[8].innerText = `Status Effect:${this.statuseffect}`;
+    this.saveSpell(this.Spell);
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -875,59 +884,29 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     location.reload();
   }
 
-  // async saveSpell() {
-  //   this.violation = await this.getErrorMessages(this.tempSpell);
-  //   if (Object.keys(this.violation).length === 0) {
-  //     this.setBusy(true);
-  //     const url = this.SPELLS_API + (this.isNew ? '' : `/${this.tempSpell.id}`);
-  //     const method = this.isNew ? 'post' : 'put';
-  //     //
-  //     try {
-  //       const data = await this.callAPI(
-  //         url,
-  //         method,
-  //         this.tempSpell,
-  //       ); // returns a promise object
-  //       //       // emit the action that occurred along
-  //       with the data received from the api server
-  //       //       // to be used by the parent to update the b-table of students
-  //       this.$emit(
-  //         this.tempSpell.id === data.id ? 'updated' : 'added',
-  //         Object.assign(this.Spell, data),
-  //       );
-  //     } catch (err) {
-  //       //  catch (err:any) {
-  //       //       // get the violation messages from the api - if the web server responded
-  //       this.violation = this.mapValidationErrorArray(err.data);
-  //     } finally {
-  //       this.setBusy(false);// tell parent that this component is no longer waiting for the api
-  //     }
-  //   }
-  // }
-  //
-  // async deleteSpell() {
-  //   this.setBusy(true);
-  //   try {
-  //     await this.callAPI(`${this.SPELLS_API}/${this.Spell.id}`, 'delete');
-  //     this.tempSpell = new Spell(); // reset the text boxes since student is deleted
-  //     this.$emit('deleted', this.Spell);
-  //   } catch (err: any) {
-  //     this.$emit('reset', this.Spell);
-  //   } finally {
-  //     this.setBusy(false);
-  //   }
-  // }
-  //
-  // deleteConfirm() {
-  //   this.cancel(); // reset any changes user may have done
-  //   this.showConfirmDelete = true;
-  // }
-  //
-  // cancel() {
-  //   this.violation = {}; // hide error messages if any
-  //   this.tempStudent = Object.assign(new Spell(), this.Spell);
-  //   this.$emit('cancelled', this.Spell);
-  // }
+  async saveSpell(Spell) {
+    const url = this.SPELLS_API + (this.isNew ? '' : `/${Spell.id}`);
+    const method = this.isNew ? 'post' : 'put';
+    //
+    try {
+      const data = await this.callAPI(
+        url,
+        method,
+        Spell,
+      );
+      this.$emit(
+        Spell.id === data.id ? 'updated' : 'added',
+        Object.assign(Spell, data),
+      );
+    } finally {
+      console.log('Spell Saved');
+    }
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-function,class-methods-use-this
+  async BookMarkMonsterAPI() {
+    console.log('saved');
+  }
 }
 </script>
 

@@ -4,9 +4,10 @@
    height:700px; width:2000px; overflow-y:auto">
       <article id="BookMarkCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
         <div id="test" class="card-body">
-          <h1 id="MonsterName">Name:</h1>
+          <h1 id="ObjectName">Monster</h1>
           <ul id="MonsterDataList">
             <li id="MonsterID">ID:</li>
+            <li id="MonsterName">Name:</li>
             <li id="MonsterAc">AC:</li>
             <li id="MonsterSpeed">Speed:</li>
             <li id="MonsterHP">HP:</li>
@@ -17,9 +18,10 @@
       </article>
       <article id="BookMarkCard" class="SpellUnBookmarked" style="max-width: 20rem;">
         <div id="test" class="card-body">
-          <h1 id="SpellName">Name:</h1>
+          <h1 id="ObjectName">Spell</h1>
           <ul id="SpellDataList">
             <li id="SpellID">ID:</li>
+            <li id="SpellName">Name:</li>
             <li id="SpellLevel">Level:</li>
             <li id="SpellSchool">School:</li>
             <li id="SpellCastingTime">Casting Time:</li>
@@ -68,7 +70,13 @@ Vue.use(CardPlugin);
     BListGroupItem,
   },
 })
-export default class BookmarkCards extends Mixins(GlobalMixin) {}
+export default class BookmarkCards extends Mixins(GlobalMixin) {
+  // eslint-disable-next-line class-methods-use-this
+  RefreshDB() {
+    // eslint-disable-next-line no-restricted-globals
+    location.reload();
+  }
+}
 </script>
 
 <style scoped>

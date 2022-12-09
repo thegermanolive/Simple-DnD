@@ -22,7 +22,7 @@ import {
   BCardHeader, BCardFooter, BCardBody, BCardTitle,
   BCardSubTitle, BCardImg, BCardImgLazy, BCardGroup,
 } from 'bootstrap-vue';
-import SpellForm from '@/components/Spell/SpellForm.vue';
+import SpellForm from '@/components/Spell/SpellFormAndCards.vue';
 
 Vue.component('BCard', BCard);
 Vue.component('BCardText', BCardText);

@@ -450,7 +450,9 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
   // }
 
   /**
-   * This Method runs whenever a checkbox is changed to check what Monster the user wants to work with
+   // eslint-disable-next-line max-len
+   * This Method runs whenever a checkbox is
+   * changed to check what Monster the user wants to work with
    */
   // eslint-disable-next-line class-methods-use-this
   selectMonster() {
@@ -489,13 +491,13 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
 
     let IDTag = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[0].innerText;
     IDTag = IDTag.substring(IDTag.indexOf(':') + 2, IDTag.length);
-    this.Monster.id = IDTag;
-    this.DeleteMonsterAPI();
+    this.DeleteMonsterAPI(IDTag);
     document.getElementById('SelectedMonster').remove();
     console.log('Deleted');
   }
-  async DeleteMonsterAPI() {
-    await this.callAPI(`${this.MONSTER_API}/${this.Monster.id}`, 'delete');
+
+  async DeleteMonsterAPI(IDTag) {
+    await this.callAPI(`${this.MONSTER_API}/${IDTag}`, 'delete');
   }
 
   EditMonster() {
@@ -668,6 +670,7 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
     document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[2].innerText = `Speed: ${this.speed}`;
     document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[3].innerText = `HP: ${this.hitpoints}`;
     document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[4].innerText = `Spells: ${(this.spell).split(' ')}`;
+    this.saveMonster(this.Monster);
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -676,40 +679,28 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
     location.reload();
   }
 
-  // async saveMonster() {
-  //   this.violation = await this.getErrorMessages(this.tempMonster);
-  //   if (Object.keys(this.violation).length === 0) {
-  //     this.setBusy(true);
-  //     const url = this.MONSTER_API + (this.isNew ? '' : `/${this.tempMonster.id}`);
-  //     const method = this.isNew ? 'post' : 'put';
-  //     //
-  //     try {
-  //       const data = await this.callAPI(
-  //         url,
-  //         method,
-  //         this.tempMonster,
-  //       ); // returns a promise object
-  //       //       // emit the action that occurred along
-  //       with the data received from the api server
-  //       //       // to be used by the parent to update the b-table of students
-  //       this.$emit(
-  //         this.tempMonster.id === data.id ? 'updated' : 'added',
-  //         Object.assign(this.Monster, data),
-  //       );
-  //     } catch (err) {
-  //       //  catch (err:any) {
-  //       //       // get the violation messages from the api - if the web server responded
-  //       this.violation = this.mapValidationErrorArray(err.data);
-  //     } finally {
-  //       this.setBusy(false);// tell parent that this component is no longer waiting for the api
-  //     }
-  //   }
-  // }
-  //
+  async saveMonster(Monster) {
+    const url = this.SPELLS_API + (this.isNew ? '' : `/${Monster.id}`);
+    const method = this.isNew ? 'post' : 'put';
+    //
+    try {
+      const data = await this.callAPI(
+        url,
+        method,
+        Monster,
+      );
+      this.$emit(
+        Monster.id === data.id ? 'updated' : 'added',
+        Object.assign(Monster, data),
+      );
+    } finally {
+      console.log('Spell Saved');
+    }
+  }
 
-
+  // eslint-disable-next-line @typescript-eslint/no-empty-function,class-methods-use-this
   async BookMarkMonsterAPI() {
-
+    console.log('saved');
   }
 }
 </script>
