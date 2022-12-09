@@ -23,15 +23,15 @@
               id="password-input"
               v-model="password"
               placeholder="Password"
-              required
-            ></b-form-input>
+              required>
+            </b-form-input>
             <b-form-text id="passwordText" class="passwordText" style="color: red">
               Your password must be 8-20 characters long Alpha-Numerical.
             </b-form-text>
           </b-form-group>
           <div class="buttons">
-            <b-button type="submit" variant="primary">Submit</b-button>
-            <b-button type="reset" variant="danger">Reset</b-button>
+            <b-button class="btnSubmit" type="submit" variant="primary">Submit</b-button>
+            <b-button class="btnReset" type="reset" variant="danger">Reset</b-button>
           </div>
         </b-form>
         <div>
@@ -41,7 +41,6 @@
     </div>
   </div>
 </template>
-
 <script lang="ts">
 import { Component, Mixins, Vue } from 'vue-property-decorator';
 import {
@@ -85,12 +84,16 @@ export default class DMLoginView extends Mixins(GlobalMixin) {
     this.User.username = this.username;
     this.User.password = this.password;
     // could not figure out the JWT secure so this is how the page will be kept secure
+    // eslint-disable-next-line max-len
+    // if the DM happens to walk away from the application, they only need to click on home, and the MonsterPage is secure unitl they login again
     if (this.PasswordIsValid()) {
       if (this.username === 'CWEB280' && this.password === 'Qwerty1234') {
         window.location.replace('http://localhost:8080/#/Monsters');
       } else {
         this.onReset();
       }
+    } else {
+      this.onReset();
     }
   }
 
@@ -110,17 +113,18 @@ export default class DMLoginView extends Mixins(GlobalMixin) {
 </script>
 
 <style scoped>
-h1{
+html >{
   color: black;
-}
-div{
   background: #2c3e50;
 }
+
 .Flex{
   display: flex;
   justify-content: center;
 }
-
+div{
+  background: #2c3e50;
+}
 .buttons {
   padding: 15px;
   text-align: center;
@@ -129,4 +133,10 @@ div{
   font-size: 16px;
 }
 
+.btnSubmit{
+  margin-right: 15px ;
+}
+.btnReset{
+  margin-right: 15px ;
+}
 </style>

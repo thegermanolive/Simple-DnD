@@ -142,19 +142,6 @@
         <!--        Originaly we had the form in a seperate vue componant but
         ran into trouble when trying to get the modal subbmit working-->
         <b-form ref="form" @submit.stop.prevent="handleEditSubmit">
-
-          <b-form-group
-            label="ID"
-            label-for="id-input"
-            invalid-feedback="ID is required"
-            :state="IDState" >
-            <b-form-input
-              id="id-input"
-              v-model="id"
-              :state="IDState"
-              placeholder="ID"
-              required/>
-          </b-form-group>
           <b-form-group
             label="Name"
             label-for="name-input"
@@ -520,7 +507,7 @@
       <article class="card" style="max-width: 20rem;">
 
         <div class="card-body">
-          <b-button v-b-modal.EDITSPELL> <img src="https://visualpharm.com/assets/144/Edit-595b40b65ba036ed117d10d7.svg" alt="Image" class="card-img-top" height="232px">Edit Spell</b-button>
+          <b-button @click="EditSpell"> <img src="https://visualpharm.com/assets/144/Edit-595b40b65ba036ed117d10d7.svg" alt="Image" class="card-img-top" height="232px">Edit Spell</b-button>
         </div>
       </article>
       <article class="card" style="max-width: 20rem;">
@@ -539,6 +526,16 @@
           <b-button @click="RefreshDB"><img id="refresh" src="https://visualpharm.com/assets/175/Data%20Backup-595b40b75ba036ed117d93c3.svg" alt="Image" class="card-img-top" height="232px">Refresh Spells</b-button>
         </div>
       </article>
+    </div>
+    <div class="DmPassword">
+      <div>
+        <b-form-input
+          id="passwordInput"
+          type="password"
+          v-model="passwordInput"
+          placeholder="Enter your Password">
+        </b-form-input>
+      </div>
     </div>
   </div>
 </template>
@@ -615,6 +612,10 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     statuseffect: '',
   }
 
+  CardToBeAddedID = 0;
+
+  password='';
+
   tempSpell = this.Spell;
 
   // eslint-disable-next-line class-methods-use-this
@@ -645,11 +646,32 @@ export default class SpellForm extends Mixins(GlobalMixin) {
   // do the delete
   // eslint-disable-next-line class-methods-use-this
   deleteSpell() {
-    if (document.getElementById('bookmark').src === 'https://visualpharm.com/assets/466/Filled%20Bookmark%20Ribbon-595b40b85ba036ed117dc0ee.svg') {
-      document.getElementById('bookmark').src = 'https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg';
+    if (document.getElementById('passwordInput').value === 'Qwerty1234') {
+      if (document.getElementById('bookmark').src === 'https://visualpharm.com/assets/466/Filled%20Bookmark%20Ribbon-595b40b85ba036ed117dc0ee.svg') {
+        document.getElementById('bookmark').src = 'https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg';
+      }
+      document.getElementById('SelectedSpell').remove();
+      console.log('Deleted');
     }
-    document.getElementById('SelectedSpell').remove();
-    console.log('Deleted');
+    // run delete
+  }
+
+  // eslint-disable-next-line class-methods-use-this,consistent-return
+  EditSpell() {
+    if (document.getElementById('passwordInput').value === 'Qwerty1234') {
+      const cards = document.getElementsByClassName('SpellCheck');
+      let CardID;
+      let i;
+      let SpellCardToSelect;
+      // eslint-disable-next-line no-plusplus
+      for (i = 0; i < cards.length; i++) {
+        if (cards[i].childNodes[0].checked === true) {
+          CardID = i + 1;
+        }
+      }
+      this.$bvModal.show('EDITSPELL');
+      this.Spell.id = CardID;
+    }
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -773,7 +795,9 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     if (!this.checkAddFormValidity()) {
       return;
     }
-    this.Spell.id = '';
+    // eslint-disable-next-line no-plusplus
+    this.CardToBeAddedID++;
+    this.Spell.id = this.CardToBeAddedID;
     this.Spell.name = this.name;
     this.Spell.level = this.level;
     this.Spell.school = this.school;
@@ -788,7 +812,7 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     // Hide the modal manually
     this.$nextTick(() => {
       // this.displaySpell();
-      this.AddSpellToCard();
+      this.AddSpellToCard(this.CardToBeAddedID);
       this.$bvModal.hide('ADDSPELL');
     });
   }
@@ -798,17 +822,19 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     if (!this.checkEditFormValidity()) {
       return;
     }
-    this.Spell.id = this.id;
-    this.Spell.name = this.name;
-    this.Spell.level = this.level;
-    this.Spell.school = this.school;
-    this.Spell.castingtime = this.castingtime;
-    this.Spell.range = this.range;
-    this.Spell.duration = this.duration;
-    this.Spell.damage = this.damage;
-    this.Spell.damagetype = this.damagetype;
-    this.Spell.statuseffect = this.statuseffect;
-    console.log(this.Spell.name);
+    alert('test');
+    alert(this.name);
+    // this.Spell.name = this.name;
+    // this.Spell.level = this.level;
+    // this.Spell.school = this.school;
+    // this.Spell.castingtime = this.castingtime;
+    // this.Spell.range = this.range;
+    // this.Spell.duration = this.duration;
+    // this.Spell.damage = this.damage;
+    // this.Spell.damagetype = this.damagetype;
+    // this.Spell.statuseffect = this.statuseffect;
+    // console.log(this.Spell.name);
+    this.EditSpellOnCard(this.Spell.id);
     // Push the name to submitted names
     // Hide the modal manually
     this.$nextTick(() => {
@@ -816,29 +842,32 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     });
   }
 
-  AddSpellToCard() {
-    document.getElementById('SpellID').innerHTML = document.getElementById('SpellID').innerText + this.Spell.id;
-    document.getElementById('SpellName').innerHTML = document.getElementById('SpellName').innerText + this.Spell.name;
-    document.getElementById('SpellLevel').innerHTML = document.getElementById('SpellLevel').innerText + this.Spell.level;
-    document.getElementById('SpellSchool').innerHTML = document.getElementById('SpellSchool').innerText + this.Spell.school;
-    document.getElementById('SpellCastingTime').innerHTML = document.getElementById('SpellCastingTime').innerText + this.Spell.castingtime;
-    document.getElementById('SpellRange').innerHTML = document.getElementById('SpellRange').innerText + this.Spell.range;
-    document.getElementById('SpellDuration').innerHTML = document.getElementById('SpellDuration').innerText + this.Spell.duration;
-    document.getElementById('SpellDamage').innerHTML = document.getElementById('SpellDamage').innerText + this.Spell.damage;
-    document.getElementById('SpellDamageType').innerHTML = document.getElementById('SpellDamageType').innerText + this.Spell.damagetype;
-    document.getElementById('SpellEffect').innerHTML = document.getElementById('SpellEffect').innerText + this.Spell.statuseffect;
+  // eslint-disable-next-line class-methods-use-this
+  EditSpellOnCard(ID) {
+    document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[0].innerText = this.name;
+    document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[0].innerText = `ID: ${ID}`;
+    document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[1].innerText = `Level:${this.level}`;
+    document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[2].innerText = `School:${this.school}`;
+    document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[3].innerText = `Casting Time:${this.castingtime}`;
+    document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[4].innerText = `Ragne:${this.range}`;
+    document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[5].innerText = `Duration:${this.duration}`;
+    document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[6].innerText = `Damage:${this.damage}`;
+    document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[7].innerText = `Damage Type:${this.damagetype}`;
+    document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[8].innerText = `Status Effect:${this.statuseffect}`;
   }
 
-  // This was just a test function to see if form submit worked
-  // displaySpell() {
-  //   // console.log(this.Monster.valueOf());
-  //   let txt = '';
-  //   // eslint-disable-next-line guard-for-in,no-restricted-syntax
-  //   for (const x in this.Spell) {
-  //     txt += `${this.Spell[x]} `;
-  //   }
-  //   document.getElementById('test').innerHTML = txt;
-  // }
+  AddSpellToCard(ID) {
+    document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[0].innerText = this.name;
+    document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[0].innerText = `ID: ${ID}`;
+    document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[1].innerText = `Level:${this.level}`;
+    document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[2].innerText = `School:${this.school}`;
+    document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[3].innerText = `Casting Time:${this.castingtime}`;
+    document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[4].innerText = `Ragne:${this.range}`;
+    document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[5].innerText = `Duration:${this.duration}`;
+    document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[6].innerText = `Damage:${this.damage}`;
+    document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[7].innerText = `Damage Type:${this.damagetype}`;
+    document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[8].innerText = `Status Effect:${this.statuseffect}`;
+  }
 
   // async saveSpell() {
   //   this.violation = await this.getErrorMessages(this.tempSpell);
@@ -923,5 +952,10 @@ export default class SpellForm extends Mixins(GlobalMixin) {
   width: 75%;
   display: inline-block;
   background-color: #7a7a7a;
+}
+.DmPassword
+{
+  display: flex;
+  justify-content: center;
 }
 </style>
