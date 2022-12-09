@@ -4,6 +4,7 @@ import { Monster } from '../entity/Monster'
 import { Route } from '../decorator/Route'
 import { validate, ValidationError, ValidatorOptions } from 'class-validator'
 import {Controller} from "../decorator/Controller";
+import {Spell} from "../entity/Spell";
 
 @Controller('/monsters')
 export default class MonsterController {
@@ -15,20 +16,58 @@ export default class MonsterController {
         validationError: { target: false, value: false }
     }
 
-    @Route('get', '/:name*?')
+    @Route('get', '/:monsterName*?')
     async read (req: Request, res: Response, next: NextFunction): Promise<Monster | Monster[]> {
         if(req.params.name){
-            return await this.monsterRepo.findOneBy({Name: req.params.name})
+            return await this.monsterRepo.findOneBy({monsterName: req.params.monsterName})
         }
         else{
             const findOptions: any = { order:{},where:[]}
             const existingFields = this.monsterRepo.metadata.ownColumns.map((col) => col.propertyName)
-            const sortField: string = existingFields.includes(req.query.sortby) ? req.query.sortby : 'id'
+            const sortField: string = existingFields.includes(req.query.sortby) ? req.query.sortby : 'monsterName'
             findOptions.order[sortField] = req.query.reverse ? 'DESC' : 'ASC'
             // findOptions. loo
             return await this.monsterRepo.find()
         }
     }
 
-    // @Ro
+    @Route('delete', '/:monsterName')
+    async delete(req: Request, res: Response, next: NextFunction): Promise<Monster> {
+        const monsterToRemove = await this.monsterRepo.findOneBy({monsterName: req.params.monsterName});
+        res.statusCode = 204
+        if(monsterToRemove){
+            return await this.monsterRepo.remove(monsterToRemove)
+        } else {
+            next()
+        }
+    }
+
+    @Route('put', '/:monsterName')
+    async update(req: Request, res: Response, next: NextFunction):Promise<Monster | ValidationError[]>{
+        const monsterToUpdate = await this.monsterRepo.preload(req.body)
+        // Extra validation - ensure the name param matched the name submitted in the body
+        if (!monsterToUpdate || monsterToUpdate.monsterName.toString() !== req.params.monsterName) next() // pass the buck until 404 error is sent
+        else {
+            const violations = await validate(monsterToUpdate, this.validOptions)
+            if (violations.length) {
+                res.statusCode = 422 // Unprocessable Entity
+                return violations
+            } else {
+                return await this.monsterRepo.save(monsterToUpdate)
+            }
+        }
+    }
+
+    @Route('post') // IF the POST HTTP Request Method is used then run the action below
+    async save (request: Request, response: Response, next: NextFunction): Promise<Monster | ValidationError[]> {
+        const newMonster = Object.assign(new Monster(), request.body)
+        const violations = await validate(newMonster/*, this.validOptions */) // error in notes doc
+        if (violations.length) {
+            response.statusCode = 422 // 418 is better though
+            return violations
+        } else {
+            response.statusCode = 201
+            return await this.monsterRepo.save(newMonster)
+        }
+    }
 }

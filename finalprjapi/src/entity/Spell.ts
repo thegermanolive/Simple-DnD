@@ -12,7 +12,7 @@ export class Spell {
     @Column()
     @Length(1, 50, { message: 'Name must be from $constraint1 to $constraint2 characters ' })
     @IsNotEmpty({ message: 'Name is Required' })
-    Name: string
+    spellName: string
 
     @Column()
     @IsNotEmpty({ message: 'Level is Required' })

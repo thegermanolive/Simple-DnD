@@ -2,7 +2,7 @@ import "reflect-metadata"
 import { DataSource } from "typeorm"
 import { User } from "./entity/User"
 import {Monster} from "./entity/Monster";
-import {Spell} from "./entity/Spells";
+import {Spell} from "./entity/Spell";
 import {Bookmark} from "./entity/Bookmark";
 
 export const AppDataSource = new DataSource({

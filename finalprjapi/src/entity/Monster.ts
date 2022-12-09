@@ -12,7 +12,7 @@ export class Monster {
     @Column()
     @Length(1, 50, { message: 'Name must be from $constraint1 to $constraint2 characters ' })
     @IsNotEmpty({ message: 'Name is Required' })
-    Name: string
+    monsterName: string
 
     @Column()
     @MaxLength(50, { message: 'Family Name must be at most $constraint1 characters ' })
