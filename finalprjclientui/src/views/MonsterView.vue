@@ -13,7 +13,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import { Component, Mixins, Vue } from 'vue-property-decorator';
 import {
@@ -40,7 +39,6 @@ export default class MonsterView extends Mixins(GlobalMixin) {
 
 }
 </script>
-
 <style scoped>
 
 .Monsters{

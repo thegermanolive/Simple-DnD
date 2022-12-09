@@ -58,7 +58,6 @@ Vue.component('BFormGroup', BFormGroup);
 Vue.component('BButton', BButton);
 Vue.component('BCard', BCard);
 Vue.use(CardPlugin);
-
 @Component
 export default class DMLoginView extends Mixins(GlobalMixin) {
   id = '';
@@ -112,7 +111,6 @@ export default class DMLoginView extends Mixins(GlobalMixin) {
   // eslint-disable-next-line class-methods-use-this
 }
 </script>
-
 <style scoped>
 .DM-Login {
   background: #4682B4;

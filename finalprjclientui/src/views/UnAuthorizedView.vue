@@ -5,7 +5,6 @@
       view monsters please Click the button above titled "DM-Login"</p>
   </div>
 </template>
-
 <script>
 import { Component, Vue } from 'vue-property-decorator';
 import {
@@ -24,7 +23,6 @@ Vue.component('BFormGroup', BFormGroup);
 export default class UnAuthorized extends Vue {
 }
 </script>
-
 <style scoped>
 h1 {
   color: black;

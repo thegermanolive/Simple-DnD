@@ -13,7 +13,6 @@
     </div>
   </div>
 </template>
-
 <script lang="ts">
 import { Component, Mixins, Vue } from 'vue-property-decorator';
 import {
@@ -43,12 +42,10 @@ Vue.use(CardPlugin);
 })
 export default class BookmarkView extends Mixins(GlobalMixin) {}
 </script>
-
 <style scoped>
 .Bookmark{
   background: #4682B4;
   color: black;
   zoom: 75%
 }
-
 </style>
