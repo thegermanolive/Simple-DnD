@@ -1,0 +1,21 @@
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import {
+    IsNotEmpty, IsOptional, Length,
+} from 'class-validator';
+@Entity()
+export class Bookmark {
+
+    @PrimaryGeneratedColumn()
+    @IsOptional()
+    id: number
+
+    @Column()
+    @Length(1, 50, { message: 'Name must be from $constraint1 to $constraint2 characters ' })
+    @IsNotEmpty({ message: 'Name is Required' })
+    Type: string
+
+    @Column()
+    @IsNotEmpty()
+    Contents: string
+
+}

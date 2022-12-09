@@ -1,13 +1,16 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
 import { User } from "./entity/User"
+import {Monster} from "./entity/Monster";
+import {Spell} from "./entity/Spell";
+import {Bookmark} from "./entity/Bookmark";
 
 export const AppDataSource = new DataSource({
-    type: "sqlite",
-    database: "database.sqlite",
+    type: 'better-sqlite3',
+    database: 'sqlite.db',
     synchronize: true,
     logging: false,
-    entities: [User],
+    entities: [User, Monster,Spell,Bookmark],
     migrations: [],
     subscribers: [],
 })
