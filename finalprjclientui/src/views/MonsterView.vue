@@ -17,9 +17,7 @@
 <script>
 import { Component, Mixins, Vue } from 'vue-property-decorator';
 import {
-  BCard, BModal, VBModal, ModalPlugin, BCardText, BLink, BButton, CardPlugin, BFormTextarea,
-  BCardHeader, BCardFooter, BCardBody, BCardTitle,
-  BCardSubTitle, BCardImg, BCardImgLazy, BCardGroup,
+  BCard, BModal, VBModal, ModalPlugin, BCardText, BLink, BButton, BFormTextarea,
 } from 'bootstrap-vue';
 import MonsterForm from '@/components/Monster/MonsterFormAndCards.vue';
 import GlobalMixin from '@/mixins/global-mixin';

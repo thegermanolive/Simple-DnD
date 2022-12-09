@@ -2,7 +2,7 @@
   <div class="Unauthorized">
     <h1>Unauthorized</h1>
     <p>It appears that you are not logged in, To
-      view monsters please Click either the button bellow, or the button above titled "DM-Login"</p>
+      view monsters please Click the button above titled "DM-Login"</p>
   </div>
 </template>
 

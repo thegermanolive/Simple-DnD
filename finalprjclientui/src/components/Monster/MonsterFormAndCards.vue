@@ -444,9 +444,7 @@
 <script>
 import { Component, Mixins, Vue } from 'vue-property-decorator';
 import {
-  BCard, BModal, VBModal, ModalPlugin, BCardText, BLink, BButton, CardPlugin, BFormTextarea,
-  BCardHeader, BCardFooter, BCardBody, BCardTitle,
-  BCardSubTitle, BCardImg, BCardImgLazy, BCardGroup,
+  BCard, BModal, VBModal, ModalPlugin, BCardText, BLink, BButton, BFormTextarea,
 } from 'bootstrap-vue';
 import GlobalMixin from '@/mixins/global-mixin';
 
@@ -517,13 +515,13 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
     let MonsterCardToSelect;
     // eslint-disable-next-line no-plusplus
     for (i = 0; i < cards.length; i++) {
-      if (cards[i].children[0].getAttribute('checked') === true) {
-        if (cards[i].parentElement.parentElement.className === 'MonsterBookmarked') {
+      if (cards[i].childNodes[0].checked === true) {
+        if (cards[i].parentNode.parentNode.className === 'MonsterBookmarked') {
           this.changeBookMarkImage();
         }
         MonsterCardToSelect = i;
       } else {
-        if (cards[i].parentNode.parentNode.constructor.name === 'MonsterBookmarked') {
+        if (cards[i].parentNode.parentNode.className === 'MonsterBookmarked') {
           this.changeBookMarkImage();
         }
         cards[i].parentNode.parentNode.id = 'MonsterCard';
@@ -545,7 +543,7 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
     // this.deleteMonsterAPI
     // eslint-disable-next-line no-unused-expressions
 
-    let IDTag = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[0].textContent;
+    let IDTag = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[0].innerText;
     IDTag = IDTag.substring(IDTag.indexOf(':') + 2, IDTag.length);
     this.DeleteMonsterAPI(IDTag);
     document.getElementById('SelectedMonster').remove();
@@ -576,7 +574,7 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
     if (document.getElementById('SelectedMonster').className === 'MonsterUnBookmarked') {
       document.getElementById('SelectedMonster').className = 'MonsterBookmarked';
       this.bookmarkedMonster = this.Monster;
-      const Savedname = document.getElementById('SelectedMonster').childNodes[0].childNodes[0].HTML;
+      const Savedname = document.getElementById('SelectedMonster').childNodes[0].childNodes[0].innerHTML;
       const SavedID = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[0].innerHTML;
       const savedAC = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;
       const savedSpeed = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;
@@ -589,9 +587,11 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
       this.bookmarkedMonster.speed = savedSpeed.substring(savedSpeed.indexOf(':') + 1, savedSpeed.length);// speed
       this.bookmarkedMonster.hitpoints = savedHP.substring(savedHP.indexOf(':') + 1, savedHP.length);// hp
       this.bookmarkedMonster.spell = savedSpells.substring(savedSpells.indexOf(':') + 1, savedSpells.length);// spells
+      alert(this.bookmarkedMonster.name);
       this.changeBookMarkImage();
       // send to bookmarked
       console.log('bookmarked');
+      this.BookMarkMonsterAPI(this.bookmarkedMonster);
       // eslint-disable-next-line no-empty
     } else if (document.getElementById('SelectedMonster').className === 'MonsterBookmarked') {
       document.getElementById('SelectedMonster').className = 'MonsterUnBookmarked';

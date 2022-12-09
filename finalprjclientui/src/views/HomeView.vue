@@ -27,8 +27,6 @@
 import { Component, Vue } from 'vue-property-decorator';
 import {
   BCard, BCardText, BLink, BButton, CardPlugin,
-  BCardHeader, BCardFooter, BCardBody, BCardTitle,
-  BCardSubTitle, BCardImg, BCardImgLazy, BCardGroup,
 } from 'bootstrap-vue';
 
 import HomeCard from '@/components/Home/HomeCards.vue';

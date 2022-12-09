@@ -279,6 +279,23 @@
         <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
           <div id="test" class="card-body">
             <h1 id="SpellName">Name:</h1>
+            <ul id="SpellDataList">
+              <li id="SpellID">ID:</li>
+              <li id="SpellLevel">Level:</li>
+              <li id="SpellSchool">School:</li>
+              <li id="SpellCastingTime">Casting Time:</li>
+              <li id="SpellRange">Range:</li>
+              <li id="SpellDuration">Duration:</li>
+              <li id="SpellDamage">Damage:</li>
+              <li id="SpellDamageType">Damage Type:</li>
+              <li id="SpellEffect">Status Effect:</li>
+            </ul>
+            <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
+          </div>
+        </article>
+        <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
+          <div id="test" class="card-body">
+            <h1 id="SpellName">Name:</h1>
             <ul>
               <li id="SpellID">ID:</li>
               <li id="SpellLevel">Level:</li>
@@ -535,6 +552,7 @@
           v-model="passwordInput"
           placeholder="Enter your Password">
         </b-form-input>
+        <h6>( For Testing purposes the password is "Qwerty1234" )</h6>
       </div>
     </div>
   </div>
@@ -543,9 +561,7 @@
 
 import { Component, Mixins, Vue } from 'vue-property-decorator';
 import {
-  BCard, BModal, VBModal, ModalPlugin, BCardText, BLink, BButton, CardPlugin, BFormTextarea,
-  BCardHeader, BCardFooter, BCardBody, BCardTitle,
-  BCardSubTitle, BCardImg, BCardImgLazy, BCardGroup,
+  BCard, BModal, VBModal, ModalPlugin, BCardText, BLink, BButton, BFormTextarea,
 } from 'bootstrap-vue';
 import GlobalMixin from '@/mixins/global-mixin';
 
@@ -623,16 +639,15 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     const cards = document.getElementsByClassName('SpellCheck');
     let i;
     let SpellCardToSelect;
-    // cards[1].parent.parent.className=''
     // eslint-disable-next-line no-plusplus
     for (i = 0; i < cards.length; i++) {
-      if (cards[i].children[0].getAttribute('checked') === true) { // need to change others
-        if (cards[i].parentElement.parentElement.className === 'SpellBookmarked') { // need to change others
+      if (cards[i].childNodes[0].checked === true) {
+        if (cards[i].parentNode.parentNode.className === 'SpellBookmarked') {
           this.changeBookMarkImage();
         }
         SpellCardToSelect = i;
       } else {
-        if (cards[i].parentNode.parentNode.constructor.name === 'SpellBookmarked') {
+        if (cards[i].parentNode.parentNode.className === 'SpellBookmarked') {
           this.changeBookMarkImage();
         }
         cards[i].parentNode.parentNode.id = 'SpellCard';
@@ -652,7 +667,7 @@ export default class SpellForm extends Mixins(GlobalMixin) {
         document.getElementById('bookmark').src = 'https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg';
       }
 
-      let IDTag = document.getElementById('SelectedSpell').childNodes[0].childNodes[1].childNodes[0].textContent; // need to change others
+      let IDTag = document.getElementById('SelectedSpell').childNodes[0].childNodes[1].childNodes[0].innerText;
       IDTag = IDTag.substring(IDTag.indexOf(':') + 2, IDTag.length);
       this.DeleteMonsterAPI(IDTag);
       document.getElementById('SelectedSpell').remove();
@@ -910,21 +925,19 @@ export default class SpellForm extends Mixins(GlobalMixin) {
   }
 }
 </script>
-
 <style scoped>
 .overflow-auto{
   color: black;
 }
-
 .FunctionCards{
   display: flex;
   justify-content: center;
-  background-color: #2c3e50;
+  background-color: #4682B4;
 }
 .card{
   margin: 20px;
   width: 75%;
-  background-color: #2c3e50;
+  background-color: #4682B4;
 }
 #SpellCard{
   margin: 20px;

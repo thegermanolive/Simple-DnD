@@ -18,9 +18,7 @@
 
 import { Component, Vue } from 'vue-property-decorator';
 import {
-  BCard, BModal, VBModal, ModalPlugin, BCardText, BLink, BButton, CardPlugin, BFormTextarea,
-  BCardHeader, BCardFooter, BCardBody, BCardTitle,
-  BCardSubTitle, BCardImg, BCardImgLazy, BCardGroup,
+  BCard, BModal, VBModal, ModalPlugin, BCardText, BLink, BButton, BFormTextarea,
 } from 'bootstrap-vue';
 import SpellForm from '@/components/Spell/SpellFormAndCards.vue';
 
@@ -45,4 +43,5 @@ export default class SpellsView extends Vue {}
   color: black;
   zoom: 75%
 }
+
 </style>

@@ -17,7 +17,7 @@
 <script lang="ts">
 import { Component, Mixins, Vue } from 'vue-property-decorator';
 import {
-  CardPlugin, LayoutPlugin, BCard, BCardText, BCardSubTitle, BCardBody, BListGroup, BListGroupItem,
+  CardPlugin, BCard, BCardText, BCardSubTitle, BCardBody, BListGroup, BListGroupItem,
 } from 'bootstrap-vue';
 import GlobalMixin from '@/mixins/global-mixin';
 import BookmarkCards from '@/components/Bookmark/BookmarkCards.vue';

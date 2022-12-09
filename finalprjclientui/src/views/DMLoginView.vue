@@ -9,15 +9,15 @@
     <div class="Flex">
       <div>
         <b-form @submit.prevent="onSubmit" @reset.prevent="onReset">
-          <b-form-group id="username-group" label="Username" label-for="username-input">
+          <b-form-group id="username-group" label-for="username-input">
             <b-form-input
               id="username-input"
               v-model="username"
-              placeholder="Enter Username"
+              placeholder="Username"
               required
             ></b-form-input>
           </b-form-group>
-          <b-form-group id="password-group" label="Password" label-for="password-input">
+          <b-form-group id="password-group" label-for="password-input">
             <b-form-input
               type="password"
               id="password-input"
@@ -29,6 +29,7 @@
             </b-form-text>
           </b-form-group>
           <h6>Your password must be 8-20 characters long Alpha-Numerical.</h6>
+          <h6>(For Testing purposes the user name is "CWEB280" and the password is "Qwerty1234"</h6>
           <div class="buttons">
             <b-button class="btnSubmit" type="submit" variant="primary">Submit</b-button>
             <b-button class="btnReset" type="reset" variant="danger">Reset</b-button>
@@ -46,7 +47,7 @@ import { Component, Mixins, Vue } from 'vue-property-decorator';
 import {
   BButton,
   // eslint-disable-next-line max-len
-  BForm, BFormGroup, BFormInput, BFormText, BFormInvalidFeedback, BFormValidFeedback, BFormDatalist, BCard, CardPlugin,
+  BForm, BFormGroup, BFormInput, BFormText, BCard, CardPlugin,
 } from 'bootstrap-vue';
 import GlobalMixin from '@/mixins/global-mixin';
 
@@ -136,8 +137,8 @@ div{
 .passwordText{
   color: black;
 }
-#password-group > p{
-  color: black;
+#password-group{
+  margin-top: 25px;
 }
 .btnSubmit{
   margin-right: 15px ;

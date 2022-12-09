@@ -31,8 +31,6 @@
 import { Component, Mixins, Vue } from 'vue-property-decorator';
 import {
   BCard, BCardText, BLink, BButton, CardPlugin,
-  BCardHeader, BCardFooter, BCardBody, BCardTitle,
-  BCardSubTitle, BCardImg, BCardImgLazy, BCardGroup,
 } from 'bootstrap-vue';
 import GlobalMixin from '@/mixins/global-mixin';
 
