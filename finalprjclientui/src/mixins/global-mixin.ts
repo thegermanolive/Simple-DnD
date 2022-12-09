@@ -4,7 +4,7 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import { validate, ValidationError } from 'class-validator';
 
 // declare global constants using the UPPERCASE_SNAKE notation
-const BASE_URL = 'http://localhost:5050';
+const BASE_URL = 'http://localhost:3010';
 const BOOKMARK_API = `${BASE_URL}/bookmarks`;
 const MONSTER_API = `${BASE_URL}/monsters`;
 const SPELLS_API = `${BASE_URL}/spells`;

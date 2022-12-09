@@ -517,13 +517,13 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
     let MonsterCardToSelect;
     // eslint-disable-next-line no-plusplus
     for (i = 0; i < cards.length; i++) {
-      if (cards[i].childNodes[0].checked === true) {
-        if (cards[i].parentNode.parentNode.className === 'MonsterBookmarked') {
+      if (cards[i].children[0].getAttribute('checked') === true) {
+        if (cards[i].parentElement.parentElement.className === 'MonsterBookmarked') {
           this.changeBookMarkImage();
         }
         MonsterCardToSelect = i;
       } else {
-        if (cards[i].parentNode.parentNode.className === 'MonsterBookmarked') {
+        if (cards[i].parentNode.parentNode.constructor.name === 'MonsterBookmarked') {
           this.changeBookMarkImage();
         }
         cards[i].parentNode.parentNode.id = 'MonsterCard';
@@ -545,7 +545,7 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
     // this.deleteMonsterAPI
     // eslint-disable-next-line no-unused-expressions
 
-    let IDTag = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[0].innerText;
+    let IDTag = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[0].textContent;
     IDTag = IDTag.substring(IDTag.indexOf(':') + 2, IDTag.length);
     this.DeleteMonsterAPI(IDTag);
     document.getElementById('SelectedMonster').remove();
@@ -576,7 +576,7 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
     if (document.getElementById('SelectedMonster').className === 'MonsterUnBookmarked') {
       document.getElementById('SelectedMonster').className = 'MonsterBookmarked';
       this.bookmarkedMonster = this.Monster;
-      const Savedname = document.getElementById('SelectedMonster').childNodes[0].childNodes[0].innerHTML;
+      const Savedname = document.getElementById('SelectedMonster').childNodes[0].childNodes[0].HTML;
       const SavedID = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[0].innerHTML;
       const savedAC = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;
       const savedSpeed = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;

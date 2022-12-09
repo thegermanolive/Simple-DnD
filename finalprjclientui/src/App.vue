@@ -3,7 +3,7 @@
     <div id="nav">
       <nav>
         <ul>
-          <li><a href="#/Home">Home</a></li>
+          <li><a href="#/">Home</a></li>
           <li><a href="#/Spells">Spells</a></li>
           <li><a href="#/UnAuthorized">Monster</a></li>
           <li><a href="#/Bookmarks">Bookmarks</a></li>
@@ -33,14 +33,14 @@ export default class App extends Vue {}
 </script>
 <style>
 html {
-  background: #4682B4;
+  background: #2c3e50;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: black;
+  color: #2c3e50;
 }
 #nav {
   width: 100%;
@@ -76,7 +76,7 @@ html {
 
 nav a {
   font-weight: bold;
-  color: #4682B4;
+  color: #2c3e50;
 }
 
 nav a.router-link-exact-active {
