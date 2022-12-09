@@ -1,5 +1,5 @@
 <template>
-  <div id="Parrent">
+  <div id="Spells">
     <div>
       <b-modal
         id="ADDSPELL"
@@ -256,7 +256,8 @@
         </b-form>
       </b-modal>
     </div>
-    <div id="scrollspy-nested" style="position:relative; height:350px; overflow-y:auto">
+    <div id="scrollspy-nested" style="position:relative; background-color: #cccccc;
+   height:700px; width:2000px; overflow-y:auto">
       <div>
         <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
           <div id="test" class="card-body">
@@ -505,7 +506,6 @@
         </div>
       </article>
       <article class="card" style="max-width: 20rem;">
-
         <div class="card-body">
           <b-button @click="EditSpell"> <img src="https://visualpharm.com/assets/144/Edit-595b40b65ba036ed117d10d7.svg" alt="Image" class="card-img-top" height="232px">Edit Spell</b-button>
         </div>
@@ -964,4 +964,11 @@ export default class SpellForm extends Mixins(GlobalMixin) {
   display: flex;
   justify-content: center;
 }
+#scrollspy-nested{
+  margin: 20px;
+  width: 75%;
+  display: inline-block;
+  background-color: #7a7a7a;
+}
+
 </style>
