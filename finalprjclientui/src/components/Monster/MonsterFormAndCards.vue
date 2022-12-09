@@ -144,8 +144,65 @@
         </b-form>
       </b-modal>
     </div>
-    <div id="scrollspy-nested" style="position:relative;
-    background-color: #cccccc; height:700px; width:2000px; overflow-y:auto">
+    <div
+      id="scrollspy-nested"
+      style="position:relative;
+      background-color: #cccccc;
+      height:700px;
+      width:2000px;
+      overflow-y:auto">
+      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+        <div id="test" class="card-body">
+          <h1 id="MonsterName">Name:</h1>
+          <ul id="MonsterDataList">
+            <li id="MonsterID">ID:</li>
+            <li id="MonsterAc">AC:</li>
+            <li id="MonsterSpeed">Speed:</li>
+            <li id="MonsterHP">HP:</li>
+            <li id="MonsterSpells">SPELLS:</li>
+          </ul>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+        </div>
+      </article>
+      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+        <div id="test" class="card-body">
+          <h1 id="MonsterName">Name:</h1>
+          <ul id="MonsterDataList">
+            <li id="MonsterID">ID:</li>
+            <li id="MonsterAc">AC:</li>
+            <li id="MonsterSpeed">Speed:</li>
+            <li id="MonsterHP">HP:</li>
+            <li id="MonsterSpells">SPELLS:</li>
+          </ul>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+        </div>
+      </article>
+      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+        <div id="test" class="card-body">
+          <h1 id="MonsterName">Name:</h1>
+          <ul id="MonsterDataList">
+            <li id="MonsterID">ID:</li>
+            <li id="MonsterAc">AC:</li>
+            <li id="MonsterSpeed">Speed:</li>
+            <li id="MonsterHP">HP:</li>
+            <li id="MonsterSpells">SPELLS:</li>
+          </ul>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+        </div>
+      </article>
+      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+        <div id="test" class="card-body">
+          <h1 id="MonsterName">Name:</h1>
+          <ul id="MonsterDataList">
+            <li id="MonsterID">ID:</li>
+            <li id="MonsterAc">AC:</li>
+            <li id="MonsterSpeed">Speed:</li>
+            <li id="MonsterHP">HP:</li>
+            <li id="MonsterSpells">SPELLS:</li>
+          </ul>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+        </div>
+      </article>
       <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
         <div id="test" class="card-body">
           <h1 id="MonsterName">Name:</h1>
@@ -384,7 +441,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import { Component, Mixins, Vue } from 'vue-property-decorator';
 import {
@@ -704,7 +760,6 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
   }
 }
 </script>
-
 <style scoped>
 .FunctionCards{
   display: flex;
@@ -735,5 +790,4 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
   display: inline-block;
   background-color: #7a7a7a;
 }
-
 </style>

@@ -279,6 +279,23 @@
         <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
           <div id="test" class="card-body">
             <h1 id="SpellName">Name:</h1>
+            <ul id="SpellDataList">
+              <li id="SpellID">ID:</li>
+              <li id="SpellLevel">Level:</li>
+              <li id="SpellSchool">School:</li>
+              <li id="SpellCastingTime">Casting Time:</li>
+              <li id="SpellRange">Range:</li>
+              <li id="SpellDuration">Duration:</li>
+              <li id="SpellDamage">Damage:</li>
+              <li id="SpellDamageType">Damage Type:</li>
+              <li id="SpellEffect">Status Effect:</li>
+            </ul>
+            <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
+          </div>
+        </article>
+        <article id="SpellCard" class="SpellUnBookmarked" style="max-width: 20rem;">
+          <div id="test" class="card-body">
+            <h1 id="SpellName">Name:</h1>
             <ul>
               <li id="SpellID">ID:</li>
               <li id="SpellLevel">Level:</li>
@@ -909,7 +926,6 @@ export default class SpellForm extends Mixins(GlobalMixin) {
   }
 }
 </script>
-
 <style scoped>
 .overflow-auto{
   color: black;
