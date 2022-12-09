@@ -869,6 +869,12 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     document.getElementsByClassName('SpellCheck')[ID - 1].parentNode.childNodes[1].childNodes[8].innerText = `Status Effect:${this.statuseffect}`;
   }
 
+  // eslint-disable-next-line class-methods-use-this
+  RefreshDB() {
+    // eslint-disable-next-line no-restricted-globals
+    location.reload();
+  }
+
   // async saveSpell() {
   //   this.violation = await this.getErrorMessages(this.tempSpell);
   //   if (Object.keys(this.violation).length === 0) {
