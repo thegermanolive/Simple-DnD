@@ -17,20 +17,26 @@
               required
             ></b-form-input>
           </b-form-group>
-
           <b-form-group id="password-group" label="Password" label-for="password-input">
             <b-form-input
+              type="password"
               id="password-input"
               v-model="password"
               placeholder="Password"
               required
             ></b-form-input>
+            <b-form-text id="passwordText" class="passwordText" style="color: red">
+              Your password must be 8-20 characters long Alpha-Numerical.
+            </b-form-text>
           </b-form-group>
-          <b-button type="submit" variant="primary">Submit</b-button>
           <div class="buttons">
+            <b-button type="submit" variant="primary">Submit</b-button>
+            <b-button type="reset" variant="danger">Reset</b-button>
           </div>
-          <b-button type="reset" variant="danger">Reset</b-button>
         </b-form>
+        <div>
+          <h6 id="errorMsg">.</h6>
+        </div>
       </div>
     </div>
   </div>
@@ -69,12 +75,23 @@ export default class DMLoginView extends Mixins(GlobalMixin) {
 
   tempUser = this.User
 
+  // checks if the password is valid
+  PasswordIsValid() {
+    return /[A-Za-z0-9]{8,12}/gm.test(this.password);
+  }
+
   onSubmit() {
     // saves the imputed values as a User Object to check the database for
     this.User.username = this.username;
     this.User.password = this.password;
-    window.location.replace('http://localhost:8080/#/Monsters');
-    this.onReset();
+    // could not figure out the JWT secure so this is how the page will be kept secure
+    if (this.PasswordIsValid()) {
+      if (this.username === 'CWEB280' && this.password === 'Qwerty1234') {
+        window.location.replace('http://localhost:8080/#/Monsters');
+      } else {
+        this.onReset();
+      }
+    }
   }
 
   // HandleLogin() {
@@ -104,9 +121,6 @@ div{
   justify-content: center;
 }
 
-p{
-  color: black;
-}
 .buttons {
   padding: 15px;
   text-align: center;

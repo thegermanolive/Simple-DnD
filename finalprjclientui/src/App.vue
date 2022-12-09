@@ -5,7 +5,7 @@
         <ul>
           <li><a href="#/Home">Home</a></li>
           <li><a href="#/Spells">Spells</a></li>
-          <li><a href="#/Monsters">Monster</a></li>
+          <li><a href="#/UnAuthorized">Monster</a></li>
           <li><a href="#/Bookmarks">Bookmarks</a></li>
           <li><a href="#/DM-Login">DM-Login</a></li>
         </ul>
