@@ -420,7 +420,6 @@
           <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
         </div>
       </article>
-
     </div>
     <div class="FunctionCards">
       <article class="card" style="max-width: 20rem;">
@@ -500,8 +499,6 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
 
   AttackState=null;
 
-  IDfordelete='';
-
   Monster = {
     id: '',
     name: '',
@@ -516,12 +513,6 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
   CardToBeAddedID = 0;
 
   tempMonster = this.Monster; // sets Monster Object as the data to be sent
-
-  // bookmarkedMonster = this.Monster;
-  //  do the book mark
-  // bookmarkMonster() {
-  //
-  // }
 
   /**
    // eslint-disable-next-line max-len

@@ -8,7 +8,7 @@
     <article class="card" style="max-width: 20rem;">
 
       <div class="card-body">
-        <b-button @click="OpenMonsters"> <img src="https://visualpharm.com/assets/661/The%20Dragon%20Team-595b40b85ba036ed117db4c2.svg" alt="Image" class="card-img-top" height="232px">Monsters</b-button>
+        <b-button href="http://localhost:8080/#/UnAuthorized"> <img src="https://visualpharm.com/assets/661/The%20Dragon%20Team-595b40b85ba036ed117db4c2.svg" alt="Image" class="card-img-top" height="232px">Monsters</b-button>
       </div>
     </article>
     <article class="card" style="max-width: 20rem;">
@@ -46,9 +46,6 @@ Vue.use(CardPlugin);
 })
 export default class HomeCards extends Mixins(GlobalMixin) {
   // eslint-disable-next-line class-methods-use-this
-  OpenMonsters() {
-    window.location.replace('http://localhost:8080/#/UnAuthorized');
-  }
 }
 
 </script>
