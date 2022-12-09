@@ -1,8 +1,8 @@
 <template>
-  <div id="Parrent">
+  <div id="Bookmarks">
     <div id="scrollspy-nested" style="position:relative; background-color: #cccccc;
    height:700px; width:2000px; overflow-y:auto">
-      <article id="BookMarkCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
+      <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
         <div id="test" class="card-body">
           <h1 id="ObjectName">Monster</h1>
           <ul id="MonsterDataList">
@@ -13,10 +13,10 @@
             <li id="MonsterHP">HP:</li>
             <li id="MonsterSpells">SPELLS:</li>
           </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
+          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectBookmark"/>
         </div>
       </article>
-      <article id="BookMarkCard" class="SpellUnBookmarked" style="max-width: 20rem;">
+      <article id="BookMarkCard" class="Bookmark" style="max-width: 20rem;">
         <div id="test" class="card-body">
           <h1 id="ObjectName">Spell</h1>
           <ul id="SpellDataList">
@@ -31,7 +31,7 @@
             <li id="SpellDamageType">Damage Type:</li>
             <li id="SpellEffect">Status Effect:</li>
           </ul>
-          <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectSpell"/>
+          <b-form-checkbox id="checkbox" class="SpellCheck" @change="selectBookmark"/>
         </div>
       </article>
     </div>
@@ -83,12 +83,12 @@ export default class BookmarkCards extends Mixins(GlobalMixin) {
 .FunctionCards{
   display: flex;
   justify-content: center;
-  background-color: #2c3e50;
+  background-color: #4682B4;
 }
 .card{
   margin: 20px;
   width: 75%;
-  background-color: #2c3e50;
+  background-color: #4682B4;
 }
 #BookMarkCard{
   margin: 20px;

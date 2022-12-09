@@ -40,10 +40,9 @@ Vue.use(ModalPlugin);
 export default class SpellsView extends Vue {}
 </script>
 <style>
-h1{
-  color: black;
-}
 .Spells{
-  background: #2c3e50;
+  background: #4682B4;
+  color: black;
+  zoom: 75%
 }
 </style>

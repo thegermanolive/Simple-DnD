@@ -33,14 +33,14 @@ export default class App extends Vue {}
 </script>
 <style>
 html {
-  background: #2c3e50;
+  background: #4682B4;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: black;
 }
 #nav {
   width: 100%;
@@ -76,7 +76,7 @@ html {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #4682B4;
 }
 
 nav a.router-link-exact-active {

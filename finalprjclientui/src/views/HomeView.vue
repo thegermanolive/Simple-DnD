@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="home">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
-    <div class="home">
+    <div>
 
       <div class="about">
         <h1>Welcome to the Davsch Dungeons and Dragons Repository</h1>
@@ -47,8 +47,9 @@ export default class HomeView extends Vue {}
 </script>
 <style>
 .home{
-  background-color: #2c3e50;
+  background: #4682B4;
   color: black;
+  zoom: 75%
 }
 
 </style>

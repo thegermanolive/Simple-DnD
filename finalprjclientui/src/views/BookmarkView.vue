@@ -46,7 +46,9 @@ export default class BookmarkView extends Mixins(GlobalMixin) {}
 
 <style scoped>
 .Bookmark{
-  background: #2c3e50;
+  background: #4682B4;
   color: black;
+  zoom: 75%
 }
+
 </style>

@@ -25,10 +25,10 @@
               placeholder="Password"
               required>
             </b-form-input>
-            <b-form-text id="passwordText" class="passwordText" style="color: red">
-              Your password must be 8-20 characters long Alpha-Numerical.
+            <b-form-text id="passwordText" class="passwordText">
             </b-form-text>
           </b-form-group>
+          <h6>Your password must be 8-20 characters long Alpha-Numerical.</h6>
           <div class="buttons">
             <b-button class="btnSubmit" type="submit" variant="primary">Submit</b-button>
             <b-button class="btnReset" type="reset" variant="danger">Reset</b-button>
@@ -113,9 +113,10 @@ export default class DMLoginView extends Mixins(GlobalMixin) {
 </script>
 
 <style scoped>
-html >{
+.DM-Login {
+  background: #4682B4;
   color: black;
-  background: #2c3e50;
+  zoom:125%
 }
 
 .Flex{
@@ -123,7 +124,7 @@ html >{
   justify-content: center;
 }
 div{
-  background: #2c3e50;
+  background: #4682B4;
 }
 .buttons {
   padding: 15px;
@@ -132,7 +133,12 @@ div{
   display: inline-block;
   font-size: 16px;
 }
-
+.passwordText{
+  color: black;
+}
+#password-group > p{
+  color: black;
+}
 .btnSubmit{
   margin-right: 15px ;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div id="Parrent">
+  <div id="MonsterPage">
     <div>
       <b-modal
         id="ADDMONSTER"
@@ -709,12 +709,12 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
 .FunctionCards{
   display: flex;
   justify-content: center;
-  background-color: #2c3e50;
+  background-color: #4682B4;
 }
 .card{
   margin: 20px;
   width: 75%;
-  background-color: #2c3e50;
+  background-color: #4682B4;
 }
 #MonsterCard{
   margin: 20px;
@@ -735,4 +735,5 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
   display: inline-block;
   background-color: #7a7a7a;
 }
+
 </style>

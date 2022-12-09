@@ -914,16 +914,15 @@ export default class SpellForm extends Mixins(GlobalMixin) {
 .overflow-auto{
   color: black;
 }
-
 .FunctionCards{
   display: flex;
   justify-content: center;
-  background-color: #2c3e50;
+  background-color: #4682B4;
 }
 .card{
   margin: 20px;
   width: 75%;
-  background-color: #2c3e50;
+  background-color: #4682B4;
 }
 #SpellCard{
   margin: 20px;
