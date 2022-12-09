@@ -19,6 +19,7 @@
             :state="nameState" >
             <b-form-input
               id="name-input"
+              type="text"
               v-model="name"
               :state="nameState"
               placeholder="Name"
@@ -27,10 +28,11 @@
           <b-form-group
             label="Level"
             label-for="Level-input"
-            invalid-feedback="Level is required"
+            invalid-feedback="Level is required, and must be a number"
             :state="LevelState" >
             <b-form-input
               id="Level-input"
+              type="number"
               v-model="level"
               :state="LevelState"
               placeholder="Level"
@@ -44,13 +46,13 @@
             :state="SchoolState" >
             <b-form-input
               id="School-input"
+              type="text"
               v-model="school"
               :state="SchoolState"
               placeholder="School"
               required>
             </b-form-input>
           </b-form-group>
-
           <b-form-group
             label="CastingTime"
             label-for="CastingTime-input"
@@ -58,77 +60,77 @@
             :state="CastingTimeState" >
             <b-form-input
               id="CastingTime-input"
+              type="text"
               v-model="castingtime"
               :state="CastingTimeState"
               placeholder="CastingTime"
               required>
             </b-form-input>
           </b-form-group>
-
           <b-form-group
             label="Range"
             label-for="Range-input"
             :state="RangeState" >
             <b-form-input
               id="Range-input"
+              type="text"
               v-model="range"
               :state="RangeState"
               placeholder="Range"
               required>
             </b-form-input>
           </b-form-group>
-
           <b-form-group
             label="Duration"
             label-for="Duration-input"
             :state="DurationState" >
             <b-form-input
               id="Duration-input"
+              type="text"
               v-model="duration"
               :state="DurationState"
               placeholder="Duration"
               required>
             </b-form-input>
           </b-form-group>
-
           <b-form-group
             label="Damage"
             label-for="Damage-input"
             :state="DamageState" >
             <b-form-input
               id="Damage-input"
+              type="text"
               v-model="damage"
               :state="DamageState"
               placeholder="Damage"
               required>
             </b-form-input>
           </b-form-group>
-
           <b-form-group
             label="DamageType"
             label-for="DamageType-input"
             :state="DamageTypeState" >
             <b-form-input
               id="DamageType-input"
+              type="text"
               v-model="damagetype"
               :state="DamageTypeState"
               placeholder="DamageType"
               required>
             </b-form-input>
           </b-form-group>
-
           <b-form-group
             label="StatusEffect"
             label-for="StatusEffect-input"
             :state="StatusEffectState" >
             <b-form-textarea
               id="StatusEffect-input"
+              type="text"
               v-model="statuseffect"
               :state="StatusEffectState"
               placeholder="StatusEffect">
             </b-form-textarea>
           </b-form-group>
-
         </b-form>
       </b-modal>
       <b-modal
@@ -149,6 +151,7 @@
             :state="nameState" >
             <b-form-input
               id="name-input"
+              type="text"
               v-model="name"
               :state="nameState"
               placeholder="Name"
@@ -157,10 +160,11 @@
           <b-form-group
             label="Level"
             label-for="Level-input"
-            invalid-feedback="Level is required"
+            invalid-feedback="Level is required, and must be a number"
             :state="LevelState" >
             <b-form-input
               id="Level-input"
+              type="number"
               v-model="level"
               :state="LevelState"
               placeholder="Level"
@@ -174,6 +178,7 @@
             :state="SchoolState" >
             <b-form-input
               id="School-input"
+              type="text"
               v-model="school"
               :state="SchoolState"
               placeholder="School"
@@ -187,6 +192,7 @@
             :state="CastingTimeState" >
             <b-form-input
               id="CastingTime-input"
+              type="text"
               v-model="castingtime"
               :state="CastingTimeState"
               placeholder="CastingTime"
@@ -199,6 +205,7 @@
             :state="RangeState" >
             <b-form-input
               id="Range-input"
+              type="text"
               v-model="range"
               :state="RangeState"
               placeholder="Range"
@@ -211,6 +218,7 @@
             :state="DurationState" >
             <b-form-input
               id="Duration-input"
+              type="text"
               v-model="duration"
               :state="DurationState"
               placeholder="Duration"
@@ -223,10 +231,11 @@
             :state="DamageState" >
             <b-form-input
               id="Damage-input"
+              type="text"
               v-model="damage"
               :state="DamageState"
               placeholder="Damage"
-            >
+              required>
             </b-form-input>
           </b-form-group>
           <b-form-group
@@ -235,10 +244,11 @@
             :state="DamageTypeState" >
             <b-form-input
               id="DamageType-input"
+              type="text"
               v-model="damagetype"
               :state="DamageTypeState"
               placeholder="DamageType"
-            >
+              required>
             </b-form-input>
           </b-form-group>
           <b-form-group
@@ -247,10 +257,10 @@
             :state="StatusEffectState" >
             <b-form-textarea
               id="StatusEffect-input"
+              type="text"
               v-model="statuseffect"
               :state="StatusEffectState"
-              placeholder="StatusEffect"
-            >
+              placeholder="StatusEffect">
             </b-form-textarea>
           </b-form-group>
         </b-form>
@@ -613,6 +623,8 @@ export default class SpellForm extends Mixins(GlobalMixin) {
 
   statuseffect = '';
 
+  desc = '';
+
   StatusEffectState = null;
 
   Spell = {
@@ -623,9 +635,7 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     castingtime: '',
     range: '',
     duration: '',
-    damage: '',
-    damagetype: '',
-    statuseffect: '',
+    desc: '',
   }
 
   CardToBeAddedID = 0;
@@ -669,14 +679,14 @@ export default class SpellForm extends Mixins(GlobalMixin) {
 
       let IDTag = document.getElementById('SelectedSpell').childNodes[0].childNodes[1].childNodes[0].innerText;
       IDTag = IDTag.substring(IDTag.indexOf(':') + 2, IDTag.length);
-      this.DeleteMonsterAPI(IDTag);
+      this.DeleteSpellAPI(IDTag);
       document.getElementById('SelectedSpell').remove();
       console.log('Deleted');
     }
     // run delete
   }
 
-  async DeleteMonsterAPI(IDTag) {
+  async DeleteSpellAPI(IDTag) {
     await this.callAPI(`${this.SPELLS_API}/${IDTag}`, 'delete');
   }
 
@@ -727,7 +737,9 @@ export default class SpellForm extends Mixins(GlobalMixin) {
       this.changeBookMarkImage();
       // send to bookmarked
       console.log('bookmarked');
+      this.BookMarkSpellAPI(this.bookmarkedSpell);
     } else if (document.getElementById('SelectedSpell').className === 'SpellBookmarked') {
+      this.UnBookMarkSpellAPI(this.bookmarkedSpell);
       document.getElementById('SelectedSpell').className = 'SpellUnBookmarked';
       this.changeBookMarkImage();
     }
@@ -821,16 +833,13 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     }
     // eslint-disable-next-line no-plusplus
     this.CardToBeAddedID++;
-    this.Spell.id = this.CardToBeAddedID;
     this.Spell.name = this.name;
     this.Spell.level = this.level;
     this.Spell.school = this.school;
     this.Spell.castingtime = this.castingtime;
     this.Spell.range = this.range;
     this.Spell.duration = this.duration;
-    this.Spell.damage = this.damage;
-    this.Spell.damagetype = this.damagetype;
-    this.Spell.statuseffect = this.statuseffect;
+    this.Spell.desc = `Damage: ${this.damage} Damage Type: ${this.damagetype} Status Effect: ${this.statuseffect}`;
     console.log(this.Spell.name);
     // Push the name to submitted names
     // Hide the modal manually
@@ -848,19 +857,8 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     }
     alert('test');
     alert(this.name);
-    // this.Spell.name = this.name;
-    // this.Spell.level = this.level;
-    // this.Spell.school = this.school;
-    // this.Spell.castingtime = this.castingtime;
-    // this.Spell.range = this.range;
-    // this.Spell.duration = this.duration;
-    // this.Spell.damage = this.damage;
-    // this.Spell.damagetype = this.damagetype;
-    // this.Spell.statuseffect = this.statuseffect;
-    // console.log(this.Spell.name);
     this.EditSpellOnCard(this.Spell.id);
-    // Push the name to submitted names
-    // Hide the modal manually
+    // Hide the modal
     this.$nextTick(() => {
       this.$bvModal.hide('EDITSPELL');
     });
@@ -920,8 +918,26 @@ export default class SpellForm extends Mixins(GlobalMixin) {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function,class-methods-use-this
-  async BookMarkMonsterAPI() {
-    console.log('saved');
+  async BookMarkSpellAPI(SPELL) {
+    const url = `${this.SPELLS_API}/${SPELL.name}`;
+    const method = 'post';
+    //
+    await this.callAPI(
+      url,
+      method,
+      SPELL,
+    );
+  }
+
+  async UnBookMarkSpellAPI(SPELL) {
+    const url = `${this.SPELLS_API}/${SPELL.name}`;
+    const method = 'delete';
+    //
+    await this.callAPI(
+      url,
+      method,
+      SPELL,
+    );
   }
 }
 </script>

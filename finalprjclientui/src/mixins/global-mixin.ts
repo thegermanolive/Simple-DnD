@@ -25,11 +25,5 @@ export default class GlobalMixin extends Vue {
   USER_API = USER_API
 
   isBusy = false;
-
-  setBusy(state:boolean) {
-    this.isBusy = state;
-    this.$emit('busy', state);
-  }
-
   // // only done up to this point, rest is from class and will not work for what we want
 }

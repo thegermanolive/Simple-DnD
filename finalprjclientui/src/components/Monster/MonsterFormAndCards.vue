@@ -25,6 +25,19 @@
               required/>
           </b-form-group>
           <b-form-group
+            label="Challenge Rating"
+            label-for="Challenge-input"
+            invalid-feedback="Challenge Rating is required"
+            :state="ChallengeState" >
+            <b-form-input
+              id="Challenge-input"
+              type="number"
+              v-model="challenge"
+              :state="ChallengeState"
+              placeholder="Challenge Rating" >
+            </b-form-input>
+          </b-form-group>
+          <b-form-group
             label="Armor Class"
             label-for="ArmorClass-input"
             invalid-feedback="Armor Class is required"
@@ -69,6 +82,16 @@
               v-model="spell"
               :state="SpellState"
               placeholder="Spells" ></b-form-textarea>
+          </b-form-group>
+          <b-form-group
+            label="Attacks"
+            label-for="Attacks-input"
+            :state="AttackState" >
+            <b-form-textarea
+              id="Attacks-input"
+              v-model="attack"
+              :state="Attacks-input"
+              placeholder="Attacks" ></b-form-textarea>
           </b-form-group>
         </b-form>
       </b-modal>
@@ -94,6 +117,19 @@
               required/>
           </b-form-group>
           <b-form-group
+            label="Challenge Rating"
+            label-for="Challenge-input"
+            invalid-feedback="Challenge Rating is required"
+            :state="ChallengeState" >
+            <b-form-input
+              id="Challenge-input"
+              type="number"
+              v-model="challenge"
+              :state="ChallengeState"
+              placeholder="Challenge Rating" >
+            </b-form-input>
+          </b-form-group>
+          <b-form-group
             label="Armor Class"
             label-for="ArmorClass-input"
             invalid-feedback="Armor Class is required"
@@ -117,7 +153,6 @@
               placeholder="Hit Points" >
             </b-form-input>
           </b-form-group>
-
           <b-form-group
             label="Speed"
             label-for="Speed-input"
@@ -130,7 +165,6 @@
               placeholder="Speed" >
             </b-form-input>
           </b-form-group>
-
           <b-form-group
             label="Spells"
             label-for="Spells-input"
@@ -140,6 +174,16 @@
               v-model="spell"
               :state="SpellState"
               placeholder="Spells" ></b-form-textarea>
+          </b-form-group>
+          <b-form-group
+            label="Attacks"
+            label-for="Attacks-input"
+            :state="AttackState" >
+            <b-form-textarea
+              id="Attacks-input"
+              v-model="attack"
+              :state="Attacks-input"
+              placeholder="Attacks" ></b-form-textarea>
           </b-form-group>
         </b-form>
       </b-modal>
@@ -156,257 +200,12 @@
           <h1 id="MonsterName">Name:</h1>
           <ul id="MonsterDataList">
             <li id="MonsterID">ID:</li>
+            <li id="MonsterCR">Challenge Rating:</li>
             <li id="MonsterAc">AC:</li>
             <li id="MonsterSpeed">Speed:</li>
             <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-        </div>
-      </article>
-      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="MonsterName">Name:</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-        </div>
-      </article>
-      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="MonsterName">Name:</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-        </div>
-      </article>
-      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="MonsterName">Name:</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-        </div>
-      </article>
-      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="MonsterName">Name:</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-        </div>
-      </article>
-      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="MonsterName">Name:</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-        </div>
-      </article>
-      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="MonsterName">Name:</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-        </div>
-      </article>
-      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="MonsterName">Name:</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-        </div>
-      </article>
-      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="MonsterName">Name:</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-        </div>
-      </article>
-      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="MonsterName">Name:</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-        </div>
-      </article>
-      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="MonsterName">Name:</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-        </div>
-      </article>
-      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="MonsterName">Name:</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-        </div>
-      </article>
-      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="MonsterName">Name:</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-        </div>
-      </article>
-      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="MonsterName">Name:</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-        </div>
-      </article>
-      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="MonsterName">Name:</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-        </div>
-      </article>
-      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="MonsterName">Name:</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-        </div>
-      </article>
-      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="MonsterName">Name:</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-        </div>
-      </article>
-      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="MonsterName">Name:</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-        </div>
-      </article>
-      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="MonsterName">Name:</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
-          </ul>
-          <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
-        </div>
-      </article>
-      <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
-        <div id="test" class="card-body">
-          <h1 id="MonsterName">Name:</h1>
-          <ul id="MonsterDataList">
-            <li id="MonsterID">ID:</li>
-            <li id="MonsterAc">AC:</li>
-            <li id="MonsterSpeed">Speed:</li>
-            <li id="MonsterHP">HP:</li>
-            <li id="MonsterSpells">SPELLS:</li>
+            <li id="MonsterSpells">Spells:</li>
+            <li id="MonsterAttacks">Attacks:</li>
           </ul>
           <b-form-checkbox id="checkbox" class="MonsterCheck" @change="selectMonster"/>
         </div>
@@ -466,6 +265,10 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
 
   nameState = null;
 
+  challenge = '';
+
+  ChallengeState = null;
+
   armorclass = '';
 
   ArmorClassState =null;
@@ -482,15 +285,21 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
 
   SpellState =null;
 
+  attack= '';
+
+  AttackState=null;
+
   IDfordelete='';
 
   Monster = {
     id: '',
     name: '',
+    challenge: '',
     armorclass: '',
     hitpoints: '',
     speed: '',
     spell: '',
+    attack: '',
   };
 
   CardToBeAddedID = 0;
@@ -576,18 +385,22 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
       this.bookmarkedMonster = this.Monster;
       const Savedname = document.getElementById('SelectedMonster').childNodes[0].childNodes[0].innerHTML;
       const SavedID = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[0].innerHTML;
-      const savedAC = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;
-      const savedSpeed = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;
-      const savedHP = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;
-      const savedSpells = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;
+      const SavedCR = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[1].innerHTML;
+      const savedAC = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[2].innerHTML;
+      const savedSpeed = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[3].innerHTML;
+      const savedHP = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[4].innerHTML;
+      const savedSpells = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[5].innerHTML;
+      const savedAttacks = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[6].innerHTML;
 
       this.bookmarkedMonster.name = Savedname.substring(Savedname.indexOf(':') + 1, Savedname.length);
       this.bookmarkedMonster.id = SavedID.substring(SavedID.indexOf(':') + 1, SavedID.length);// id
+      this.bookmarkedMonster.challenge = SavedCR.substring(SavedID.indexOf(':') + 1, SavedID.length);
       this.bookmarkedMonster.armorclass = savedAC.substring(savedAC.indexOf(':') + 1, savedAC.length);// armorClass
       this.bookmarkedMonster.speed = savedSpeed.substring(savedSpeed.indexOf(':') + 1, savedSpeed.length);// speed
       this.bookmarkedMonster.hitpoints = savedHP.substring(savedHP.indexOf(':') + 1, savedHP.length);// hp
       this.bookmarkedMonster.spell = savedSpells.substring(savedSpells.indexOf(':') + 1, savedSpells.length);// spells
-      alert(this.bookmarkedMonster.name);
+      this.bookmarkedMonster.attack = savedAttacks.substring(savedSpells.indexOf(':') + 1, savedSpells.length);
+      console.log(this.bookmarkedMonster.name);
       this.changeBookMarkImage();
       // send to bookmarked
       console.log('bookmarked');
@@ -625,8 +438,10 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
     const valid = this.$refs.form.checkValidity();
     this.nameState = valid;
     this.ArmorClassState = valid;
+    this.ChallengeState = valid;
     this.HitPointsState = valid;
     this.SpeedState = valid;
+    this.AttackState = valid;
     return valid;
   }
 
@@ -635,8 +450,10 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
     this.IDState = valid;
     this.nameState = valid;
     this.ArmorClassState = valid;
+    this.ChallengeState = valid;
     this.HitPointsState = valid;
     this.SpeedState = valid;
+    this.AttackState = valid;
     return valid;
   }
 
@@ -646,6 +463,8 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
     this.name = '';
     this.nameState = null;
     this.armorclass = '';
+    this.challenge = '';
+    this.ChallengeState = null;
     this.ArmorClassState = null;
     this.hitpoints = '';
     this.HitPointsState = null;
@@ -653,6 +472,8 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
     this.SpeedState = null;
     this.spell = '';
     this.SpellState = null;
+    this.attack = '';
+    this.AttackState = null;
   }
 
   handleAddOk(bvModalEvent) {
@@ -678,10 +499,12 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
     this.CardToBeAddedID++;
     this.Monster.id = this.CardToBeAddedID;
     this.Monster.name = this.name;
+    this.Monster.challenge = this.challenge;
     this.Monster.armorclass = this.armorclass;
     this.Monster.hitpoints = this.hitpoints;
     this.Monster.speed = this.speed;
     this.Monster.spell = this.spell;
+    this.Monster.attack = this.attack;
     console.log(this.Monster.name);
     // function to push data to api DB
     // Hide the modal manually
@@ -714,19 +537,23 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
   EditMonsterOnCard(ID) {
     document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[0].innerText = this.name;
     document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[0].innerText = `ID: ${ID}`;
-    document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[1].innerText = `AC: ${this.armorclass}`;
-    document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[2].innerText = `Speed: ${this.speed}`;
-    document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[3].innerText = `HP: ${this.hitpoints}`;
-    document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[4].innerText = `Spells: ${(this.spell).split(' ')}`;
+    document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[1].innerText = `Challenge Rating: ${this.challenge}`;
+    document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[2].innerText = `AC: ${this.armorclass}`;
+    document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[3].innerText = `Speed: ${this.speed}`;
+    document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[4].innerText = `HP: ${this.hitpoints}`;
+    document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[5].innerText = `Spells: ${(this.spell).split(' ')}`;
+    document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[6].innerText = `Attacks: ${(this.attack).split(' ')}`;
   }
 
   AddMonsterToCard(ID) {
     document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[0].innerText = this.name;
     document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[0].innerText = `ID: ${ID}`;
-    document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[1].innerText = `AC: ${this.armorclass}`;
-    document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[2].innerText = `Speed: ${this.speed}`;
-    document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[3].innerText = `HP: ${this.hitpoints}`;
-    document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[4].innerText = `Spells: ${(this.spell).split(' ')}`;
+    document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[1].innerText = `Challenge Rating: ${this.challenge}`;
+    document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[2].innerText = `AC: ${this.armorclass}`;
+    document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[3].innerText = `Speed: ${this.speed}`;
+    document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[4].innerText = `HP: ${this.hitpoints}`;
+    document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[5].innerText = `Spells: ${(this.spell).split(' ')}`;
+    document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[6].innerText = `Attacks: ${(this.attack).split(' ')}`;
     this.saveMonster(this.Monster);
   }
 
@@ -767,7 +594,7 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
     );
   }
 
-  UnBookMarkMonsterAPI(MONSTER) {
+  async UnBookMarkMonsterAPI(MONSTER) {
     const url = `${this.BOOKMARK_API}/${MONSTER.name}`;
     const method = 'delete';
     //
