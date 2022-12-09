@@ -11,7 +11,7 @@ export class Spell {
     id: number
 
     @Column()
-    @Length(1, 50, { message: 'Name must be from $constraint1 to $constraint2 characters ' })
+    @Length(1, 100, { message: 'Name must be from $constraint1 to $constraint2 characters ' })
     @IsNotEmpty({ message: 'Name is Required' })
     spellName: string
 

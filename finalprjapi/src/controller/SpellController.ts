@@ -18,7 +18,7 @@ export default class SpellController {
 
     @Route('get', '/:id*?')
     async read (req: Request, res: Response, next: NextFunction): Promise<Spell | Spell[]> {
-        if(req.params.name){
+        if(req.params.id){
             return await this.spellRepo.findOneBy({id: req.params.id})
         }
         else{

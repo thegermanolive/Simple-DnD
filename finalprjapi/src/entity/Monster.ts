@@ -36,16 +36,18 @@ export class Monster {
     @Length(10,50,{message: 'Speed must be from $constraint1 to $constraint2 characters'})
     speed: string
 
-    @Column()
+    @Column({nullable: true})
     @IsOptional()
     spelldesc: string
 
     @Column()
     @IsOptional()
+    @Column({nullable: true})
     spells: string
 
     @Column()
     @IsOptional()
+    @Column({nullable: true})
     attacks: string
 
 }

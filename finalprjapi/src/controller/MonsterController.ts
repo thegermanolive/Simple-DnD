@@ -17,7 +17,7 @@ export default class MonsterController {
 
     @Route('get', '/:id*?')
     async read (req: Request, res: Response, next: NextFunction): Promise<Monster | Monster[]> {
-        if(req.params.name){
+        if(req.params.id){
             return await this.monsterRepo.findOneBy({id: req.params.id})
         }
         else{
