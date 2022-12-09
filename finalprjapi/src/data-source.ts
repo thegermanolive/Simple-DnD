@@ -6,8 +6,8 @@ import {Spell} from "./entity/Spell";
 import {Bookmark} from "./entity/Bookmark";
 
 export const AppDataSource = new DataSource({
-    type: "sqlite",
-    database: "database.sqlite",
+    type: 'better-sqlite3',
+    database: 'sqlite.db',
     synchronize: true,
     logging: false,
     entities: [User, Monster,Spell,Bookmark],

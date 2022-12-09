@@ -1,18 +1,23 @@
 import { AppDataSource } from '../data-source'
 import { NextFunction, Request, Response } from "express"
 import { User } from "../entity/User"
+import {Controller} from "../decorator/Controller";
+import {Route} from "../decorator/Route";
 
-export class UserController {
+@Controller('/users')
+export default class UserController {
 
-    private userRepository = AppDataSource.getRepository(User)
+    private readonly userRepository = AppDataSource.getRepository(User)
 
-    async all(request: Request, response: Response, next: NextFunction) {
-        return this.userRepository.find()
+    @Route('get') // IF the GET HTTP Request Method is used then run the action below
+    async all (request: Request, response: Response, next: NextFunction): Promise<User[]> {
+        return await this.userRepository.find()
     }
 
-    async one(request: Request, response: Response, next: NextFunction) {
+    @Route('get', '/:id')
+    async one (request: Request, response: Response, next: NextFunction): Promise<any> {
         const id = parseInt(request.params.id)
-        
+
 
         const user = await this.userRepository.findOne({
             where: { id }
@@ -24,7 +29,8 @@ export class UserController {
         return user
     }
 
-    async save(request: Request, response: Response, next: NextFunction) {
+    @Route('post')
+    async save(request: Request, response: Response, next: NextFunction): Promise<User> {
         const { firstName, lastName, age } = request.body;
 
         const user = Object.assign(new User(), {
@@ -36,7 +42,8 @@ export class UserController {
         return this.userRepository.save(user)
     }
 
-    async remove(request: Request, response: Response, next: NextFunction) {
+    @Route('delete', '/:id')
+    async remove(request: Request, response: Response, next: NextFunction): Promise<any> {
         const id = parseInt(request.params.id)
 
         let userToRemove = await this.userRepository.findOneBy({ id })

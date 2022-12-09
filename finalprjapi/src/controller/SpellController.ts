@@ -16,24 +16,24 @@ export default class SpellController {
         validationError: { target: false, value: false }
     }
 
-    @Route('get', '/:spellName*?')
+    @Route('get', '/:id*?')
     async read (req: Request, res: Response, next: NextFunction): Promise<Spell | Spell[]> {
         if(req.params.name){
-            return await this.spellRepo.findOneBy({spellName: req.params.spellName})
+            return await this.spellRepo.findOneBy({id: req.params.id})
         }
         else{
             const findOptions: any = { order:{},where:[]}
             const existingFields = this.spellRepo.metadata.ownColumns.map((col) => col.propertyName)
-            const sortField: string = existingFields.includes(req.query.sortby) ? req.query.sortby : 'spellName'
+            const sortField: string = existingFields.includes(req.query.sortby) ? req.query.sortby : 'id'
             findOptions.order[sortField] = req.query.reverse ? 'DESC' : 'ASC'
             // findOptions. loo
             return await this.spellRepo.find()
         }
     }
 
-    @Route('delete', '/:spellName')
+    @Route('delete', '/:id')
     async delete(req: Request, res: Response, next: NextFunction): Promise<Spell> {
-        const spellToRemove = await this.spellRepo.findOneBy({spellName: req.params.spellName});
+        const spellToRemove = await this.spellRepo.findOneBy({id: req.params.id});
         res.statusCode = 204
         if(spellToRemove){
             return await this.spellRepo.remove(spellToRemove)
@@ -42,11 +42,11 @@ export default class SpellController {
         }
     }
 
-    @Route('put', '/:spellName')
+    @Route('put', '/:id')
     async update(req: Request, res: Response, next: NextFunction):Promise<Spell | ValidationError[]>{
         const spellToUpdate = await this.spellRepo.preload(req.body)
         // Extra validation - ensure the name param matched the name submitted in the body
-        if (!spellToUpdate || spellToUpdate.spellName.toString() !== req.params.spellName) next() // pass the buck until 404 error is sent
+        if (!spellToUpdate || spellToUpdate.id.toString() !== req.params.id) next() // pass the buck until 404 error is sent
         else {
             const violations = await validate(spellToUpdate, this.validOptions)
             if (violations.length) {
