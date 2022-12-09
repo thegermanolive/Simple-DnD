@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
 import {
-    IsNotEmpty, IsOptional, Length, MaxLength,
+    IsNotEmpty, IsNumber, IsOptional, IsPositive, Length, MaxLength, Min,
 } from 'class-validator';
 @Entity()
 export class Monster {
@@ -15,20 +15,37 @@ export class Monster {
     monsterName: string
 
     @Column()
-    @MaxLength(50, { message: 'Family Name must be at most $constraint1 characters ' })
-    @IsNotEmpty()
-    ArmorClass: number
+    @IsNotEmpty({ message: 'Monster must have a Challenge Rating'})
+    @IsNumber( {},{ message: 'CR must be a number'})
+    @IsPositive({message: 'CR must be a positive number'})
+    cr: number;
+
+    @Column()
+    @IsNotEmpty({message: 'Armour Class is Required'})
+    @IsNumber({}, {message: 'Armour Class must be a number'})
+    @IsPositive({ message: 'Armour Class must be positive'})
+    armourClass: number
 
     @Column()
     @IsNotEmpty({ message: 'HP is Required' })
-    HitPoints: number
+    @Length(5,20,{message: 'Hit Points must be from $constraint1 to $constraint2 characters'})
+    hitPoints: string
 
     @Column()
     @IsNotEmpty({ message: 'Speed is Required' })
-    Speed: string
+    @Length(10,50,{message: 'Speed must be from $constraint1 to $constraint2 characters'})
+    speed: string
 
     @Column()
     @IsOptional()
-    Spells: string
+    spelldesc: string
+
+    @Column()
+    @IsOptional()
+    spells: string
+
+    @Column()
+    @IsOptional()
+    attacks: string
 
 }

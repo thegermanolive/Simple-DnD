@@ -1,13 +1,14 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
 import {
-    IsNotEmpty, IsOptional, Length, MaxLength,
+    IsInt,
+    IsNotEmpty, IsOptional, IsPositive, Length, MaxLength,
 } from 'class-validator';
 @Entity()
 export class Spell {
 
     @PrimaryGeneratedColumn()
     @IsOptional()
-    id!: number
+    id: number
 
     @Column()
     @Length(1, 50, { message: 'Name must be from $constraint1 to $constraint2 characters ' })
@@ -16,34 +17,28 @@ export class Spell {
 
     @Column()
     @IsNotEmpty({ message: 'Level is Required' })
-    Level: number
+    @IsPositive({message: 'Level must be Positive'})
+    @IsInt({ message: 'Level must be a whole number' })
+    level: number
 
     @Column()
     @IsNotEmpty({ message: 'School is Required' })
-    School: string
+    school: string
 
     @Column()
     @IsNotEmpty({ message: 'Casting Time is Required' })
-    CastingTime: string
+    casting_time: string
 
     @Column()
     @IsNotEmpty({ message: 'Range is Required' })
-    Range: string
+    range: string
 
     @Column()
     @IsNotEmpty({ message: 'Duration is Required' })
-    Duration: string
+    duration: string
 
     @Column()
-    @IsOptional()
-    Damage: string
-
-    @Column()
-    @IsOptional()
-    DamageType: string
-
-    @Column()
-    @IsOptional()
-    StatusEffect: string
+    @IsNotEmpty({ message: 'Description is Required' })
+    desc: string
 
 }
