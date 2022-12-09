@@ -144,8 +144,8 @@
         </b-form>
       </b-modal>
     </div>
-    <div id="scrollspy-nested" style="position:relative; background-color: #cccccc;
-   height:700px; width:2000px; overflow-y:auto">
+    <div id="scrollspy-nested" style="position:relative;
+    background-color: #cccccc; height:700px; width:2000px; overflow-y:auto">
       <article id="MonsterCard" class="MonsterUnBookmarked" style="max-width: 20rem;">
         <div id="test" class="card-body">
           <h1 id="MonsterName">Name:</h1>
@@ -373,7 +373,7 @@
       </article>
       <article class="card" style="max-width: 20rem;">
         <div class="card-body">
-          <b-button @mouseover="OpenCan" @focus="OpenCan" @mouseleave="CloseCan" @focusout="CloseCan" @click="DeleteMonster"><img id="trash" src="https://visualpharm.com/assets/441/Empty%20Trash-595b40b75ba036ed117d5dc0.svg" alt="Image" class="card-img-top" height="232px">Delete Monster</b-button>
+          <b-button @mouseover="OpenCan" @focus="OpenCan" @mouseleave="CloseCan" @focusout="CloseCan" @click="DeleteMonsterUI"><img id="trash" src="https://visualpharm.com/assets/441/Empty%20Trash-595b40b75ba036ed117d5dc0.svg" alt="Image" class="card-img-top" height="232px">Delete Monster</b-button>
         </div>
       </article>
       <article class="card" style="max-width: 20rem;">
@@ -428,6 +428,8 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
 
   SpellState =null;
 
+  IDfordelete='';
+
   Monster = {
     id: '',
     name: '',
@@ -447,6 +449,9 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
   //
   // }
 
+  /**
+   * This Method runs whenever a checkbox is changed to check what Monster the user wants to work with
+   */
   // eslint-disable-next-line class-methods-use-this
   selectMonster() {
     const cards = document.getElementsByClassName('MonsterCheck');
@@ -474,13 +479,23 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
 
   // do the delete
   // eslint-disable-next-line class-methods-use-this
-  DeleteMonster() {
+  DeleteMonsterUI() {
     if (document.getElementById('bookmark').src === 'https://visualpharm.com/assets/466/Filled%20Bookmark%20Ribbon-595b40b85ba036ed117dc0ee.svg') {
       document.getElementById('bookmark').src = 'https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg';
     }
+    // IDfordelete = document .getElementById('SelectedMonster')
+    // this.deleteMonsterAPI
+    // eslint-disable-next-line no-unused-expressions
+
+    let IDTag = document.getElementById('SelectedMonster').childNodes[0].childNodes[1].childNodes[0].innerText;
+    IDTag = IDTag.substring(IDTag.indexOf(':') + 2, IDTag.length);
+    this.Monster.id = IDTag;
+    this.DeleteMonsterAPI();
     document.getElementById('SelectedMonster').remove();
     console.log('Deleted');
-  //  run APIdeletehere
+  }
+  async DeleteMonsterAPI() {
+    await this.callAPI(`${this.MONSTER_API}/${this.Monster.id}`, 'delete');
   }
 
   EditMonster() {
@@ -655,16 +670,11 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
     document.getElementsByClassName('MonsterCheck')[ID - 1].parentNode.childNodes[1].childNodes[4].innerText = `Spells: ${(this.spell).split(' ')}`;
   }
 
-  // This was just a test function to see if form submit worked
-  // displayMonster() {
-  //   // console.log(this.Monster.valueOf());
-  //   let txt = '';
-  //   // eslint-disable-next-line guard-for-in,no-restricted-syntax
-  //   for (const x in this.Monster) {
-  //     txt += `${this.Monster[x]} `;
-  //   }
-  //   document.getElementById('test').innerHTML = txt +;
-  // }
+  // eslint-disable-next-line class-methods-use-this
+  RefreshDB() {
+    // eslint-disable-next-line no-restricted-globals
+    location.reload();
+  }
 
   // async saveMonster() {
   //   this.violation = await this.getErrorMessages(this.tempMonster);
@@ -696,33 +706,11 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
   //   }
   // }
   //
-  // async deleteMonster() {
-  //   const icon = this.$refs.iconDelete;
-  //   this.setBusy(true);
-  //   this.animate(icon, true);
-  //
-  //   try {
-  //     await this.callAPI(`${this.MONSTER_API}/${this.Monster.id}`, 'delete');
-  //     this.tempStudent = new Monster(); // reset the text boxes since student is deleted
-  //     this.$emit('deleted', this.Monster);
-  //   } catch (err: any) {
-  //     this.$emit('reset', this.Monster);
-  //   } finally {
-  //     this.setBusy(false);
-  //     this.animate(icon, false);
-  //   }
-  // }
-  //
-  // deleteConfirm() {
-  //   this.cancel(); // reset any changes user may have done
-  //   this.showConfirmDelete = true;
-  // }
-  //
-  // cancel() {
-  //   this.violation = {}; // hide error messages if any
-  //   this.tempStudent = Object.assign(new Monster(), this.Monster);
-  //   this.$emit('cancelled', this.Monster);
-  // }
+
+
+  async BookMarkMonsterAPI() {
+
+  }
 }
 </script>
 
