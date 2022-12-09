@@ -3,7 +3,7 @@
     <div id="nav">
       <nav>
         <ul>
-          <li><a href="#/Home">Home</a></li>
+          <!--<li><a href="#/Home">Home</a></li>-->
           <li><a href="#/Spells">Spells</a></li>
           <li><a href="#/UnAuthorized">Monster</a></li>
           <li><a href="#/Bookmarks">Bookmarks</a></li>

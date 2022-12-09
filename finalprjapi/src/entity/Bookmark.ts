@@ -3,7 +3,7 @@ import {
     IsNotEmpty, IsOptional, Length,
 } from 'class-validator';
 @Entity()
-export class Bookmarks {
+export class Bookmark {
 
     @PrimaryGeneratedColumn()
     @IsOptional()

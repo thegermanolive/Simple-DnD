@@ -623,15 +623,16 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     const cards = document.getElementsByClassName('SpellCheck');
     let i;
     let SpellCardToSelect;
+    // cards[1].parent.parent.className=''
     // eslint-disable-next-line no-plusplus
     for (i = 0; i < cards.length; i++) {
-      if (cards[i].childNodes[0].checked === true) {
-        if (cards[i].parentNode.parentNode.className === 'SpellBookmarked') {
+      if (cards[i].children[0].getAttribute('checked') === true) { // need to change others
+        if (cards[i].parentElement.parentElement.className === 'SpellBookmarked') { // need to change others
           this.changeBookMarkImage();
         }
         SpellCardToSelect = i;
       } else {
-        if (cards[i].parentNode.parentNode.className === 'SpellBookmarked') {
+        if (cards[i].parentNode.parentNode.constructor.name === 'SpellBookmarked') {
           this.changeBookMarkImage();
         }
         cards[i].parentNode.parentNode.id = 'SpellCard';
@@ -651,7 +652,7 @@ export default class SpellForm extends Mixins(GlobalMixin) {
         document.getElementById('bookmark').src = 'https://visualpharm.com/assets/468/Bookmark-595b40b85ba036ed117dbf35.svg';
       }
 
-      let IDTag = document.getElementById('SelectedSpell').childNodes[0].childNodes[1].childNodes[0].innerText;
+      let IDTag = document.getElementById('SelectedSpell').childNodes[0].childNodes[1].childNodes[0].textContent; // need to change others
       IDTag = IDTag.substring(IDTag.indexOf(':') + 2, IDTag.length);
       this.DeleteMonsterAPI(IDTag);
       document.getElementById('SelectedSpell').remove();

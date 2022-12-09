@@ -3,7 +3,7 @@ import {
     IsNotEmpty, IsOptional, Length, MaxLength,
 } from 'class-validator';
 @Entity()
-export class Monsters {
+export class Monster {
 
     @PrimaryGeneratedColumn()
     @IsOptional()
