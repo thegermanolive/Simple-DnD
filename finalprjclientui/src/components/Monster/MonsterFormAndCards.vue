@@ -594,6 +594,7 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
       this.BookMarkMonsterAPI(this.bookmarkedMonster);
       // eslint-disable-next-line no-empty
     } else if (document.getElementById('SelectedMonster').className === 'MonsterBookmarked') {
+      this.UnBookMarkMonsterAPI(this.bookmarkedMonster);
       document.getElementById('SelectedMonster').className = 'MonsterUnBookmarked';
       this.changeBookMarkImage();
     }
@@ -755,8 +756,26 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function,class-methods-use-this
-  async BookMarkMonsterAPI() {
-    console.log('saved');
+  async BookMarkMonsterAPI(MONSTER) {
+    const url = `${this.BOOKMARK_API}/${MONSTER.name}`;
+    const method = 'post';
+    //
+    await this.callAPI(
+      url,
+      method,
+      MONSTER,
+    );
+  }
+
+  UnBookMarkMonsterAPI(MONSTER) {
+    const url = `${this.BOOKMARK_API}/${MONSTER.name}`;
+    const method = 'delete';
+    //
+    await this.callAPI(
+      url,
+      method,
+      MONSTER,
+    );
   }
 }
 </script>
