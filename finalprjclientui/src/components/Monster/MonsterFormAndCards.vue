@@ -501,12 +501,13 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
 
   Monster = {
     id: '',
-    name: '',
-    challenge: '',
+    monstername: '',
+    cr: '',
     armorclass: '',
     hitpoints: '',
     speed: '',
-    spell: '',
+    spelldesc: '',
+    spells: '',
     attack: '',
   };
 
@@ -700,13 +701,14 @@ export default class MonsterForm extends Mixins(GlobalMixin) {
     // eslint-disable-next-line no-plusplus
     this.CardToBeAddedID++;
     this.Monster.id = this.CardToBeAddedID;
-    this.Monster.name = this.name;
-    this.Monster.challenge = this.challenge;
+    this.Monster.monstername = this.name;
+    this.Monster.cr = this.challenge;
     this.Monster.armorclass = this.armorclass;
     this.Monster.hitpoints = this.hitpoints;
     this.Monster.speed = this.speed;
-    this.Monster.spell = this.spell;
-    this.Monster.attack = this.attack;
+    this.Monster.spelldesc = this.spell;
+    this.Monster.spells = this.spell;
+    this.Monster.attacks = this.attack;
     console.log(this.Monster.name);
     // function to push data to api DB
     // Hide the modal manually
