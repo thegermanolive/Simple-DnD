@@ -629,10 +629,10 @@ export default class SpellForm extends Mixins(GlobalMixin) {
 
   Spell = {
     id: '',
-    name: '',
+    spellname: '',
     level: '',
     school: '',
-    castingtime: '',
+    casting_time: '',
     range: '',
     duration: '',
     desc: '',
@@ -833,14 +833,14 @@ export default class SpellForm extends Mixins(GlobalMixin) {
     }
     // eslint-disable-next-line no-plusplus
     this.CardToBeAddedID++;
-    this.Spell.name = this.name;
+    this.Spell.spellname = this.name;
     this.Spell.level = this.level;
     this.Spell.school = this.school;
-    this.Spell.castingtime = this.castingtime;
+    this.Spell.casting_time = this.castingtime;
     this.Spell.range = this.range;
     this.Spell.duration = this.duration;
     this.Spell.desc = `Damage: ${this.damage} Damage Type: ${this.damagetype} Status Effect: ${this.statuseffect}`;
-    console.log(this.Spell.name);
+    console.log(this.Spell.spellname);
     // Push the name to submitted names
     // Hide the modal manually
     this.$nextTick(() => {
